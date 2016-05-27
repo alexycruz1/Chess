@@ -635,20 +635,13 @@ public class ChessOracle extends javax.swing.JFrame {
         // TODO add your handling code here:
         tablero[0][0]++;
         if (tablero[0][0] == 1) {
-<<<<<<< HEAD
-            A8.setIcon(new ImageIcon(this.getClass().getResource("PeonBlanco.svg.png")));
-            tablero[0][0]++;
-            /*if (!Caballo_b() && !Caballo_n()) {
-                tablero[0][2] += 4;
-=======
             if (Peon_b()) {
                 A8.setIcon(new ImageIcon(this.getClass().getResource("PeonBlanco.svg.png")));
                 tablero[0][0]++;
             }else if (!Caballo_b() && !Caballo_n()) {
                 tablero[0][0] += 2;
->>>>>>> b9993eca894c4c664a24abc00b350ab6c2d323ce
                 A8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-            }*/
+            } 
         } else if (tablero[0][0] == 3) {
             tablero[0][0]=0;
             if (Caballo_b()) {
@@ -1025,13 +1018,8 @@ public class ChessOracle extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     int pieza_actual = 0;
     int tablero[][] = {{0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}};
-<<<<<<< HEAD
-
-    public void impr() {
-=======
     
     public void impr(){
->>>>>>> b9993eca894c4c664a24abc00b350ab6c2d323ce
         for (int i = 0; i < tablero.length; i++) {
             for (int j = 0; j < tablero.length; j++) {
                 System.out.print(tablero[i][j]);
@@ -1040,7 +1028,7 @@ public class ChessOracle extends javax.swing.JFrame {
         }
         System.out.println();
     }
-
+    
     public boolean Caballo_b() {
         int caballo_b = 0;
         for (int i = 0; i < tablero.length; i++) {
@@ -1050,19 +1038,13 @@ public class ChessOracle extends javax.swing.JFrame {
                 }
             }
         }
-<<<<<<< HEAD
-        System.out.println(caballo_b);
-        System.out.println("Esta es la matriz dentro del metodo");
-        impr();
-=======
->>>>>>> b9993eca894c4c664a24abc00b350ab6c2d323ce
         if (caballo_b < 2) {
             return true;
         } else {
             return false;
         }
     }
-
+    
     public boolean Caballo_n() {
         int caballo_n = 0;
         for (int i = 0; i < tablero.length; i++) {
@@ -1072,14 +1054,14 @@ public class ChessOracle extends javax.swing.JFrame {
                 }
             }
         }
-
+        
         if (caballo_n < 2) {
             return true;
         } else {
             return false;
         }
     }
-
+    
     public boolean Rey_b() {
         int Rey_b = 0;
         for (int i = 0; i < tablero.length; i++) {
@@ -1089,14 +1071,14 @@ public class ChessOracle extends javax.swing.JFrame {
                 }
             }
         }
-
+        
         if (Rey_b < 2) {
             return true;
         } else {
             return false;
         }
     }
-
+    
     public boolean Rey_n() {
         int Rey_n = 0;
         for (int i = 0; i < tablero.length; i++) {
@@ -1106,14 +1088,14 @@ public class ChessOracle extends javax.swing.JFrame {
                 }
             }
         }
-
+        
         if (Rey_n < 2) {
             return true;
         } else {
             return false;
         }
     }
-
+    
     public boolean Peon_b() {
         int Peon_b = 0;
         for (int i = 0; i < tablero.length; i++) {
@@ -1123,14 +1105,14 @@ public class ChessOracle extends javax.swing.JFrame {
                 }
             }
         }
-
+        
         if (Peon_b < 9) {
             return true;
         } else {
             return false;
         }
     }
-
+    
     public boolean Peon_n() {
         int Peon_n = 0;
         for (int i = 0; i < tablero.length; i++) {
@@ -1140,7 +1122,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 }
             }
         }
-
+        
         if (Peon_n < 9) {
             return true;
         } else {
