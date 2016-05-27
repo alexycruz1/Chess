@@ -636,11 +636,11 @@ public class ChessOracle extends javax.swing.JFrame {
         tablero[0][0]++;
         if (tablero[0][0] == 1) {
             if (Peon_b()) {
-              A8.setIcon(new ImageIcon(this.getClass().getResource("PeonBlanco.svg.png")));
-            tablero[0][0]++;  
-            }else if (!Caballo_b()) {
-                System.out.println("Si me meti");
-                tablero[0][0] += 3;
+                A8.setIcon(new ImageIcon(this.getClass().getResource("PeonBlanco.svg.png")));
+                tablero[0][0]++;
+            }else if (!Caballo_b() && !Caballo_n()) {
+                
+                tablero[0][0] += 2;
                 A8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
             } 
         } else if (tablero[0][0] == 3) {
@@ -662,6 +662,7 @@ public class ChessOracle extends javax.swing.JFrame {
             A8.setIcon(null);
             tablero[0][0] = 0;
         }
+        impr();
     }//GEN-LAST:event_A8MouseClicked
 
     private void B8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B8MouseClicked
@@ -693,6 +694,7 @@ public class ChessOracle extends javax.swing.JFrame {
             B8.setIcon(null);
             tablero[0][1] = 0;
         }
+        impr();
     }//GEN-LAST:event_B8MouseClicked
 
     private void C8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C8MouseClicked
@@ -724,6 +726,7 @@ public class ChessOracle extends javax.swing.JFrame {
             C8.setIcon(null);
             tablero[0][2] = 0;
         }
+        impr();
     }//GEN-LAST:event_C8MouseClicked
 
     private void D8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D8MouseClicked
@@ -755,6 +758,7 @@ public class ChessOracle extends javax.swing.JFrame {
             D8.setIcon(null);
             tablero[0][3] = 0;
         }
+        impr();
     }//GEN-LAST:event_D8MouseClicked
 
     private void E8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E8MouseClicked
@@ -786,6 +790,7 @@ public class ChessOracle extends javax.swing.JFrame {
             E8.setIcon(null);
             tablero[0][4] = 0;
         }
+        impr();
     }//GEN-LAST:event_E8MouseClicked
 
     private void F8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_F8MouseClicked
@@ -817,6 +822,7 @@ public class ChessOracle extends javax.swing.JFrame {
             F8.setIcon(null);
             tablero[0][5] = 0;
         }
+        impr();
     }//GEN-LAST:event_F8MouseClicked
 
     private void G8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_G8MouseClicked
@@ -848,6 +854,7 @@ public class ChessOracle extends javax.swing.JFrame {
             G8.setIcon(null);
             tablero[0][6] = 0;
         }
+        impr();
     }//GEN-LAST:event_G8MouseClicked
 
     private void H8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_H8MouseClicked
@@ -879,6 +886,7 @@ public class ChessOracle extends javax.swing.JFrame {
             H8.setIcon(null);
             tablero[0][7] = 0;
         }
+        impr();
     }//GEN-LAST:event_H8MouseClicked
 
     /**
@@ -1000,6 +1008,15 @@ public class ChessOracle extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     int pieza_actual = 0;
     int tablero[][] = {{0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}};
+    public void impr(){
+        for (int i = 0; i < tablero.length; i++) {
+            for (int j = 0; j < tablero.length; j++) {
+                System.out.print(tablero[i][j]);
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
     
     public boolean Caballo_b() {
         int caballo_b = 0;
@@ -1010,7 +1027,6 @@ public class ChessOracle extends javax.swing.JFrame {
                 }
             }
         }
-        
         if (caballo_b < 3) {
             return true;
         } else {
