@@ -635,18 +635,32 @@ public class ChessOracle extends javax.swing.JFrame {
         // TODO add your handling code here:
         tablero[0][0]++;
         if (tablero[0][0] == 1) {
+<<<<<<< HEAD
             A8.setIcon(new ImageIcon(this.getClass().getResource("PeonBlanco.svg.png")));
             tablero[0][0]++;
             /*if (!Caballo_b() && !Caballo_n()) {
                 tablero[0][2] += 4;
+=======
+            if (Peon_b()) {
+                A8.setIcon(new ImageIcon(this.getClass().getResource("PeonBlanco.svg.png")));
+                tablero[0][0]++;
+            }else if (!Caballo_b() && !Caballo_n()) {
+                tablero[0][0] += 2;
+>>>>>>> b9993eca894c4c664a24abc00b350ab6c2d323ce
                 A8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
             }*/
         } else if (tablero[0][0] == 3) {
+            tablero[0][0]=0;
             if (Caballo_b()) {
                 A8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+                tablero[0][0]=3;
             } else if (Caballo_n()) {
                 tablero[0][0]++;
                 A8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+            }
+            else if(!Caballo_n() && !Caballo_b()){
+                tablero[0][0]+=5;
+                A8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
             }
         } else if (tablero[0][0] == 4) {
             if (Caballo_n()) {
@@ -673,9 +687,12 @@ public class ChessOracle extends javax.swing.JFrame {
                 tablero[0][1] += 4;
                 B8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
             }
+            
         } else if (tablero[0][1] == 3) {
+            tablero[0][1]=0;
             if (Caballo_b()) {
                 B8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+                tablero[0][1]=3;
             } else if (Caballo_n()) {
                 tablero[0][1]++;
                 B8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
@@ -706,8 +723,10 @@ public class ChessOracle extends javax.swing.JFrame {
                 C8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
             }
         } else if (tablero[0][2] == 3) {
+            tablero[0][2]=0;
             if (Caballo_b()) {
                 C8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+                tablero[0][2]=3;
             } else if (Caballo_n()) {
                 tablero[0][2]++;
                 C8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
@@ -1006,8 +1025,13 @@ public class ChessOracle extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     int pieza_actual = 0;
     int tablero[][] = {{0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}};
+<<<<<<< HEAD
 
     public void impr() {
+=======
+    
+    public void impr(){
+>>>>>>> b9993eca894c4c664a24abc00b350ab6c2d323ce
         for (int i = 0; i < tablero.length; i++) {
             for (int j = 0; j < tablero.length; j++) {
                 System.out.print(tablero[i][j]);
@@ -1026,9 +1050,12 @@ public class ChessOracle extends javax.swing.JFrame {
                 }
             }
         }
+<<<<<<< HEAD
         System.out.println(caballo_b);
         System.out.println("Esta es la matriz dentro del metodo");
         impr();
+=======
+>>>>>>> b9993eca894c4c664a24abc00b350ab6c2d323ce
         if (caballo_b < 2) {
             return true;
         } else {
