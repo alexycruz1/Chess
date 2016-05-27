@@ -639,16 +639,21 @@ public class ChessOracle extends javax.swing.JFrame {
                 A8.setIcon(new ImageIcon(this.getClass().getResource("PeonBlanco.svg.png")));
                 tablero[0][0]++;
             }else if (!Caballo_b() && !Caballo_n()) {
-                
                 tablero[0][0] += 2;
                 A8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
             } 
         } else if (tablero[0][0] == 3) {
+            tablero[0][0]=0;
             if (Caballo_b()) {
                 A8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+                tablero[0][0]=3;
             } else if (Caballo_n()) {
                 tablero[0][0]++;
                 A8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+            }
+            else if(!Caballo_n() && !Caballo_b()){
+                tablero[0][0]+=5;
+                A8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
             }
         } else if (tablero[0][0] == 4) {
             if (Caballo_n()) {
@@ -675,9 +680,12 @@ public class ChessOracle extends javax.swing.JFrame {
                 tablero[0][1] += 4;
                 B8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
             }
+            
         } else if (tablero[0][1] == 3) {
+            tablero[0][1]=0;
             if (Caballo_b()) {
                 B8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+                tablero[0][1]=3;
             } else if (Caballo_n()) {
                 tablero[0][1]++;
                 B8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
@@ -708,8 +716,10 @@ public class ChessOracle extends javax.swing.JFrame {
                 C8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
             }
         } else if (tablero[0][2] == 3) {
+            tablero[0][2]=0;
             if (Caballo_b()) {
                 C8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+                tablero[0][2]=3;
             } else if (Caballo_n()) {
                 tablero[0][2]++;
                 C8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
@@ -1008,6 +1018,7 @@ public class ChessOracle extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     int pieza_actual = 0;
     int tablero[][] = {{0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}};
+    
     public void impr(){
         for (int i = 0; i < tablero.length; i++) {
             for (int j = 0; j < tablero.length; j++) {
@@ -1027,7 +1038,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 }
             }
         }
-        if (caballo_b < 3) {
+        if (caballo_b < 2) {
             return true;
         } else {
             return false;
