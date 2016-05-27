@@ -5,6 +5,8 @@
  */
 package chessoracle;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author alexy
@@ -114,20 +116,60 @@ public class ChessOracle extends javax.swing.JFrame {
         setResizable(false);
 
         A8.setBackground(new java.awt.Color(121, 60, 26));
+        A8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                A8MouseClicked(evt);
+            }
+        });
 
         B8.setBackground(new java.awt.Color(187, 142, 69));
+        B8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                B8MouseClicked(evt);
+            }
+        });
 
         C8.setBackground(new java.awt.Color(121, 60, 26));
+        C8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                C8MouseClicked(evt);
+            }
+        });
 
         D8.setBackground(new java.awt.Color(187, 142, 69));
+        D8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                D8MouseClicked(evt);
+            }
+        });
 
         E8.setBackground(new java.awt.Color(121, 60, 26));
+        E8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                E8MouseClicked(evt);
+            }
+        });
 
         F8.setBackground(new java.awt.Color(187, 142, 69));
+        F8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                F8MouseClicked(evt);
+            }
+        });
 
         G8.setBackground(new java.awt.Color(121, 60, 26));
+        G8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                G8MouseClicked(evt);
+            }
+        });
 
         H8.setBackground(new java.awt.Color(187, 142, 69));
+        H8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                H8MouseClicked(evt);
+            }
+        });
 
         B7.setBackground(new java.awt.Color(121, 60, 26));
 
@@ -589,6 +631,262 @@ public class ChessOracle extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void A8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A8MouseClicked
+        // TODO add your handling code here:
+        tablero[0][0]++;
+        if (tablero[0][0] == 1) {
+            A8.setIcon(new ImageIcon(this.getClass().getResource("PeonBlanco.svg.png")));
+            tablero[0][0]++;
+        } else if (tablero[0][0] == 3) {
+            if (Caballo_b()) {
+                A8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+            } else if(Caballo_n()){
+                tablero[0][0]++;
+                A8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+            }else{
+               A8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png"))); 
+            }
+        } else if (tablero[0][0] == 4) {
+            if (Caballo_n()) {
+                A8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+            } else {
+                tablero[0][0]++;
+                A8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+            }
+        } else if (tablero[0][0] == 5) {
+            A8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+        } else if (tablero[0][0] == 6) {
+            A8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+        } else {
+            A8.setIcon(null);
+            tablero[0][0] = 0;
+        }
+    }//GEN-LAST:event_A8MouseClicked
+
+    private void B8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B8MouseClicked
+        // TODO add your handling code here:
+        tablero[0][1]++;
+        if (tablero[0][1] == 1) {
+            B8.setIcon(new ImageIcon(this.getClass().getResource("PeonBlanco.svg.png")));
+            tablero[0][1]++;
+        } else if (tablero[0][1] == 3) {
+            if (Caballo_b()) {
+                B8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+            } else if(Caballo_n()){
+                tablero[0][1]++;
+                B8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+            }else{
+               B8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png"))); 
+            }
+        } else if (tablero[0][1] == 4) {
+            if (Caballo_n()) {
+                B8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+            } else {
+                tablero[0][1]++;
+                B8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+            }
+        } else if (tablero[0][1] == 5) {
+            B8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+        } else if (tablero[0][1] == 6) {
+            B8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+        } else {
+            B8.setIcon(null);
+            tablero[0][1] = 0;
+        }
+    }//GEN-LAST:event_B8MouseClicked
+
+    private void C8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C8MouseClicked
+        // TODO add your handling code here:
+        tablero[0][2]++;
+        if (tablero[0][2] == 1) {
+            C8.setIcon(new ImageIcon(this.getClass().getResource("PeonBlanco.svg.png")));
+            tablero[0][2]++;
+        } else if (tablero[0][2] == 3) {
+            if (Caballo_b()) {
+                C8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+            } else if(Caballo_n()) {
+                tablero[0][2]++;
+                C8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+            }else{
+               C8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png"))); 
+            }
+        } else if (tablero[0][2] == 4) {
+            if (Caballo_n()) {
+                C8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+            } else {
+                tablero[0][2]++;
+                C8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+            }
+        } else if (tablero[0][2] == 5) {
+            C8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+        } else if (tablero[0][2] == 6) {
+            C8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+        } else {
+            C8.setIcon(null);
+            tablero[0][2] = 0;
+        }
+    }//GEN-LAST:event_C8MouseClicked
+
+    private void D8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D8MouseClicked
+        // TODO add your handling code here:
+        tablero[0][3]++;
+        if (tablero[0][3] == 1) {
+            D8.setIcon(new ImageIcon(this.getClass().getResource("PeonBlanco.svg.png")));
+            tablero[0][3]++;
+        } else if (tablero[0][3] == 3) {
+            if (Caballo_b()) {
+                D8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+            } else if(Caballo_n()) {
+                tablero[0][3]++;
+                D8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+            }else{
+               D8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png"))); 
+            }
+        } else if (tablero[0][3] == 4) {
+            if (Caballo_n()) {
+                D8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+            } else {
+                tablero[0][3]++;
+                D8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+            }
+        } else if (tablero[0][3] == 5) {
+            D8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+        } else if (tablero[0][3] == 6) {
+            D8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+        } else {
+            D8.setIcon(null);
+            tablero[0][3] = 0;
+        }
+    }//GEN-LAST:event_D8MouseClicked
+
+    private void E8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E8MouseClicked
+        // TODO add your handling code here:
+        tablero[0][4]++;
+        if (tablero[0][4] == 1) {
+            E8.setIcon(new ImageIcon(this.getClass().getResource("PeonBlanco.svg.png")));
+            tablero[0][4]++;
+        } else if (tablero[0][4] == 3) {
+            if (Caballo_b()) {
+                E8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+            } else if(Caballo_n()) {
+                tablero[0][4]++;
+                E8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+            }else{
+               E8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png"))); 
+            }
+        } else if (tablero[0][4] == 4) {
+            if (Caballo_n()) {
+                E8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+            } else {
+                tablero[0][4]++;
+                E8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+            }
+        } else if (tablero[0][4] == 5) {
+            E8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+        } else if (tablero[0][4] == 6) {
+            E8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+        } else {
+            E8.setIcon(null);
+            tablero[0][4] = 0;
+        }
+    }//GEN-LAST:event_E8MouseClicked
+
+    private void F8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_F8MouseClicked
+        // TODO add your handling code here:
+        tablero[0][5]++;
+        if (tablero[0][5] == 1) {
+            F8.setIcon(new ImageIcon(this.getClass().getResource("PeonBlanco.svg.png")));
+            tablero[0][5]++;
+        } else if (tablero[0][5] == 3) {
+            if (Caballo_b()) {
+                F8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+            } else if(Caballo_n()) {
+                tablero[0][5]++;
+                F8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+            }else{
+               F8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png"))); 
+            }
+        } else if (tablero[0][5] == 4) {
+            if (Caballo_n()) {
+                F8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+            } else {
+                tablero[0][5]++;
+                F8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+            }
+        } else if (tablero[0][5] == 5) {
+            F8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+        } else if (tablero[0][5] == 6) {
+            F8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+        } else {
+            F8.setIcon(null);
+            tablero[0][5] = 0;
+        }
+    }//GEN-LAST:event_F8MouseClicked
+
+    private void G8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_G8MouseClicked
+        // TODO add your handling code here:
+        tablero[0][6]++;
+        if (tablero[0][6] == 1) {
+            G8.setIcon(new ImageIcon(this.getClass().getResource("PeonBlanco.svg.png")));
+            tablero[0][6]++;
+        } else if (tablero[0][6] == 3) {
+            if (Caballo_b()) {
+                G8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+            } else if(Caballo_n()) {
+                tablero[0][6]++;
+                G8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+            }else{
+               G8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png"))); 
+            }
+        } else if (tablero[0][6] == 4) {
+            if (Caballo_n()) {
+                G8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+            } else {
+                tablero[0][6]++;
+                G8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+            }
+        } else if (tablero[0][6] == 5) {
+            G8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+        } else if (tablero[0][6] == 6) {
+            G8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+        } else {
+            G8.setIcon(null);
+            tablero[0][6] = 0;
+        }
+    }//GEN-LAST:event_G8MouseClicked
+
+    private void H8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_H8MouseClicked
+        // TODO add your handling code here:
+        tablero[0][7]++;
+        if (tablero[0][7] == 1) {
+            H8.setIcon(new ImageIcon(this.getClass().getResource("PeonBlanco.svg.png")));
+            tablero[0][7]++;
+        } else if (tablero[0][7] == 3) {
+            if (Caballo_b()) {
+                H8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+            } else if(Caballo_n()) {
+                tablero[0][7]++;
+                H8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+            }else{
+               H8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png"))); 
+            }
+        } else if (tablero[0][7] == 4) {
+            if (Caballo_n()) {
+                H8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+            } else {
+                tablero[0][7]++;
+                H8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+            }
+        } else if (tablero[0][7] == 5) {
+            H8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+        } else if (tablero[0][7] == 6) {
+            H8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+        } else {
+            H8.setIcon(null);
+            tablero[0][7] = 0;
+        }
+    }//GEN-LAST:event_H8MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -706,4 +1004,108 @@ public class ChessOracle extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
+    int pieza_actual = 0;
+    int tablero[][] = {{0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}};
+
+    public boolean Caballo_b() {
+        int caballo_b = 0;
+        for (int i = 0; i < tablero.length; i++) {
+            for (int j = 0; j < tablero.length; j++) {
+                if (tablero[i][j] == 3) {
+                    caballo_b++;
+                }
+            }
+        }
+
+        if (caballo_b < 3) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean Caballo_n() {
+        int caballo_n = 0;
+        for (int i = 0; i < tablero.length; i++) {
+            for (int j = 0; j < tablero.length; j++) {
+                if (tablero[i][j] == 4) {
+                    caballo_n++;
+                }
+            }
+        }
+
+        if (caballo_n < 2) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean Rey_b() {
+        int Rey_b = 0;
+        for (int i = 0; i < tablero.length; i++) {
+            for (int j = 0; j < tablero.length; j++) {
+                if (tablero[i][j] == 5) {
+                    Rey_b++;
+                }
+            }
+        }
+
+        if (Rey_b == 2) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public boolean Rey_n() {
+        int Rey_n = 0;
+        for (int i = 0; i < tablero.length; i++) {
+            for (int j = 0; j < tablero.length; j++) {
+                if (tablero[i][j] == 6) {
+                    Rey_n++;
+                }
+            }
+        }
+
+        if (Rey_n == 2) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public boolean Peon_b() {
+        int Peon_b = 0;
+        for (int i = 0; i < tablero.length; i++) {
+            for (int j = 0; j < tablero.length; j++) {
+                if (tablero[i][j] == 1) {
+                    Peon_b++;
+                }
+            }
+        }
+
+        if (Peon_b == 9) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public boolean Peon_n() {
+        int Peon_n = 0;
+        for (int i = 0; i < tablero.length; i++) {
+            for (int j = 0; j < tablero.length; j++) {
+                if (tablero[i][j] == 1) {
+                    Peon_n++;
+                }
+            }
+        }
+
+        if (Peon_n == 9) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 }

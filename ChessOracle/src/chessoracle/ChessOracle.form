@@ -338,6 +338,9 @@
           <Color blue="1a" green="3c" red="79" type="rgb"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="A8MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="B8">
       <Properties>
@@ -345,6 +348,9 @@
           <Color blue="45" green="8e" red="bb" type="rgb"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="B8MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="C8">
       <Properties>
@@ -352,6 +358,9 @@
           <Color blue="1a" green="3c" red="79" type="rgb"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="C8MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="D8">
       <Properties>
@@ -359,6 +368,9 @@
           <Color blue="45" green="8e" red="bb" type="rgb"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="D8MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="E8">
       <Properties>
@@ -366,6 +378,9 @@
           <Color blue="1a" green="3c" red="79" type="rgb"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="E8MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="F8">
       <Properties>
@@ -373,6 +388,9 @@
           <Color blue="45" green="8e" red="bb" type="rgb"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="F8MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="G8">
       <Properties>
@@ -380,6 +398,9 @@
           <Color blue="1a" green="3c" red="79" type="rgb"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="G8MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="H8">
       <Properties>
@@ -387,6 +408,9 @@
           <Color blue="45" green="8e" red="bb" type="rgb"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="H8MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="B7">
       <Properties>
