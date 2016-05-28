@@ -1369,7 +1369,7 @@ public class ChessOracle extends javax.swing.JFrame {
 
         System.out.println("Matriz de rey blanco");
         impr();
-        if (Rey_b < 3) {
+        if (Rey_b < 2) {
             return true;
         } else {
             return false;
@@ -1386,7 +1386,7 @@ public class ChessOracle extends javax.swing.JFrame {
             }
         }
 
-        if (Rey_n < 3) {
+        if (Rey_n < 2) {
             return true;
         } else {
             return false;
