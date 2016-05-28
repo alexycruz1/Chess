@@ -182,10 +182,13 @@ public class ChessOracle extends javax.swing.JFrame {
         });
 
         B7.setBackground(new java.awt.Color(121, 60, 26));
+        B7.setName("B7"); // NOI18N
 
         C7.setBackground(new java.awt.Color(187, 142, 69));
+        C7.setName("C7"); // NOI18N
 
         D7.setBackground(new java.awt.Color(121, 60, 26));
+        D7.setName("D7"); // NOI18N
 
         E7.setBackground(new java.awt.Color(187, 142, 69));
 
@@ -649,119 +652,134 @@ public class ChessOracle extends javax.swing.JFrame {
 
     private void A8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A8MouseClicked
         // TODO add your handling code here:
-        String Fila = A8.getName();
-        boolean Fila_Negros = true;
-        for (int i = 1; i < Fila.length(); i++) {
-            if (Fila.charAt(i) == '8') {
-                Fila_Negros = false;
+        if (!evt.isMetaDown()) {
+            String Fila = A8.getName();
+            boolean Fila_Negros = true;
+            for (int i = 1; i < Fila.length(); i++) {
+                if (Fila.charAt(i) == '8') {
+                    Fila_Negros = false;
+                }
             }
-        }
 
-        if (Peon_b() && tablero[0][0] == 0) {
-            tablero[0][0]++;
-            A8.setIcon(new ImageIcon(this.getClass().getResource("PeonBlanco.svg.png")));
-        } else if (!Peon_b() && tablero[0][0] == 0) {
-            tablero[0][0]++;
-            //condiciones de las demas.
-            if (Peon_n() && tablero[0][0] == 1 && Fila_Negros) {
+            if (Peon_b() && tablero[0][0] == 0) {
+                tablero[0][0]++;
+                A8.setIcon(new ImageIcon(this.getClass().getResource("PeonBlanco.svg.png")));
+            } else if (!Peon_b() && tablero[0][0] == 0) {
+                tablero[0][0]++;
+                //condiciones de las demas.
+                if (Peon_n() && tablero[0][0] == 1 && Fila_Negros) {
+                    tablero[0][0]++;
+                    A8.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
+                } else if ((Caballo_b() && tablero[0][0] == 2) || (!Peon_b())) {
+                    if ((!Peon_b())) {
+                        tablero[0][0] += 2;
+                        A8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+                    } else if ((Caballo_b() && tablero[0][0] == 2)) {
+                        tablero[0][0]++;
+                        A8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+                    }
+                } else if (Caballo_n() && tablero[0][0] == 3) {
+                    tablero[0][0]++;
+                    A8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                } else if (Rey_b() && tablero[0][0] == 4) {
+                    tablero[0][0]++;
+                    A8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                } else if (Rey_n() && tablero[0][0] == 5) {
+                    tablero[0][0]++;
+                    A8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                } else {
+                    tablero[0][0] = 0;
+                    A8.setIcon(null);
+                }
+            } else if (Peon_n() && tablero[0][0] == 1 && Fila_Negros) {
                 tablero[0][0]++;
                 A8.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
+            } else if ((!Peon_n() || !Fila_Negros) && tablero[0][0] == 1) {
+                tablero[0][0]++;
+                System.out.println("entre a !peon negro");
+                System.out.println(tablero[0][0]);
+                //condiciones de los demas
+                if (Caballo_b() && tablero[0][0] == 2) {
+                    tablero[0][0]++;
+                    A8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+                } else if ((Caballo_n() && tablero[0][0] == 3) || (!Caballo_b())) {
+                    if (!Caballo_b() && Caballo_n()) {
+                        tablero[0][0] += 2;
+                        A8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                    } else if (!Caballo_b() && !Caballo_n()) {
+                        tablero[0][0] += 3;
+                        A8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                    }
+                } else if (Rey_b() && tablero[0][0] == 4) {
+                    tablero[0][0]++;
+                    A8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                } else if (Rey_n() && tablero[0][0] == 5) {
+                    tablero[0][0]++;
+                    A8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                } else {
+                    tablero[0][0] = 0;
+                    A8.setIcon(null);
+                }
             } else if (Caballo_b() && tablero[0][0] == 2) {
                 tablero[0][0]++;
                 A8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+            } else if (!Caballo_b() && tablero[0][0] == 2) {
+                tablero[0][0]++;
+                //condiciones de las demas.
+                if (Caballo_n() && tablero[0][0] == 3) {
+                    tablero[0][0]++;
+                    A8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                } else if (Rey_b() && tablero[0][0] == 4) {
+                    tablero[0][0]++;
+                    A8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                } else if (Rey_n() && tablero[0][0] == 5) {
+                    tablero[0][0]++;
+                    A8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                } else {
+                    tablero[0][0] = 0;
+                    A8.setIcon(null);
+                }
             } else if (Caballo_n() && tablero[0][0] == 3) {
                 tablero[0][0]++;
                 A8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+            } else if (!Caballo_n() && tablero[0][0] == 3) {
+                tablero[0][0]++;
+                //condiciones de las demas.
+                if (Rey_b() && tablero[0][0] == 4) {
+                    tablero[0][0]++;
+                    A8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                } else if (Rey_n() && tablero[0][0] == 5) {
+                    tablero[0][0]++;
+                    A8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                } else {
+                    tablero[0][0] = 0;
+                    A8.setIcon(null);
+                }
             } else if (Rey_b() && tablero[0][0] == 4) {
                 tablero[0][0]++;
+                System.out.println(tablero[0][0]);
                 A8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+            } else if (!Rey_b() && tablero[0][0] == 4) {
+                tablero[0][0]++;
+                //condiciones de las demas
+                if (Rey_n() && tablero[0][0] == 5) {
+                    tablero[0][0]++;
+                    A8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                } else {
+                    tablero[0][0] = 0;
+                    A8.setIcon(null);
+                }
             } else if (Rey_n() && tablero[0][0] == 5) {
                 tablero[0][0]++;
                 A8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-            } else {
+            } else if (!Rey_n()) {
+                //condiciones de las demas.
                 tablero[0][0] = 0;
                 A8.setIcon(null);
             }
-        } else if (Peon_n() && tablero[0][0] == 1 && Fila_Negros) {
-            tablero[0][0]++;
-            A8.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
-        } else if ((!Peon_n() || !Fila_Negros) && tablero[0][0] == 1) {
-            tablero[0][0]++;
-            //condiciones de los demas
-            if (Caballo_b() && tablero[0][0] == 2) {
-                tablero[0][0]++;
-                A8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-            } else if ((Caballo_n() && tablero[0][0] == 3) || !Caballo_b()) {
-                tablero[0][0]++;
-                A8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-            } else if (Rey_b() && tablero[0][0] == 4) {
-                tablero[0][0]++;
-                A8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-            } else if (Rey_n() && tablero[0][0] == 5) {
-                tablero[0][0]++;
-                A8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-            } else {
-                tablero[0][0] = 0;
-                A8.setIcon(null);
-            }
-        } else if (Caballo_b() && tablero[0][0] == 2) {
-            tablero[0][0]++;
-            A8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-        } else if (!Caballo_b() && tablero[0][0] == 2) {
-            tablero[0][0]++;
-            //condiciones de las demas.
-            if (Caballo_n() && tablero[0][0] == 3) {
-                tablero[0][0]++;
-                A8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-            } else if (Rey_b() && tablero[0][0] == 4) {
-                tablero[0][0]++;
-                A8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-            } else if (Rey_n() && tablero[0][0] == 5) {
-                tablero[0][0]++;
-                A8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-            } else {
-                tablero[0][0] = 0;
-                A8.setIcon(null);
-            }
-        } else if (Caballo_n() && tablero[0][0] == 3) {
-            tablero[0][0]++;
-            A8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-        } else if (!Caballo_n() && tablero[0][0] == 3) {
-            tablero[0][0]++;
-            //condiciones de las demas.
-            if (Rey_b() && tablero[0][0] == 4) {
-                tablero[0][0]++;
-                A8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-            } else if (Rey_n() && tablero[0][0] == 5) {
-                tablero[0][0]++;
-                A8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-            } else {
-                tablero[0][0] = 0;
-                A8.setIcon(null);
-            }
-        } else if (Rey_b() && tablero[0][0] == 4) {
-            tablero[0][0]++;
-            System.out.println(tablero[0][0]);
-            A8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-        } else if (!Rey_b() && tablero[0][0] == 4) {
-            tablero[0][0]++;
-            //condiciones de las demas
-            if (Rey_n() && tablero[0][0] == 5) {
-                tablero[0][0]++;
-                A8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-            } else {
-                tablero[0][0] = 0;
-                A8.setIcon(null);
-            }
-        } else if (Rey_n() && tablero[0][0] == 5) {
-            tablero[0][0]++;
-            A8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-        } else if (!Rey_n()) {
-            //condiciones de las demas.
-            tablero[0][0] = 0;
-            A8.setIcon(null);
+            impr();
         }
-        impr();
+
     }//GEN-LAST:event_A8MouseClicked
 
     private void B8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B8MouseClicked
@@ -783,9 +801,14 @@ public class ChessOracle extends javax.swing.JFrame {
             if (Peon_n() && tablero[0][1] == 1 && Fila_Negros) {
                 tablero[0][1]++;
                 B8.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
-            } else if (Caballo_b() && tablero[0][1] == 2) {
-                tablero[0][1]++;
-                B8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+            } else if ((Caballo_b() && tablero[0][1] == 2) || (!Peon_b())) {
+                if ((!Peon_b())) {
+                    tablero[0][1] += 2;
+                    B8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+                } else if ((Caballo_b() && tablero[0][1] == 2)) {
+                    tablero[0][1]++;
+                    B8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+                }
             } else if (Caballo_n() && tablero[0][1] == 3) {
                 tablero[0][1]++;
                 B8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
@@ -808,9 +831,14 @@ public class ChessOracle extends javax.swing.JFrame {
             if (Caballo_b() && tablero[0][1] == 2) {
                 tablero[0][1]++;
                 B8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-            } else if ((Caballo_n() && tablero[0][1] == 3) || !Caballo_b()) {
-                tablero[0][1]++;
-                B8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+            } else if ((Caballo_n() && tablero[0][1] == 3) || (!Caballo_b())) {
+                if (!Caballo_b() && Caballo_n()) {
+                    tablero[0][1] += 2;
+                    B8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                } else if (!Caballo_b() && !Caballo_n()) {
+                    tablero[0][1] += 3;
+                    B8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                }
             } else if (Rey_b() && tablero[0][1] == 4) {
                 tablero[0][1]++;
                 B8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
@@ -900,9 +928,14 @@ public class ChessOracle extends javax.swing.JFrame {
             if (Peon_n() && tablero[0][2] == 1 && Fila_Negros) {
                 tablero[0][2]++;
                 C8.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
-            } else if (Caballo_b() && tablero[0][2] == 2) {
-                tablero[0][2]++;
-                C8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+            } else if ((Caballo_b() && tablero[0][2] == 2) || (!Peon_b())) {
+                if ((!Peon_b())) {
+                    tablero[0][2] += 2;
+                    C8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+                } else if ((Caballo_b() && tablero[0][2] == 2)) {
+                    tablero[0][2]++;
+                    C8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+                }
             } else if (Caballo_n() && tablero[0][2] == 3) {
                 tablero[0][2]++;
                 C8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
@@ -925,9 +958,14 @@ public class ChessOracle extends javax.swing.JFrame {
             if (Caballo_b() && tablero[0][2] == 2) {
                 tablero[0][2]++;
                 C8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-            } else if ((Caballo_n() && tablero[0][2] == 3) || !Caballo_b()) {
-                tablero[0][2]++;
-                C8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+            } else if ((Caballo_n() && tablero[0][2] == 3) || (!Caballo_b())) {
+                if (!Caballo_b() && Caballo_n()) {
+                    tablero[0][2] += 2;
+                    C8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                } else if (!Caballo_b() && !Caballo_n()) {
+                    tablero[0][2] += 3;
+                    C8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                }
             } else if (Rey_b() && tablero[0][2] == 4) {
                 tablero[0][2]++;
                 C8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
@@ -1017,9 +1055,14 @@ public class ChessOracle extends javax.swing.JFrame {
             if (Peon_n() && tablero[0][3] == 1 && Fila_Negros) {
                 tablero[0][3]++;
                 D8.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
-            } else if (Caballo_b() && tablero[0][3] == 2) {
-                tablero[0][3]++;
-                D8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+            } else if ((Caballo_b() && tablero[0][3] == 2) || (!Peon_b())) {
+                if ((!Peon_b())) {
+                    tablero[0][3] += 2;
+                    D8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+                } else if ((Caballo_b() && tablero[0][3] == 2)) {
+                    tablero[0][3]++;
+                    D8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+                }
             } else if (Caballo_n() && tablero[0][3] == 3) {
                 tablero[0][3]++;
                 D8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
@@ -1042,9 +1085,14 @@ public class ChessOracle extends javax.swing.JFrame {
             if (Caballo_b() && tablero[0][3] == 2) {
                 tablero[0][3]++;
                 D8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-            } else if ((Caballo_n() && tablero[0][3] == 3) || !Caballo_b()) {
-                tablero[0][3]++;
-                D8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+            } else if ((Caballo_n() && tablero[0][3] == 3) || (!Caballo_b())) {
+                if (!Caballo_b() && Caballo_n()) {
+                    tablero[0][3] += 2;
+                    D8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                } else if (!Caballo_b() && !Caballo_n()) {
+                    tablero[0][3] += 3;
+                    D8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                }
             } else if (Rey_b() && tablero[0][3] == 4) {
                 tablero[0][2]++;
                 D8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
@@ -1134,9 +1182,14 @@ public class ChessOracle extends javax.swing.JFrame {
             if (Peon_n() && tablero[0][4] == 1 && Fila_Negros) {
                 tablero[0][4]++;
                 E8.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
-            } else if (Caballo_b() && tablero[0][4] == 2) {
-                tablero[0][4]++;
-                E8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+            } else if ((Caballo_b() && tablero[0][4] == 2) || (!Peon_b())) {
+                if ((!Peon_b())) {
+                    tablero[0][4] += 2;
+                    E8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+                } else if ((Caballo_b() && tablero[0][4] == 2)) {
+                    tablero[0][4]++;
+                    E8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+                }
             } else if (Caballo_n() && tablero[0][4] == 3) {
                 tablero[0][4]++;
                 E8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
@@ -1159,9 +1212,14 @@ public class ChessOracle extends javax.swing.JFrame {
             if (Caballo_b() && tablero[0][4] == 2) {
                 tablero[0][4]++;
                 E8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-            } else if ((Caballo_n() && tablero[0][4] == 3) || !Caballo_b()) {
-                tablero[0][4]++;
-                E8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+            } else if ((Caballo_n() && tablero[0][4] == 3) || (!Caballo_b())) {
+                if (!Caballo_b() && Caballo_n()) {
+                    tablero[0][4] += 2;
+                    E8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                } else if (!Caballo_b() && !Caballo_n()) {
+                    tablero[0][4] += 3;
+                    E8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                }
             } else if (Rey_b() && tablero[0][4] == 4) {
                 tablero[0][4]++;
                 E8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
@@ -1251,9 +1309,14 @@ public class ChessOracle extends javax.swing.JFrame {
             if (Peon_n() && tablero[0][5] == 1 && Fila_Negros) {
                 tablero[0][5]++;
                 F8.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
-            } else if (Caballo_b() && tablero[0][5] == 2) {
-                tablero[0][5]++;
-                F8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+            } else if ((Caballo_b() && tablero[0][5] == 2) || (!Peon_b())) {
+                if ((!Peon_b())) {
+                    tablero[0][5] += 2;
+                    F8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+                } else if ((Caballo_b() && tablero[0][5] == 2)) {
+                    tablero[0][5]++;
+                    F8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+                }
             } else if (Caballo_n() && tablero[0][5] == 3) {
                 tablero[0][5]++;
                 F8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
@@ -1276,9 +1339,14 @@ public class ChessOracle extends javax.swing.JFrame {
             if (Caballo_b() && tablero[0][5] == 2) {
                 tablero[0][5]++;
                 F8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-            } else if ((Caballo_n() && tablero[0][5] == 3) || !Caballo_b()) {
-                tablero[0][5]++;
-                F8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+            } else if ((Caballo_n() && tablero[0][5] == 3) || (!Caballo_b())) {
+                if (!Caballo_b() && Caballo_n()) {
+                    tablero[0][5] += 2;
+                    F8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                } else if (!Caballo_b() && !Caballo_n()) {
+                    tablero[0][5] += 3;
+                    F8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                }
             } else if (Rey_b() && tablero[0][5] == 4) {
                 tablero[0][5]++;
                 F8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
@@ -1367,9 +1435,14 @@ public class ChessOracle extends javax.swing.JFrame {
             if (Peon_n() && tablero[0][6] == 1 && Fila_Negros) {
                 tablero[0][6]++;
                 G8.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
-            } else if (Caballo_b() && tablero[0][6] == 2) {
-                tablero[0][6]++;
-                G8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+            } else if ((Caballo_b() && tablero[0][6] == 2) || (!Peon_b())) {
+                if ((!Peon_b())) {
+                    tablero[0][6] += 2;
+                    G8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+                } else if ((Caballo_b() && tablero[0][6] == 2)) {
+                    tablero[0][6]++;
+                    G8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+                }
             } else if (Caballo_n() && tablero[0][6] == 3) {
                 tablero[0][6]++;
                 G8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
@@ -1392,9 +1465,14 @@ public class ChessOracle extends javax.swing.JFrame {
             if (Caballo_b() && tablero[0][6] == 2) {
                 tablero[0][6]++;
                 G8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-            } else if ((Caballo_n() && tablero[0][6] == 3) || !Caballo_b()) {
-                tablero[0][6]++;
-                G8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+            } else if ((Caballo_n() && tablero[0][6] == 3) || (!Caballo_b())) {
+                if (!Caballo_b() && Caballo_n()) {
+                    tablero[0][6] += 2;
+                    G8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                } else if (!Caballo_b() && !Caballo_n()) {
+                    tablero[0][6] += 3;
+                    G8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                }
             } else if (Rey_b() && tablero[0][6] == 4) {
                 tablero[0][6]++;
                 G8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
@@ -1483,9 +1561,14 @@ public class ChessOracle extends javax.swing.JFrame {
             if (Peon_n() && tablero[0][7] == 1 && Fila_Negros) {
                 tablero[0][7]++;
                 H8.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
-            } else if (Caballo_b() && tablero[0][7] == 2) {
-                tablero[0][7]++;
-                H8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+            } else if ((Caballo_b() && tablero[0][7] == 2) || (!Peon_b())) {
+                if ((!Peon_b())) {
+                    tablero[0][7] += 2;
+                    H8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+                } else if ((Caballo_b() && tablero[0][7] == 2)) {
+                    tablero[0][7]++;
+                    H8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+                }
             } else if (Caballo_n() && tablero[0][7] == 3) {
                 tablero[0][7]++;
                 H8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
@@ -1508,9 +1591,14 @@ public class ChessOracle extends javax.swing.JFrame {
             if (Caballo_b() && tablero[0][7] == 2) {
                 tablero[0][7]++;
                 H8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-            } else if ((Caballo_n() && tablero[0][7] == 3) || !Caballo_b()) {
-                tablero[0][7]++;
-                H8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+            } else if ((Caballo_n() && tablero[0][7] == 3) || (!Caballo_b())) {
+                if (!Caballo_b() && Caballo_n()) {
+                    tablero[0][7] += 2;
+                    H8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                } else if (!Caballo_b() && !Caballo_n()) {
+                    tablero[0][7] += 3;
+                    H8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                }
             } else if (Rey_b() && tablero[0][7] == 4) {
                 tablero[0][7]++;
                 H8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
@@ -1599,9 +1687,14 @@ public class ChessOracle extends javax.swing.JFrame {
             if (Peon_n() && tablero[1][0] == 1 && Fila_Negros) {
                 tablero[1][0]++;
                 A7.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
-            } else if (Caballo_b() && tablero[1][0] == 2) {
-                tablero[1][0]++;
-                A7.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+            } else if ((Caballo_b() && tablero[1][0] == 2) || (!Peon_b())) {
+                if ((!Peon_b())) {
+                    tablero[1][0] += 2;
+                    A7.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+                } else if ((Caballo_b() && tablero[1][0] == 2)) {
+                    tablero[0][6]++;
+                    A7.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
+                }
             } else if (Caballo_n() && tablero[1][0] == 3) {
                 tablero[1][0]++;
                 A7.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
@@ -1624,9 +1717,14 @@ public class ChessOracle extends javax.swing.JFrame {
             if (Caballo_b() && tablero[1][0] == 2) {
                 tablero[1][0]++;
                 A7.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-            } else if ((Caballo_n() && tablero[1][0] == 3) || !Caballo_b()) {
-                tablero[1][0]++;
-                A7.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+            } else if ((Caballo_n() && tablero[1][0] == 3) || (!Caballo_b())) {
+                if (!Caballo_b() && Caballo_n()) {
+                    tablero[1][0] += 2;
+                    A7.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                } else if (!Caballo_b() && !Caballo_n()) {
+                    tablero[1][0] += 3;
+                    A7.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                }
             } else if (Rey_b() && tablero[1][0] == 4) {
                 tablero[1][0]++;
                 A7.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));

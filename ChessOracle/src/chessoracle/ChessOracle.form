@@ -426,6 +426,7 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="1a" green="3c" red="79" type="rgb"/>
         </Property>
+        <Property name="name" type="java.lang.String" value="B7" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="C7">
@@ -433,6 +434,7 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="45" green="8e" red="bb" type="rgb"/>
         </Property>
+        <Property name="name" type="java.lang.String" value="C7" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="D7">
@@ -440,6 +442,7 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="1a" green="3c" red="79" type="rgb"/>
         </Property>
+        <Property name="name" type="java.lang.String" value="D7" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="E7">
