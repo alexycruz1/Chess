@@ -453,6 +453,9 @@
           <Color blue="45" green="8e" red="bb" type="rgb"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="A7MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="G7">
       <Properties>
