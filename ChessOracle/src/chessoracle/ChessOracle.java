@@ -677,9 +677,6 @@ public class ChessOracle extends javax.swing.JFrame {
         } else if (tablero[0][0] == 5) {
             if (Rey_b()) {
                 A8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-            } else if (!Rey_b() && Rey_n()) {
-                tablero[0][0]++;
-                A8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
             }else if (!Rey_b() && !Rey_n()) {
                 tablero[0][0] = 1;
                 A8.setIcon(new ImageIcon(this.getClass().getResource("PeonBlanco.svg.png")));
@@ -739,9 +736,6 @@ public class ChessOracle extends javax.swing.JFrame {
         } else if (tablero[0][1] == 5) {
             if (Rey_b()) {
                 B8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-            } else if (!Rey_b() && Rey_n()) {
-                tablero[0][1]++;
-                B8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
             }else if (!Rey_b() && !Rey_n()) {
                 tablero[0][1] = 1;
                 B8.setIcon(new ImageIcon(this.getClass().getResource("PeonBlanco.svg.png")));
@@ -801,9 +795,6 @@ public class ChessOracle extends javax.swing.JFrame {
         } else if (tablero[0][2] == 5) {
             if (Rey_b()) {
                 C8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-            } else if (!Rey_b() && Rey_n()) {
-                tablero[0][2]++;
-                C8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
             }else if (!Rey_b() && !Rey_n()) {
                 tablero[0][2] = 1;
                 C8.setIcon(new ImageIcon(this.getClass().getResource("PeonBlanco.svg.png")));
@@ -863,9 +854,6 @@ public class ChessOracle extends javax.swing.JFrame {
         } else if (tablero[0][3] == 5) {
             if (Rey_b()) {
                 D8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-            } else if (!Rey_b() && Rey_n()) {
-                tablero[0][3]++;
-                D8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
             }else if (!Rey_b() && !Rey_n()) {
                 tablero[0][3] = 1;
                 D8.setIcon(new ImageIcon(this.getClass().getResource("PeonBlanco.svg.png")));
@@ -925,9 +913,6 @@ public class ChessOracle extends javax.swing.JFrame {
         } else if (tablero[0][4] == 5) {
             if (Rey_b()) {
                 E8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-            } else if (!Rey_b() && Rey_n()) {
-                tablero[0][4]++;
-                E8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
             }else if (!Rey_b() && !Rey_n()) {
                 tablero[0][4] = 1;
                 E8.setIcon(new ImageIcon(this.getClass().getResource("PeonBlanco.svg.png")));
@@ -987,9 +972,6 @@ public class ChessOracle extends javax.swing.JFrame {
         } else if (tablero[0][5] == 5) {
             if (Rey_b()) {
                 F8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-            } else if (!Rey_b() && Rey_n()) {
-                tablero[0][5]++;
-                F8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
             }else if (!Rey_b() && !Rey_n()) {
                 tablero[0][5] = 1;
                 F8.setIcon(new ImageIcon(this.getClass().getResource("PeonBlanco.svg.png")));
@@ -1049,9 +1031,6 @@ public class ChessOracle extends javax.swing.JFrame {
         } else if (tablero[0][6] == 5) {
             if (Rey_b()) {
                 G8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-            } else if (!Rey_b() && Rey_n()) {
-                tablero[0][6]++;
-                G8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
             }else if (!Rey_b() && !Rey_n()) {
                 tablero[0][6] = 1;
                 G8.setIcon(new ImageIcon(this.getClass().getResource("PeonBlanco.svg.png")));
@@ -1111,9 +1090,6 @@ public class ChessOracle extends javax.swing.JFrame {
         } else if (tablero[0][7] == 5) {
             if (Rey_b()) {
                 H8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-            } else if (!Rey_b() && Rey_n()) {
-                tablero[0][7]++;
-                H8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
             }else if (!Rey_b() && !Rey_n()) {
                 tablero[0][7] = 1;
                 H8.setIcon(new ImageIcon(this.getClass().getResource("PeonBlanco.svg.png")));
@@ -1173,9 +1149,6 @@ public class ChessOracle extends javax.swing.JFrame {
         } else if (tablero[1][0] == 5) {
             if (Rey_b()) {
                 A7.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-            } else if (!Rey_b() && Rey_n()) {
-                tablero[1][0]++;
-                A7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
             }else if (!Rey_b() && !Rey_n()) {
                 tablero[1][0] = 1;
                 A7.setIcon(new ImageIcon(this.getClass().getResource("PeonBlanco.svg.png")));
