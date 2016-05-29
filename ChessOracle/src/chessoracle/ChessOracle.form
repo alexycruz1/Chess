@@ -450,20 +450,31 @@
         </Property>
         <Property name="name" type="java.lang.String" value="D7" noResource="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="D7MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="E7">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="45" green="8e" red="bb" type="rgb"/>
         </Property>
+        <Property name="name" type="java.lang.String" value="E7" noResource="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="E7MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="F7">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="1a" green="3c" red="79" type="rgb"/>
         </Property>
+        <Property name="name" type="java.lang.String" value="F7" noResource="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="F7MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="A7">
       <Properties>
@@ -481,70 +492,110 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="45" green="8e" red="bb" type="rgb"/>
         </Property>
+        <Property name="name" type="java.lang.String" value="G7" noResource="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="G7MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="H7">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="1a" green="3c" red="79" type="rgb"/>
         </Property>
+        <Property name="name" type="java.lang.String" value="H7" noResource="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="H7MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="B6">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="45" green="8e" red="bb" type="rgb"/>
         </Property>
+        <Property name="name" type="java.lang.String" value="B6" noResource="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="B6MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="C6">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="1a" green="3c" red="79" type="rgb"/>
         </Property>
+        <Property name="name" type="java.lang.String" value="C6" noResource="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="C6MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="D6">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="45" green="8e" red="bb" type="rgb"/>
         </Property>
+        <Property name="name" type="java.lang.String" value="D6" noResource="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="D6MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="E6">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="1a" green="3c" red="79" type="rgb"/>
         </Property>
+        <Property name="name" type="java.lang.String" value="E6" noResource="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="E6MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="F6">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="45" green="8e" red="bb" type="rgb"/>
         </Property>
+        <Property name="name" type="java.lang.String" value="F6" noResource="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="F6MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="A6">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="1a" green="3c" red="79" type="rgb"/>
         </Property>
+        <Property name="name" type="java.lang.String" value="A6" noResource="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="A6MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="G6">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="1a" green="3c" red="79" type="rgb"/>
         </Property>
+        <Property name="name" type="java.lang.String" value="G6" noResource="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="G6MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="H6">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="45" green="8e" red="bb" type="rgb"/>
         </Property>
+        <Property name="name" type="java.lang.String" value="H6" noResource="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="H6MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="B5">
       <Properties>
