@@ -4,7 +4,7 @@ package chessoracle;
 
 public class node {
     private Object value;
-    private node next=null;
+    private node next = null;
     
     public node(Object value, node next) {
         this.value = value;
