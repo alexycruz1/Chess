@@ -707,12 +707,20 @@ public class ChessOracle extends javax.swing.JFrame {
                         tablero[0][0] += 2;
                         A8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
                     } else if (!Caballo_b() && !Caballo_n()) {
-                        tablero[0][0] += 3;
-                        A8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        if (Rey_b()) {
+                            tablero[0][0] += 3;
+                            A8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        }else if (Rey_n()) {
+                            tablero[0][0] += 4;
+                            A8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        }else{
+                            tablero[0][0] = 0;
+                        }
                     }
                 } else if (Rey_b() && tablero[0][0] == 4) {
                     tablero[0][0]++;
                     A8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                    System.out.println("entre aqui en rey blanco");
                 } else if (Rey_n() && tablero[0][0] == 5) {
                     tablero[0][0]++;
                     A8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
@@ -745,6 +753,7 @@ public class ChessOracle extends javax.swing.JFrame {
             } else if (!Caballo_n() && tablero[0][0] == 3) {
                 tablero[0][0]++;
                 //condiciones de las demas.
+                /*este codigo metelo en las demas OJO*/
                 if (Rey_b() && tablero[0][0] == 4) {
                     tablero[0][0]++;
                     A8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
@@ -755,6 +764,7 @@ public class ChessOracle extends javax.swing.JFrame {
                     tablero[0][0] = 0;
                     A8.setIcon(null);
                 }
+                /*este codigo metelo en los demas OJO*/
             } else if (Rey_b() && tablero[0][0] == 4) {
                 tablero[0][0]++;
                 System.out.println(tablero[0][0]);
