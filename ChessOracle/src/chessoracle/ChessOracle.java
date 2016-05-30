@@ -3,6 +3,7 @@ package chessoracle;
 import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -11054,7 +11055,17 @@ public class ChessOracle extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-
+        agregar_nodos(arbol.getRoot(),1);
+        nodo_arbol respuesta = ((nodo_arbol)hojas.at(0)).getParent().getLefterSon();
+        for (int i = 1; i < hojas.size(); i++) {
+            if(verificar_c((int[][])hojas.at(i))){
+                if (((nodo_arbol)hojas.at(i)).profundidad()< respuesta.profundidad()) {
+                    respuesta = (nodo_arbol)hojas.at(i);
+                }
+            }
+        }
+        
+        JOptionPane.showMessageDialog(this, respuesta);
     }//GEN-LAST:event_jButton2MouseClicked
     public void agregar_nodos(nodo_arbol padre, int turno) {
         for (int i = 0; i < padre.hijos.size(); i++) {
@@ -11137,15 +11148,14 @@ public class ChessOracle extends javax.swing.JFrame {
     }
 
     public boolean verificar_c(int[][] matriz) {
-        boolean temp = false;
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 if (matriz[i][j] == 3) {
-                    temp = true;
+                    return true;
                 }
             }
         }
-        return temp;
+        return false;
     }
 
     public boolean verificar_p(int[][] matriz) {
@@ -11157,7 +11167,8 @@ public class ChessOracle extends javax.swing.JFrame {
         return false;
     }
 
-    public boolean verificar_r() {
+    public boolean verificar_r(int[][] matriz) {
+        
         return false;
     }
 
