@@ -11058,13 +11058,11 @@ public class ChessOracle extends javax.swing.JFrame {
         int mover_pieza_n = 2;
         int mover_pieza = 1;
         int tablero_temp[][] = tablero;
-        nodo_arbol raiz = new nodo_arbol("raiz", null);
-        Arbol arbol = new Arbol(raiz);
 
         while (true) {
             if (mover_pieza == 1) {
                 if (mover_pieza_b == 1) {
-
+                    MPeon(mover_pieza_b, tablero_temp);
                 } else if (mover_pieza_b == 3) {
 
                 } else if (mover_pieza_b == 5) {
@@ -11210,6 +11208,8 @@ public class ChessOracle extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     int pieza_actual = 0;
     int tablero[][] = {{0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}};
+    nodo_arbol raiz = new nodo_arbol("raiz", null);
+    Arbol arbol = new Arbol(raiz);
 
     public void impr() {
         for (int i = 0; i < tablero.length; i++) {
@@ -11322,43 +11322,61 @@ public class ChessOracle extends javax.swing.JFrame {
         }
     }
 
-    /*public void MPeon(int x){
+    public void MPeon(int x, int[][] tab_temp) {
+        String pos = "";
         if (x == 1) {
-            for (int i = 0; i < tablero.length; i++) {
-                for (int j = 0; j < tablero.length; j++) {
-                    if (tablero[i][j] == 1) {
+            for (int i = 0; i < tab_temp.length; i++) {
+                for (int j = 0; j < tab_temp.length; j++) {
+                    if (tab_temp[i][j] == 1) {
                         if (i - 1 >= 0) {
                             if (j - 1 >= 0) {
-                                if (tablero[i - 1][j - 1] == 4) {//comio caballo
-                                    tablero[i - 1][j - 1] = 1;
-                                    tablero[i][j] = 0;
-                                }else if (tablero[i - 1][j + 1] == 4) {
-                                    tablero[i - 1][j + 1] = 1;
-                                    tablero[i][j] = 0;
+                                if (tab_temp[i - 1][j - 1] == 4) {//comio caballo
+                                    tab_temp[i - 1][j - 1] = 1;
+                                    tab_temp[i][j] = 0;
+                                    
+                                    pos+= i;
+                                    pos+= j;
+                                    pos+= i-1;
+                                    pos+= j-1;
+                                    nodo_arbol nodo = new nodo_arbol(pos, null);
+                                    
+                                } else if (tab_temp[i - 1][j + 1] == 4) {
+                                    tab_temp[i - 1][j + 1] = 1;
+                                    tab_temp[i][j] = 0;
                                 }
-                            }else{
-                                tablero[i][j] = 0;
-                                tablero[i - 1][j] = 1;
+                            } else {
+                                tab_temp[i][j] = 0;
+                                tab_temp[i - 1][j] = 1;
                             }
                         }
                     }
                 }
             }
-        }else{
-            for (int i = 0; i < tablero.length; i++) {
-                for (int j = 0; j < tablero.length; j++) {
-                    if (tablero[i][j] == 2) {
+        } else {
+            for (int i = 0; i < tab_temp.length; i++) {
+                for (int j = 0; j < tab_temp.length; j++) {
+                    if (tab_temp[i][j] == 2) {
                         if (i + 1 <= 7) {
-                            tablero[i][j] = 0;
-                            tablero[i + 1][j] = 2; 
+                            if (j + 1 <= 7) {
+                                if (tab_temp[i + 1][j + 1] == 4) {//comio caballo
+                                    tab_temp[i + 1][j + 1] = 2;
+                                    tab_temp[i][j] = 0;
+                                } else if (tab_temp[i + 1][j - 1] == 4) {
+                                    tab_temp[i + 1][j - 1] = 2;
+                                    tab_temp[i][j] = 0;
+                                }
+                            } else {
+                                tab_temp[i][j] = 0;
+                                tab_temp[i + 1][j] = 1;
+                            }
                         }
                     }
                 }
             }
         }
     }
-    
-    public void MCaballo(){
-        
-    }*/
+
+    public void MCaballo() {
+
+    }
 }
