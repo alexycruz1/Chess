@@ -1,16 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package chessoracle;
 
-/**
- *
- * @author alexy
- */
-public class nodo_arbol {
 
+public class nodo_arbol {
     private Object value = null;
     private nodo_arbol padre = null;
     private Lista hijos = new Lista();
@@ -31,8 +23,8 @@ public class nodo_arbol {
         this.value = value;
     }
     
-    public Object getLefterSon() {
-        return hijos.getHead();
+    public nodo_arbol getLefterSon() {
+        return (nodo_arbol)this.hijos.getHead();
     }
     
     public nodo_arbol getParent() {
@@ -73,5 +65,26 @@ public class nodo_arbol {
                 temp.erase(i);
             }
         }
+    }
+    public int profundidad(){
+        int cont=0;
+        nodo_arbol temp=this;
+        while(temp!=null){
+            temp = temp.getParent();
+            cont++;
+        }
+        return cont;
+    }
+    public Lista path(){
+        Lista camino= new Lista();
+        
+        nodo_arbol temp=this;
+        
+        while(temp!=null){
+            camino.push_back(temp.getValue());
+            temp = temp.getParent();
+            
+        }
+        return camino;
     }
 }
