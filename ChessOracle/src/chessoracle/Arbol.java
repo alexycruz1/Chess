@@ -22,14 +22,4 @@ public class Arbol {
     public nodo_arbol getRoot(){
         return root;
     }
-    
-    public Lista postOrden(){
-        Lista recorrido = new Lista();
-        recorrido.push_back(this);
-        
-        
-        
-        return recorrido;
-    }
-    
 }

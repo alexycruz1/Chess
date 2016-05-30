@@ -1,4 +1,3 @@
-
 package chessoracle;
 
 import javax.swing.ImageIcon;
@@ -108,6 +107,7 @@ public class ChessOracle extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CHESS ORACLE ©");
@@ -697,6 +697,13 @@ public class ChessOracle extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("Analisis Caballo");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -847,7 +854,9 @@ public class ChessOracle extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(H7, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(54, 54, 54)
-                                .addComponent(jButton1))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(76, 76, 76)
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -913,7 +922,9 @@ public class ChessOracle extends javax.swing.JFrame {
                                     .addComponent(A7, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(68, 68, 68)
-                                .addComponent(jButton1)))
+                                .addComponent(jButton1)
+                                .addGap(26, 26, 26)
+                                .addComponent(jButton2)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(H6, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1012,27 +1023,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     A8.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && tablero[0][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             tablero[0][0] += 2;
                             A8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                tablero[0][0] += 3;
-                                A8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    tablero[0][0] += 4;
-                                    A8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        tablero[0][0] += 5;
-                                        A8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        tablero[0][0] = 0;
-                                        A8.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            tablero[0][0] += 3;
+                            A8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            tablero[0][0] += 4;
+                            A8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            tablero[0][0] += 5;
+                            A8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            tablero[0][0] = 0;
+                            A8.setIcon(null);
                         }
                     } else if ((Caballo_b() && tablero[0][0] == 2)) {
                         tablero[0][0]++;
@@ -1174,27 +1179,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     B8.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && tablero[0][1] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             tablero[0][1] += 2;
                             B8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                tablero[0][1] += 3;
-                                B8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    tablero[0][1] += 4;
-                                    B8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        tablero[0][1] += 5;
-                                        B8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        tablero[0][1] = 0;
-                                        B8.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            tablero[0][1] += 3;
+                            B8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            tablero[0][1] += 4;
+                            B8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            tablero[0][1] += 5;
+                            B8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            tablero[0][1] = 0;
+                            B8.setIcon(null);
                         }
                     } else if ((Caballo_b() && tablero[0][1] == 2)) {
                         tablero[0][1]++;
@@ -1336,27 +1335,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     C8.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && tablero[0][2] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             tablero[0][2] += 2;
                             C8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                tablero[0][2] += 3;
-                                C8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    tablero[0][2] += 4;
-                                    C8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        tablero[0][2] += 5;
-                                        C8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        tablero[0][2] = 0;
-                                        C8.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            tablero[0][2] += 3;
+                            C8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            tablero[0][2] += 4;
+                            C8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            tablero[0][2] += 5;
+                            C8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            tablero[0][2] = 0;
+                            C8.setIcon(null);
                         }
                     } else if ((Caballo_b() && tablero[0][2] == 2)) {
                         tablero[0][2]++;
@@ -1498,27 +1491,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     D8.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && tablero[0][3] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             tablero[0][3] += 2;
                             D8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                tablero[0][3] += 3;
-                                D8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    tablero[0][3] += 4;
-                                    D8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        tablero[0][3] += 5;
-                                        D8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        tablero[0][3] = 0;
-                                        D8.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            tablero[0][3] += 3;
+                            D8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            tablero[0][3] += 4;
+                            D8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            tablero[0][3] += 5;
+                            D8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            tablero[0][3] = 0;
+                            D8.setIcon(null);
                         }
                     } else if ((Caballo_b() && tablero[0][3] == 2)) {
                         tablero[0][3]++;
@@ -1661,27 +1648,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     E8.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && tablero[0][4] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             tablero[0][4] += 2;
                             E8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                tablero[0][4] += 3;
-                                E8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    tablero[0][4] += 4;
-                                    E8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        tablero[0][4] += 5;
-                                        E8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        tablero[0][4] = 0;
-                                        E8.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            tablero[0][4] += 3;
+                            E8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            tablero[0][4] += 4;
+                            E8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            tablero[0][4] += 5;
+                            E8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            tablero[0][4] = 0;
+                            E8.setIcon(null);
                         }
                     } else if ((Caballo_b() && tablero[0][4] == 2)) {
                         tablero[0][4]++;
@@ -1823,27 +1804,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     F8.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && tablero[0][5] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             tablero[0][5] += 2;
                             F8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                tablero[0][5] += 3;
-                                F8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    tablero[0][5] += 4;
-                                    F8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        tablero[0][5] += 5;
-                                        F8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        tablero[0][5] = 0;
-                                        F8.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            tablero[0][5] += 3;
+                            F8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            tablero[0][5] += 4;
+                            F8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            tablero[0][5] += 5;
+                            F8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            tablero[0][5] = 0;
+                            F8.setIcon(null);
                         }
                     } else if ((Caballo_b() && tablero[0][5] == 2)) {
                         tablero[0][5]++;
@@ -1985,27 +1960,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     G8.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && tablero[0][6] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             tablero[0][6] += 2;
                             G8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                tablero[0][6] += 3;
-                                G8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    tablero[0][6] += 4;
-                                    G8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        tablero[0][6] += 5;
-                                        G8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        tablero[0][6] = 0;
-                                        G8.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            tablero[0][6] += 3;
+                            G8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            tablero[0][6] += 4;
+                            G8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            tablero[0][6] += 5;
+                            G8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            tablero[0][6] = 0;
+                            G8.setIcon(null);
                         }
                     } else if ((Caballo_b() && tablero[0][6] == 2)) {
                         tablero[0][6]++;
@@ -2147,27 +2116,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     H8.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && tablero[0][7] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             tablero[0][7] += 2;
                             H8.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                tablero[0][7] += 3;
-                                H8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    tablero[0][7] += 4;
-                                    H8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        tablero[0][7] += 5;
-                                        H8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        tablero[0][7] = 0;
-                                        H8.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            tablero[0][7] += 3;
+                            H8.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            tablero[0][7] += 4;
+                            H8.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            tablero[0][7] += 5;
+                            H8.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            tablero[0][7] = 0;
+                            H8.setIcon(null);
                         }
                     } else if ((Caballo_b() && tablero[0][7] == 2)) {
                         tablero[0][7]++;
@@ -2309,27 +2272,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     A7.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && tablero[1][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             tablero[1][0] += 2;
                             A7.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                tablero[1][0] += 3;
-                                A7.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    tablero[1][0] += 4;
-                                    A7.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        tablero[1][0] += 5;
-                                        A7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        tablero[1][0] = 0;
-                                        A7.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            tablero[1][0] += 3;
+                            A7.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            tablero[1][0] += 4;
+                            A7.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            tablero[1][0] += 5;
+                            A7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            tablero[1][0] = 0;
+                            A7.setIcon(null);
                         }
                     } else if ((Caballo_b() && tablero[1][0] == 2)) {
                         tablero[1][0]++;
@@ -2385,18 +2342,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && tablero[1][0] == 3) {
                     tablero[1][0]++;
                     A7.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && tablero[1][0] == 3 ){
-                    if(Rey_b()){
-                        tablero[1][0]+=2;
+                } else if (!Caballo_n() && tablero[1][0] == 3) {
+                    if (Rey_b()) {
+                        tablero[1][0] += 2;
                         A7.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            tablero[1][0]+=3;
-                            A7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            tablero[1][0]=0;
-                            A7.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        tablero[1][0] += 3;
+                        A7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        tablero[1][0] = 0;
+                        A7.setIcon(null);
                     }
                 } else if (Rey_b() && tablero[1][0] == 4) {
                     tablero[1][0]++;
@@ -2470,27 +2425,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     B7.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && tablero[1][1] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             tablero[1][1] += 2;
                             B7.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                tablero[1][1] += 3;
-                                B7.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    tablero[1][1] += 4;
-                                    B7.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        tablero[1][1] += 5;
-                                        B7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        tablero[1][1] = 0;
-                                        B7.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            tablero[1][1] += 3;
+                            B7.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            tablero[1][1] += 4;
+                            B7.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            tablero[1][1] += 5;
+                            B7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            tablero[1][1] = 0;
+                            B7.setIcon(null);
                         }
                     } else if ((Caballo_b() && tablero[1][1] == 2)) {
                         tablero[1][1]++;
@@ -2545,18 +2494,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && tablero[1][1] == 3) {
                     tablero[1][1]++;
                     B7.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && tablero[1][1] == 3 ){
-                    if(Rey_b()){
-                        tablero[1][1]+=2;
+                } else if (!Caballo_n() && tablero[1][1] == 3) {
+                    if (Rey_b()) {
+                        tablero[1][1] += 2;
                         B7.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            tablero[1][1]+=3;
-                            B7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            tablero[1][1]=0;
-                            B7.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        tablero[1][1] += 3;
+                        B7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        tablero[1][1] = 0;
+                        B7.setIcon(null);
                     }
                 } else if (Rey_b() && tablero[1][1] == 4) {
                     tablero[1][1]++;
@@ -2577,7 +2524,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Rey_b() && tablero[1][1] == 4) {
                     tablero[1][1]++;
                     B7.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                
+
                 } else if (Rey_n() && tablero[1][1] == 5) {
                     tablero[1][1]++;
                     B7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
@@ -2631,27 +2578,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     C7.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && tablero[1][2] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             tablero[1][2] += 2;
                             C7.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                tablero[1][2] += 3;
-                                C7.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    tablero[1][2] += 4;
-                                    C7.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        tablero[1][2] += 5;
-                                        C7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        tablero[1][2] = 0;
-                                        C7.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            tablero[1][2] += 3;
+                            C7.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            tablero[1][2] += 4;
+                            C7.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            tablero[1][2] += 5;
+                            C7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            tablero[1][2] = 0;
+                            C7.setIcon(null);
                         }
                     } else if ((Caballo_b() && tablero[1][2] == 2)) {
                         tablero[1][2]++;
@@ -2706,18 +2647,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && tablero[1][2] == 3) {
                     tablero[1][2]++;
                     C7.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && tablero[1][2] == 3 ){
-                    if(Rey_b()){
-                        tablero[1][2]+=2;
+                } else if (!Caballo_n() && tablero[1][2] == 3) {
+                    if (Rey_b()) {
+                        tablero[1][2] += 2;
                         C7.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            tablero[1][2]+=3;
-                            C7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            tablero[1][2]=0;
-                            C7.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        tablero[1][2] += 3;
+                        C7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        tablero[1][2] = 0;
+                        C7.setIcon(null);
                     }
                 } else if (Rey_b() && tablero[1][2] == 4) {
                     tablero[1][2]++;
@@ -2738,7 +2677,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Rey_b() && tablero[1][2] == 4) {
                     tablero[1][2]++;
                     C7.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                
+
                 } else if (Rey_n() && tablero[1][2] == 5) {
                     tablero[1][2]++;
                     C7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
@@ -2775,7 +2714,7 @@ public class ChessOracle extends javax.swing.JFrame {
         if (!evt.isMetaDown()) {
             String Fila = D7.getName();
             boolean Fila_Negros = true;
-            
+
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
                     Fila_Negros = false;
@@ -2793,27 +2732,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     D7.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && tablero[1][3] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             tablero[1][3] += 2;
                             D7.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                tablero[1][3] += 3;
-                                D7.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    tablero[1][3] += 4;
-                                    D7.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        tablero[1][3] += 5;
-                                        D7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        tablero[1][3] = 0;
-                                        D7.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            tablero[1][3] += 3;
+                            D7.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            tablero[1][3] += 4;
+                            D7.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            tablero[1][3] += 5;
+                            D7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            tablero[1][3] = 0;
+                            D7.setIcon(null);
                         }
                     } else if ((Caballo_b() && tablero[1][3] == 2)) {
                         tablero[1][3]++;
@@ -2868,18 +2801,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && tablero[1][3] == 3) {
                     tablero[1][3]++;
                     D7.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && tablero[1][3] == 3 ){
-                    if(Rey_b()){
-                        tablero[1][3]+=2;
+                } else if (!Caballo_n() && tablero[1][3] == 3) {
+                    if (Rey_b()) {
+                        tablero[1][3] += 2;
                         D7.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            tablero[1][3]+=3;
-                            D7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            tablero[1][3]=0;
-                            D7.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        tablero[1][3] += 3;
+                        D7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        tablero[1][3] = 0;
+                        D7.setIcon(null);
                     }
                 } else if (Rey_b() && tablero[1][3] == 4) {
                     tablero[1][3]++;
@@ -2900,7 +2831,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Rey_b() && tablero[1][3] == 4) {
                     tablero[1][3]++;
                     D7.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                
+
                 } else if (Rey_n() && tablero[1][3] == 5) {
                     tablero[1][3]++;
                     D7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
@@ -2937,7 +2868,7 @@ public class ChessOracle extends javax.swing.JFrame {
         if (!evt.isMetaDown()) {
             String Fila = E7.getName();
             boolean Fila_Negros = true;
-            
+
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
                     Fila_Negros = false;
@@ -2955,27 +2886,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     E7.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && tablero[1][4] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             tablero[1][4] += 2;
                             E7.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                tablero[1][4] += 3;
-                                E7.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    tablero[1][4] += 4;
-                                    E7.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        tablero[1][4] += 5;
-                                        E7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        tablero[1][4] = 0;
-                                        E7.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            tablero[1][4] += 3;
+                            E7.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            tablero[1][4] += 4;
+                            E7.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            tablero[1][4] += 5;
+                            E7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            tablero[1][4] = 0;
+                            E7.setIcon(null);
                         }
                     } else if ((Caballo_b() && tablero[1][4] == 2)) {
                         tablero[1][4]++;
@@ -3030,18 +2955,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && tablero[1][4] == 3) {
                     tablero[1][4]++;
                     E7.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && tablero[1][4] == 3 ){
-                    if(Rey_b()){
-                        tablero[1][4]+=2;
+                } else if (!Caballo_n() && tablero[1][4] == 3) {
+                    if (Rey_b()) {
+                        tablero[1][4] += 2;
                         E7.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            tablero[1][4]+=3;
-                            E7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            tablero[1][4]=0;
-                            E7.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        tablero[1][4] += 3;
+                        E7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        tablero[1][4] = 0;
+                        E7.setIcon(null);
                     }
                 } else if (Rey_b() && tablero[1][4] == 4) {
                     tablero[1][4]++;
@@ -3062,7 +2985,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Rey_b() && tablero[1][4] == 4) {
                     tablero[1][4]++;
                     E7.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                
+
                 } else if (Rey_n() && tablero[1][4] == 5) {
                     tablero[1][4]++;
                     E7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
@@ -3116,27 +3039,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     F7.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && tablero[1][5] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             tablero[1][5] += 2;
                             F7.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                tablero[1][5] += 3;
-                                F7.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    tablero[1][5] += 4;
-                                    F7.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        tablero[1][5] += 5;
-                                        F7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        tablero[1][5] = 0;
-                                        F7.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            tablero[1][5] += 3;
+                            F7.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            tablero[1][5] += 4;
+                            F7.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            tablero[1][5] += 5;
+                            F7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            tablero[1][5] = 0;
+                            F7.setIcon(null);
                         }
                     } else if ((Caballo_b() && tablero[1][5] == 2)) {
                         tablero[1][5]++;
@@ -3191,18 +3108,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && tablero[1][5] == 3) {
                     tablero[1][5]++;
                     F7.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && tablero[1][5] == 3 ){
-                    if(Rey_b()){
-                        tablero[1][5]+=2;
+                } else if (!Caballo_n() && tablero[1][5] == 3) {
+                    if (Rey_b()) {
+                        tablero[1][5] += 2;
                         F7.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            tablero[1][5]+=3;
-                            F7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            tablero[1][5]=0;
-                            F7.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        tablero[1][5] += 3;
+                        F7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        tablero[1][5] = 0;
+                        F7.setIcon(null);
                     }
                 } else if (Rey_b() && tablero[1][5] == 4) {
                     tablero[1][5]++;
@@ -3223,7 +3138,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Rey_b() && tablero[1][5] == 4) {
                     tablero[1][5]++;
                     F7.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                
+
                 } else if (Rey_n() && tablero[1][5] == 5) {
                     tablero[1][5]++;
                     F7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
@@ -3277,27 +3192,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     G7.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && tablero[1][6] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             tablero[1][6] += 2;
                             G7.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                tablero[1][6] += 3;
-                                G7.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    tablero[1][6] += 4;
-                                    G7.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        tablero[1][6] += 5;
-                                        G7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        tablero[1][6] = 0;
-                                        G7.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            tablero[1][6] += 3;
+                            G7.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            tablero[1][6] += 4;
+                            G7.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            tablero[1][6] += 5;
+                            G7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            tablero[1][6] = 0;
+                            G7.setIcon(null);
                         }
                     } else if ((Caballo_b() && tablero[1][6] == 2)) {
                         tablero[1][6]++;
@@ -3352,18 +3261,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && tablero[1][6] == 3) {
                     tablero[1][6]++;
                     G7.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && tablero[1][6] == 3 ){
-                    if(Rey_b()){
-                        tablero[1][6]+=2;
+                } else if (!Caballo_n() && tablero[1][6] == 3) {
+                    if (Rey_b()) {
+                        tablero[1][6] += 2;
                         G7.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            tablero[1][6]+=3;
-                            G7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            tablero[1][6]=0;
-                            G7.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        tablero[1][6] += 3;
+                        G7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        tablero[1][6] = 0;
+                        G7.setIcon(null);
                     }
                 } else if (Rey_b() && tablero[1][6] == 4) {
                     tablero[1][6]++;
@@ -3384,7 +3291,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Rey_b() && tablero[1][6] == 4) {
                     tablero[1][6]++;
                     G7.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                
+
                 } else if (Rey_n() && tablero[1][6] == 5) {
                     tablero[1][6]++;
                     G7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
@@ -3438,27 +3345,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     H7.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && tablero[1][7] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             tablero[1][7] += 2;
                             H7.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                tablero[1][7] += 3;
-                                H7.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    tablero[1][7] += 4;
-                                    H7.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        tablero[1][7] += 5;
-                                        H7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        tablero[1][7] = 0;
-                                        H7.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            tablero[1][7] += 3;
+                            H7.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            tablero[1][7] += 4;
+                            H7.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            tablero[1][7] += 5;
+                            H7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            tablero[1][7] = 0;
+                            H7.setIcon(null);
                         }
                     } else if ((Caballo_b() && tablero[1][7] == 2)) {
                         tablero[1][7]++;
@@ -3513,18 +3414,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && tablero[1][7] == 3) {
                     tablero[1][7]++;
                     H7.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && tablero[1][7] == 3 ){
-                    if(Rey_b()){
-                        tablero[1][7]+=2;
+                } else if (!Caballo_n() && tablero[1][7] == 3) {
+                    if (Rey_b()) {
+                        tablero[1][7] += 2;
                         H7.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            tablero[1][7]+=3;
-                            H7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            tablero[1][7]=0;
-                            H7.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        tablero[1][7] += 3;
+                        H7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        tablero[1][7] = 0;
+                        H7.setIcon(null);
                     }
                 } else if (Rey_b() && tablero[1][7] == 4) {
                     tablero[1][7]++;
@@ -3545,7 +3444,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Rey_b() && tablero[1][7] == 4) {
                     tablero[1][7]++;
                     H7.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                
+
                 } else if (Rey_n() && tablero[1][7] == 5) {
                     tablero[1][7]++;
                     H7.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
@@ -3599,27 +3498,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     A6.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && tablero[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             tablero[2][0] += 2;
                             A6.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                tablero[2][0] += 3;
-                                A6.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    tablero[2][0] += 4;
-                                    A6.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        tablero[2][0] += 5;
-                                        A6.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        tablero[2][0] = 0;
-                                        A6.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            tablero[2][0] += 3;
+                            A6.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            tablero[2][0] += 4;
+                            A6.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            tablero[2][0] += 5;
+                            A6.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            tablero[2][0] = 0;
+                            A6.setIcon(null);
                         }
                     } else if ((Caballo_b() && tablero[2][0] == 2)) {
                         tablero[2][0]++;
@@ -3675,18 +3568,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && tablero[2][0] == 3) {
                     tablero[2][0]++;
                     A6.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && tablero[2][0] == 3 ){
-                    if(Rey_b()){
-                        tablero[2][0]+=2;
+                } else if (!Caballo_n() && tablero[2][0] == 3) {
+                    if (Rey_b()) {
+                        tablero[2][0] += 2;
                         A6.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            tablero[2][0]+=3;
-                            A6.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            tablero[2][0]=0;
-                            A6.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        tablero[2][0] += 3;
+                        A6.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        tablero[2][0] = 0;
+                        A6.setIcon(null);
                     }
                 } else if (Rey_b() && tablero[2][0] == 4) {
                     tablero[2][0]++;
@@ -3737,7 +3628,7 @@ public class ChessOracle extends javax.swing.JFrame {
             }
             impr();
         }
-        
+
     }//GEN-LAST:event_A6MouseClicked
 
     private void B6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B6MouseClicked
@@ -3761,27 +3652,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     B6.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && tablero[2][1] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             tablero[2][1] += 2;
                             B6.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                tablero[2][1] += 3;
-                                B6.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    tablero[2][1] += 4;
-                                    B6.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        tablero[2][1] += 5;
-                                        B6.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        tablero[2][1] = 0;
-                                        B6.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            tablero[2][1] += 3;
+                            B6.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            tablero[2][1] += 4;
+                            B6.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            tablero[2][1] += 5;
+                            B6.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            tablero[2][1] = 0;
+                            B6.setIcon(null);
                         }
                     } else if ((Caballo_b() && tablero[2][1] == 2)) {
                         tablero[2][1]++;
@@ -3837,18 +3722,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && tablero[2][1] == 3) {
                     tablero[2][1]++;
                     B6.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && tablero[2][1] == 3 ){
-                    if(Rey_b()){
-                        tablero[2][1]+=2;
+                } else if (!Caballo_n() && tablero[2][1] == 3) {
+                    if (Rey_b()) {
+                        tablero[2][1] += 2;
                         B6.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            tablero[2][1]+=3;
-                            B6.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            tablero[2][1]=0;
-                            B6.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        tablero[2][1] += 3;
+                        B6.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        tablero[2][1] = 0;
+                        B6.setIcon(null);
                     }
                 } else if (Rey_b() && tablero[2][1] == 4) {
                     tablero[2][1]++;
@@ -3904,8 +3787,8 @@ public class ChessOracle extends javax.swing.JFrame {
     private void C6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C6MouseClicked
         if (!evt.isMetaDown()) {
             String Fila = C6.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[2][2];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[2][2];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -3924,27 +3807,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     C6.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             C6.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                C6.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    C6.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        C6.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        C6.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            C6.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            C6.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            C6.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            C6.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -4000,18 +3877,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     C6.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         C6.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            C6.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            C6.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        C6.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        C6.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -4060,7 +3935,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 C6.setIcon(null);
             }
-            tablero[2][2]= Centinela[2][0];
+            tablero[2][2] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_C6MouseClicked
@@ -4068,8 +3943,8 @@ public class ChessOracle extends javax.swing.JFrame {
     private void D6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D6MouseClicked
         if (!evt.isMetaDown()) {
             String Fila = D6.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[2][3];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[2][3];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -4088,27 +3963,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     D6.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             D6.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                D6.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    D6.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        D6.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        D6.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            D6.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            D6.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            D6.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            D6.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -4164,18 +4033,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     D6.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         D6.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            D6.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            D6.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        D6.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        D6.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -4224,7 +4091,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 D6.setIcon(null);
             }
-            tablero[2][3]= Centinela[2][0];
+            tablero[2][3] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_D6MouseClicked
@@ -4232,8 +4099,8 @@ public class ChessOracle extends javax.swing.JFrame {
     private void E6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E6MouseClicked
         if (!evt.isMetaDown()) {
             String Fila = E6.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[2][4];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[2][4];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -4252,27 +4119,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     E6.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             E6.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                E6.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    E6.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        E6.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        E6.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            E6.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            E6.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            E6.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            E6.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -4328,18 +4189,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     E6.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         E6.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            E6.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            E6.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        E6.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        E6.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -4388,7 +4247,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 E6.setIcon(null);
             }
-            tablero[2][4]= Centinela[2][0];
+            tablero[2][4] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_E6MouseClicked
@@ -4396,8 +4255,8 @@ public class ChessOracle extends javax.swing.JFrame {
     private void F6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_F6MouseClicked
         if (!evt.isMetaDown()) {
             String Fila = F6.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[2][5];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[2][5];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -4416,27 +4275,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     F6.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             F6.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                F6.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    F6.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        F6.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        F6.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            F6.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            F6.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            F6.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            F6.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -4492,18 +4345,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     F6.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         F6.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            F6.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            F6.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        F6.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        F6.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -4552,7 +4403,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 F6.setIcon(null);
             }
-            tablero[2][5]= Centinela[2][0];
+            tablero[2][5] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_F6MouseClicked
@@ -4560,8 +4411,8 @@ public class ChessOracle extends javax.swing.JFrame {
     private void G6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_G6MouseClicked
         if (!evt.isMetaDown()) {
             String Fila = G6.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[2][6];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[2][6];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -4580,27 +4431,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     G6.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             G6.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                G6.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    G6.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        G6.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        G6.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            G6.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            G6.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            G6.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            G6.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -4656,18 +4501,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     G6.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         G6.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            G6.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            G6.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        G6.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        G6.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -4716,7 +4559,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 G6.setIcon(null);
             }
-            tablero[2][6]= Centinela[2][0];
+            tablero[2][6] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_G6MouseClicked
@@ -4724,8 +4567,8 @@ public class ChessOracle extends javax.swing.JFrame {
     private void H6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_H6MouseClicked
         if (!evt.isMetaDown()) {
             String Fila = H6.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[2][7];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[2][7];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -4744,27 +4587,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     H6.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             H6.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                H6.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    H6.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        H6.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        H6.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            H6.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            H6.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            H6.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            H6.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -4820,18 +4657,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     H6.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         H6.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            H6.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            H6.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        H6.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        H6.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -4880,7 +4715,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 H6.setIcon(null);
             }
-            tablero[2][7]= Centinela[2][0];
+            tablero[2][7] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_H6MouseClicked
@@ -4888,8 +4723,8 @@ public class ChessOracle extends javax.swing.JFrame {
     private void A5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A5MouseClicked
         if (!evt.isMetaDown()) {
             String Fila = A5.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[3][0];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[3][0];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -4908,27 +4743,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     A5.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             A5.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                A5.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    A5.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        A5.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        A5.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            A5.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            A5.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            A5.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            A5.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -4984,18 +4813,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     A5.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         A5.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            A5.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            A5.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        A5.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        A5.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -5044,7 +4871,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 A5.setIcon(null);
             }
-            tablero[3][0]= Centinela[2][0];
+            tablero[3][0] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_A5MouseClicked
@@ -5052,8 +4879,8 @@ public class ChessOracle extends javax.swing.JFrame {
     private void B5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B5MouseClicked
         if (!evt.isMetaDown()) {
             String Fila = B5.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[3][1];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[3][1];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -5072,27 +4899,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     B5.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             B5.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                B5.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    B5.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        B5.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        B5.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            B5.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            B5.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            B5.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            B5.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -5148,18 +4969,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     B5.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         B5.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            B5.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            B5.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        B5.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        B5.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -5208,7 +5027,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 B5.setIcon(null);
             }
-            tablero[3][1]= Centinela[2][0];
+            tablero[3][1] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_B5MouseClicked
@@ -5216,8 +5035,8 @@ public class ChessOracle extends javax.swing.JFrame {
     private void C5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C5MouseClicked
         if (!evt.isMetaDown()) {
             String Fila = C5.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[3][2];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[3][2];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -5236,27 +5055,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     C5.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             C5.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                C5.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    C5.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        C5.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        C5.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            C5.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            C5.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            C5.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            C5.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -5312,18 +5125,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     C5.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         C5.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            C5.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            C5.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        C5.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        C5.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -5372,7 +5183,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 C5.setIcon(null);
             }
-            tablero[3][2]= Centinela[2][0];
+            tablero[3][2] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_C5MouseClicked
@@ -5380,8 +5191,8 @@ public class ChessOracle extends javax.swing.JFrame {
     private void D5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D5MouseClicked
         if (!evt.isMetaDown()) {
             String Fila = D5.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[3][3];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[3][3];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -5400,27 +5211,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     D5.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             D5.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                D5.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    D5.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        D5.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        D5.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            D5.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            D5.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            D5.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            D5.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -5476,18 +5281,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     D5.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         D5.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            D5.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            D5.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        D5.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        D5.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -5536,7 +5339,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 D5.setIcon(null);
             }
-            tablero[3][3]= Centinela[2][0];
+            tablero[3][3] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_D5MouseClicked
@@ -5544,8 +5347,8 @@ public class ChessOracle extends javax.swing.JFrame {
     private void E5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E5MouseClicked
         if (!evt.isMetaDown()) {
             String Fila = E5.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[3][4];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[3][4];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -5564,27 +5367,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     E5.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             E5.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                E5.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    E5.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        E5.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        E5.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            E5.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            E5.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            E5.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            E5.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -5640,18 +5437,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     E5.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         E5.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            E5.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            E5.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        E5.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        E5.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -5700,7 +5495,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 E5.setIcon(null);
             }
-            tablero[3][4]= Centinela[2][0];
+            tablero[3][4] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_E5MouseClicked
@@ -5708,8 +5503,8 @@ public class ChessOracle extends javax.swing.JFrame {
     private void F5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_F5MouseClicked
         if (!evt.isMetaDown()) {
             String Fila = F5.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[3][5];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[3][5];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -5728,27 +5523,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     F5.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             F5.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                F5.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    F5.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        F5.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        F5.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            F5.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            F5.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            F5.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            F5.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -5804,18 +5593,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     F5.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         F5.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            F5.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            F5.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        F5.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        F5.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -5864,7 +5651,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 F5.setIcon(null);
             }
-            tablero[3][5]= Centinela[2][0];
+            tablero[3][5] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_F5MouseClicked
@@ -5872,8 +5659,8 @@ public class ChessOracle extends javax.swing.JFrame {
     private void G5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_G5MouseClicked
         if (!evt.isMetaDown()) {
             String Fila = G5.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[3][6];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[3][6];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -5892,27 +5679,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     G5.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             G5.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                G5.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    G5.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        G5.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        G5.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            G5.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            G5.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            G5.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            G5.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -5968,18 +5749,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     G5.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         G5.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            G5.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            G5.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        G5.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        G5.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -6028,7 +5807,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 G5.setIcon(null);
             }
-            tablero[3][6]= Centinela[2][0];
+            tablero[3][6] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_G5MouseClicked
@@ -6036,8 +5815,8 @@ public class ChessOracle extends javax.swing.JFrame {
     private void H5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_H5MouseClicked
         if (!evt.isMetaDown()) {
             String Fila = H5.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[3][7];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[3][7];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -6056,27 +5835,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     H5.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             H5.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                H5.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    H5.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        H5.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        H5.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            H5.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            H5.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            H5.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            H5.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -6132,18 +5905,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     H5.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         H5.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            H5.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            H5.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        H5.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        H5.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -6192,7 +5963,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 H5.setIcon(null);
             }
-            tablero[3][7]= Centinela[2][0];
+            tablero[3][7] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_H5MouseClicked
@@ -6200,8 +5971,8 @@ public class ChessOracle extends javax.swing.JFrame {
     private void A4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A4MouseClicked
         if (!evt.isMetaDown()) {
             String Fila = A4.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[4][0];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[4][0];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -6220,27 +5991,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     A4.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             A4.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                A4.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    A4.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        A4.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        A4.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            A4.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            A4.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            A4.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            A4.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -6296,18 +6061,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     A4.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         A4.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            A4.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            A4.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        A4.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        A4.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -6356,7 +6119,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 A4.setIcon(null);
             }
-            tablero[4][0]= Centinela[2][0];
+            tablero[4][0] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_A4MouseClicked
@@ -6364,8 +6127,8 @@ public class ChessOracle extends javax.swing.JFrame {
     private void B4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B4MouseClicked
         if (!evt.isMetaDown()) {
             String Fila = B4.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[4][1];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[4][1];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -6384,27 +6147,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     B4.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             B4.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                B4.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    B4.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        B4.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        B4.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            B4.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            B4.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            B4.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            B4.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -6460,18 +6217,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     B4.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         B4.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            B4.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            B4.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        B4.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        B4.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -6520,7 +6275,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 B4.setIcon(null);
             }
-            tablero[4][1]= Centinela[2][0];
+            tablero[4][1] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_B4MouseClicked
@@ -6528,8 +6283,8 @@ public class ChessOracle extends javax.swing.JFrame {
     private void C4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C4MouseClicked
         if (!evt.isMetaDown()) {
             String Fila = C4.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[4][2];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[4][2];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -6548,27 +6303,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     C4.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             C4.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                C4.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    C4.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        C4.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        C4.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            C4.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            C4.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            C4.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            C4.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -6624,18 +6373,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     C4.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         C4.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            C4.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            C4.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        C4.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        C4.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -6684,7 +6431,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 C4.setIcon(null);
             }
-            tablero[4][2]= Centinela[2][0];
+            tablero[4][2] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_C4MouseClicked
@@ -6692,8 +6439,8 @@ public class ChessOracle extends javax.swing.JFrame {
     private void D4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D4MouseClicked
         if (!evt.isMetaDown()) {
             String Fila = D4.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[4][3];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[4][3];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -6712,27 +6459,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     D4.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             D4.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                D4.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    D4.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        D4.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        D4.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            D4.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            D4.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            D4.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            D4.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -6788,18 +6529,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     D4.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         D4.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            D4.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            D4.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        D4.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        D4.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -6848,7 +6587,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 D4.setIcon(null);
             }
-            tablero[4][3]= Centinela[2][0];
+            tablero[4][3] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_D4MouseClicked
@@ -6856,8 +6595,8 @@ public class ChessOracle extends javax.swing.JFrame {
     private void E4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E4MouseClicked
         if (!evt.isMetaDown()) {
             String Fila = E4.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[4][4];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[4][4];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -6876,27 +6615,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     E4.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             E4.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                E4.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    E4.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        E4.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        E4.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            E4.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            E4.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            E4.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            E4.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -6952,18 +6685,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     E4.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         E4.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            E4.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            E4.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        E4.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        E4.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -7012,7 +6743,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 E4.setIcon(null);
             }
-            tablero[4][4]= Centinela[2][0];
+            tablero[4][4] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_E4MouseClicked
@@ -7020,8 +6751,8 @@ public class ChessOracle extends javax.swing.JFrame {
     private void F4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_F4MouseClicked
         if (!evt.isMetaDown()) {
             String Fila = F4.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[4][5];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[4][5];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -7040,27 +6771,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     F4.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             F4.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                F4.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    F4.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        F4.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        F4.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            F4.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            F4.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            F4.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            F4.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -7116,18 +6841,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     F4.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         F4.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            F4.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            F4.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        F4.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        F4.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -7176,7 +6899,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 F4.setIcon(null);
             }
-            tablero[4][5]= Centinela[2][0];
+            tablero[4][5] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_F4MouseClicked
@@ -7184,8 +6907,8 @@ public class ChessOracle extends javax.swing.JFrame {
     private void G4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_G4MouseClicked
         if (!evt.isMetaDown()) {
             String Fila = G4.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[4][6];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[4][6];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -7204,27 +6927,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     G4.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             G4.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                G4.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    G4.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        G4.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        G4.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            G4.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            G4.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            G4.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            G4.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -7280,18 +6997,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     G4.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         G4.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            G4.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            G4.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        G4.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        G4.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -7340,7 +7055,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 G4.setIcon(null);
             }
-            tablero[4][6]= Centinela[2][0];
+            tablero[4][6] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_G4MouseClicked
@@ -7348,8 +7063,8 @@ public class ChessOracle extends javax.swing.JFrame {
     private void H4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_H4MouseClicked
         if (!evt.isMetaDown()) {
             String Fila = H4.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[4][7];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[4][7];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -7368,27 +7083,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     H4.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             H4.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                H4.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    H4.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        H4.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        H4.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            H4.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            H4.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            H4.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            H4.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -7444,18 +7153,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     H4.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         H4.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            H4.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            H4.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        H4.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        H4.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -7504,7 +7211,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 H4.setIcon(null);
             }
-            tablero[4][7]= Centinela[2][0];
+            tablero[4][7] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_H4MouseClicked
@@ -7512,8 +7219,8 @@ public class ChessOracle extends javax.swing.JFrame {
     private void A3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_A3MouseClicked
         if (!evt.isMetaDown()) {
             String Fila = A3.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[5][0];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[5][0];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -7532,27 +7239,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     A3.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             A3.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                A3.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    A3.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        A3.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        A3.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            A3.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            A3.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            A3.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            A3.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -7608,18 +7309,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     A3.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         A3.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            A3.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            A3.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        A3.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        A3.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -7668,7 +7367,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 A3.setIcon(null);
             }
-            tablero[5][0]= Centinela[2][0];
+            tablero[5][0] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_A3MouseClicked
@@ -7676,8 +7375,8 @@ public class ChessOracle extends javax.swing.JFrame {
     private void B3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B3MouseClicked
         if (!evt.isMetaDown()) {
             String Fila = B3.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[5][1];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[5][1];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -7696,27 +7395,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     B3.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             B3.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                B3.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    B3.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        B3.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        B3.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            B3.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            B3.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            B3.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            B3.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -7772,18 +7465,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     B3.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         B3.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            B3.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            B3.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        B3.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        B3.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -7832,7 +7523,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 B3.setIcon(null);
             }
-            tablero[5][1]= Centinela[2][0];
+            tablero[5][1] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_B3MouseClicked
@@ -7840,8 +7531,8 @@ public class ChessOracle extends javax.swing.JFrame {
     private void C3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_C3MouseClicked
         if (!evt.isMetaDown()) {
             String Fila = C3.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[5][2];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[5][2];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -7860,27 +7551,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     C3.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             C3.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                C3.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    C3.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        C3.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        C3.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            C3.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            C3.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            C3.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            C3.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -7936,18 +7621,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     C3.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         C3.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            C3.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            C3.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        C3.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        C3.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -7996,7 +7679,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 C3.setIcon(null);
             }
-            tablero[5][2]= Centinela[2][0];
+            tablero[5][2] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_C3MouseClicked
@@ -8004,8 +7687,8 @@ public class ChessOracle extends javax.swing.JFrame {
     private void D3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_D3MouseClicked
         if (!evt.isMetaDown()) {
             String Fila = D3.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[5][3];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[5][3];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -8024,27 +7707,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     D3.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             D3.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                D3.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    D3.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        D3.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        D3.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            D3.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            D3.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            D3.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            D3.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -8100,18 +7777,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     D3.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         D3.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            D3.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            D3.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        D3.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        D3.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -8160,7 +7835,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 D3.setIcon(null);
             }
-            tablero[5][3]= Centinela[2][0];
+            tablero[5][3] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_D3MouseClicked
@@ -8168,8 +7843,8 @@ public class ChessOracle extends javax.swing.JFrame {
     private void E3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_E3MouseClicked
         if (!evt.isMetaDown()) {
             String Fila = E3.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[5][4];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[5][4];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -8188,27 +7863,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     E3.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             E3.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                E3.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    E3.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        E3.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        E3.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            E3.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            E3.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            E3.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            E3.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -8264,18 +7933,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     E3.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         E3.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            E3.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            E3.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        E3.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        E3.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -8324,7 +7991,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 E3.setIcon(null);
             }
-            tablero[5][4]= Centinela[2][0];
+            tablero[5][4] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_E3MouseClicked
@@ -8332,8 +7999,8 @@ public class ChessOracle extends javax.swing.JFrame {
     private void F3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_F3MouseClicked
         if (!evt.isMetaDown()) {
             String Fila = F3.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[5][5];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[5][5];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -8352,27 +8019,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     F3.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             F3.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                F3.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    F3.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        F3.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        F3.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            F3.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            F3.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            F3.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            F3.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -8428,18 +8089,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     F3.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         F3.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            F3.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            F3.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        F3.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        F3.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -8488,7 +8147,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 F3.setIcon(null);
             }
-            tablero[5][5]= Centinela[2][0];
+            tablero[5][5] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_F3MouseClicked
@@ -8496,8 +8155,8 @@ public class ChessOracle extends javax.swing.JFrame {
     private void G3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_G3MouseClicked
         if (!evt.isMetaDown()) {
             String Fila = G3.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[5][6];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[5][6];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -8516,27 +8175,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     G3.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             G3.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                G3.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    G3.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        G3.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        G3.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            G3.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            G3.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            G3.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            G3.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -8592,18 +8245,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     G3.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         G3.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            G3.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            G3.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        G3.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        G3.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -8652,7 +8303,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 G3.setIcon(null);
             }
-            tablero[5][6]= Centinela[2][0];
+            tablero[5][6] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_G3MouseClicked
@@ -8660,8 +8311,8 @@ public class ChessOracle extends javax.swing.JFrame {
     private void H3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_H3MouseClicked
         if (!evt.isMetaDown()) {
             String Fila = H3.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[5][7];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[5][7];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -8680,27 +8331,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     H3.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             H3.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                H3.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    H3.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        H3.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        H3.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            H3.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            H3.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            H3.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            H3.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -8756,18 +8401,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     H3.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         H3.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            H3.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            H3.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        H3.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        H3.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -8816,7 +8459,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 H3.setIcon(null);
             }
-            tablero[5][7]= Centinela[2][0];
+            tablero[5][7] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_H3MouseClicked
@@ -8825,8 +8468,8 @@ public class ChessOracle extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (!evt.isMetaDown()) {
             String Fila = A2.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[6][0];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[6][0];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -8845,27 +8488,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     A2.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             A2.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                A2.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    A2.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        A2.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        A2.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            A2.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            A2.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            A2.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            A2.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -8921,18 +8558,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     A2.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         A2.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            A2.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            A2.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        A2.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        A2.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -8981,7 +8616,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 A2.setIcon(null);
             }
-            tablero[6][0]= Centinela[2][0];
+            tablero[6][0] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_A2MouseClicked
@@ -8990,8 +8625,8 @@ public class ChessOracle extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (!evt.isMetaDown()) {
             String Fila = B2.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[6][1];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[6][1];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -9010,27 +8645,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     B2.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             B2.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                B2.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    B2.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        B2.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        B2.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            B2.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            B2.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            B2.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            B2.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -9086,18 +8715,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     B2.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         B2.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            B2.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            B2.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        B2.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        B2.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -9146,7 +8773,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 B2.setIcon(null);
             }
-            tablero[6][1]= Centinela[2][0];
+            tablero[6][1] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_B2MouseClicked
@@ -9155,8 +8782,8 @@ public class ChessOracle extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (!evt.isMetaDown()) {
             String Fila = C2.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[6][2];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[6][2];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -9175,27 +8802,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     C2.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             C2.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                C2.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    C2.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        C2.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        C2.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            C2.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            C2.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            C2.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            C2.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -9251,18 +8872,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     C2.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         C2.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            C2.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            C2.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        C2.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        C2.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -9311,7 +8930,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 C2.setIcon(null);
             }
-            tablero[6][2]= Centinela[2][0];
+            tablero[6][2] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_C2MouseClicked
@@ -9320,8 +8939,8 @@ public class ChessOracle extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (!evt.isMetaDown()) {
             String Fila = D2.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[6][3];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[6][3];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -9340,27 +8959,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     D2.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             D2.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                D2.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    D2.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        D2.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        D2.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            D2.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            D2.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            D2.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            D2.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -9416,18 +9029,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     D2.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         D2.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            D2.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            D2.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        D2.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        D2.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -9476,7 +9087,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 D2.setIcon(null);
             }
-            tablero[6][3]= Centinela[2][0];
+            tablero[6][3] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_D2MouseClicked
@@ -9485,8 +9096,8 @@ public class ChessOracle extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (!evt.isMetaDown()) {
             String Fila = E2.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[6][4];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[6][4];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -9505,27 +9116,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     E2.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             E2.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                E2.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    E2.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        E2.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        E2.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            E2.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            E2.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            E2.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            E2.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -9581,18 +9186,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     E2.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         E2.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            E2.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            E2.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        E2.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        E2.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -9641,7 +9244,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 E2.setIcon(null);
             }
-            tablero[6][4]= Centinela[2][0];
+            tablero[6][4] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_E2MouseClicked
@@ -9650,8 +9253,8 @@ public class ChessOracle extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (!evt.isMetaDown()) {
             String Fila = F2.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[6][5];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[6][5];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -9670,27 +9273,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     F2.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             F2.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                F2.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    F2.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        F2.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        F2.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            F2.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            F2.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            F2.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            F2.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -9746,18 +9343,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     F2.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         F2.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            F2.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            F2.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        F2.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        F2.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -9806,7 +9401,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 F2.setIcon(null);
             }
-            tablero[6][5]= Centinela[2][0];
+            tablero[6][5] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_F2MouseClicked
@@ -9815,8 +9410,8 @@ public class ChessOracle extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (!evt.isMetaDown()) {
             String Fila = G2.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[6][6];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[6][6];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -9835,27 +9430,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     G2.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             G2.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                G2.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    G2.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        G2.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        G2.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            G2.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            G2.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            G2.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            G2.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -9911,18 +9500,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     G2.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         G2.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            G2.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            G2.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        G2.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        G2.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -9971,7 +9558,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 G2.setIcon(null);
             }
-            tablero[6][6]= Centinela[2][0];
+            tablero[6][6] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_G2MouseClicked
@@ -9980,8 +9567,8 @@ public class ChessOracle extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (!evt.isMetaDown()) {
             String Fila = H2.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[6][7];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[6][7];
             boolean Fila_Negros = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '8') {
@@ -10000,27 +9587,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     H2.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b())) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             H2.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                H2.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    H2.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        H2.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        H2.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            H2.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            H2.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            H2.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            H2.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -10076,18 +9657,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     H2.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         H2.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            H2.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            H2.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        H2.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        H2.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -10136,7 +9715,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 H2.setIcon(null);
             }
-            tablero[6][7]= Centinela[2][0];
+            tablero[6][7] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_H2MouseClicked
@@ -10145,8 +9724,8 @@ public class ChessOracle extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (!evt.isMetaDown()) {
             String Fila = A1.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[7][0];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[7][0];
             boolean Fila_Blancos = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '1') {
@@ -10165,27 +9744,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     A1.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b() || Centinela[2][0] == 0) && !Fila_Blancos) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             A1.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                A1.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    A1.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        A1.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        A1.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            A1.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            A1.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            A1.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            A1.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -10241,18 +9814,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     A1.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         A1.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            A1.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            A1.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        A1.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        A1.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -10301,7 +9872,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 A1.setIcon(null);
             }
-            tablero[7][0]= Centinela[2][0];
+            tablero[7][0] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_A1MouseClicked
@@ -10310,8 +9881,8 @@ public class ChessOracle extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (!evt.isMetaDown()) {
             String Fila = B1.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[7][1];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[7][1];
             boolean Fila_Blancos = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '1') {
@@ -10330,27 +9901,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     B1.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b() || Centinela[2][0] == 0) && !Fila_Blancos) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             B1.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                B1.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    B1.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        B1.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        B1.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            B1.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            B1.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            B1.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            B1.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -10406,18 +9971,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     B1.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         B1.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            B1.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            B1.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        B1.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        B1.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -10466,7 +10029,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 B1.setIcon(null);
             }
-            tablero[7][1]= Centinela[2][0];
+            tablero[7][1] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_B1MouseClicked
@@ -10475,8 +10038,8 @@ public class ChessOracle extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (!evt.isMetaDown()) {
             String Fila = C1.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[7][2];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[7][2];
             boolean Fila_Blancos = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '1') {
@@ -10495,27 +10058,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     C1.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b() || Centinela[2][0] == 0) && !Fila_Blancos) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             C1.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                C1.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    C1.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        C1.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        C1.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            C1.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            C1.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            C1.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            C1.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -10571,18 +10128,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     C1.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         C1.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            C1.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            C1.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        C1.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        C1.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -10631,7 +10186,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 C1.setIcon(null);
             }
-            tablero[7][2]= Centinela[2][0];
+            tablero[7][2] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_C1MouseClicked
@@ -10640,8 +10195,8 @@ public class ChessOracle extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (!evt.isMetaDown()) {
             String Fila = D1.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[7][3];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[7][3];
             boolean Fila_Blancos = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '1') {
@@ -10660,27 +10215,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     D1.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b() || Centinela[2][0] == 0) && !Fila_Blancos) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             D1.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                D1.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    D1.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        D1.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        D1.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            D1.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            D1.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            D1.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            D1.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -10736,18 +10285,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     D1.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         D1.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            D1.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            D1.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        D1.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        D1.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -10796,7 +10343,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 D1.setIcon(null);
             }
-            tablero[7][3]= Centinela[2][0];
+            tablero[7][3] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_D1MouseClicked
@@ -10805,8 +10352,8 @@ public class ChessOracle extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (!evt.isMetaDown()) {
             String Fila = E1.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[7][4];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[7][4];
             boolean Fila_Blancos = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '1') {
@@ -10825,27 +10372,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     E1.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b() || Centinela[2][0] == 0) && !Fila_Blancos) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             E1.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                E1.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    E1.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        E1.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        E1.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            E1.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            E1.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            E1.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            E1.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -10901,18 +10442,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     E1.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         E1.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            E1.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            E1.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        E1.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        E1.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -10961,7 +10500,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 E1.setIcon(null);
             }
-            tablero[7][4]= Centinela[2][0];
+            tablero[7][4] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_E1MouseClicked
@@ -10970,8 +10509,8 @@ public class ChessOracle extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (!evt.isMetaDown()) {
             String Fila = F1.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[7][5];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[7][5];
             boolean Fila_Blancos = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '1') {
@@ -10990,27 +10529,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     F1.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b() || Centinela[2][0] == 0) && !Fila_Blancos) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             F1.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                F1.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    F1.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        F1.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        F1.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            F1.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            F1.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            F1.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            F1.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -11066,18 +10599,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     F1.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         F1.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            F1.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            F1.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        F1.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        F1.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -11126,7 +10657,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 F1.setIcon(null);
             }
-            tablero[7][5]= Centinela[2][0];
+            tablero[7][5] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_F1MouseClicked
@@ -11135,8 +10666,8 @@ public class ChessOracle extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (!evt.isMetaDown()) {
             String Fila = G1.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[7][6];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[7][6];
             boolean Fila_Blancos = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '1') {
@@ -11155,27 +10686,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     G1.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b() || Centinela[2][0] == 0) && !Fila_Blancos) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             G1.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                G1.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    G1.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        G1.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        G1.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            G1.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            G1.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            G1.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            G1.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -11231,18 +10756,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     G1.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         G1.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            G1.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            G1.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        G1.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        G1.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -11291,7 +10814,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 G1.setIcon(null);
             }
-            tablero[7][6]= Centinela[2][0];
+            tablero[7][6] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_G1MouseClicked
@@ -11300,8 +10823,8 @@ public class ChessOracle extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (!evt.isMetaDown()) {
             String Fila = H1.getName();
-            int Centinela[][]= new int[3][3];
-            Centinela[2][0]=tablero[7][7];
+            int Centinela[][] = new int[3][3];
+            Centinela[2][0] = tablero[7][7];
             boolean Fila_Blancos = true;
             for (int i = 1; i < Fila.length(); i++) {
                 if (Fila.charAt(i) == '1') {
@@ -11320,27 +10843,21 @@ public class ChessOracle extends javax.swing.JFrame {
                     H1.setIcon(new ImageIcon(this.getClass().getResource("PeonNegro.svg.png")));
                 } else if ((Caballo_b() && Centinela[2][0] == 2) || (!Peon_b())) {
                     if ((!Peon_b() || Centinela[2][0] == 0) && !Fila_Blancos) {
-                        if(Caballo_b()){
+                        if (Caballo_b()) {
                             Centinela[2][0] += 2;
                             H1.setIcon(new ImageIcon(this.getClass().getResource("CaballoBlanco.svg.png")));
-                        }else{
-                            if(Caballo_n()){
-                                Centinela[2][0] += 3;
-                                H1.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                            }else{
-                                if(Rey_b()){
-                                    Centinela[2][0] += 4;
-                                    H1.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                                }else{
-                                    if(Rey_n()){
-                                        Centinela[2][0] += 5;
-                                        H1.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                                    }else{
-                                        Centinela[2][0] = 0;
-                                        H1.setIcon(null);
-                                    }
-                                }
-                            }
+                        } else if (Caballo_n()) {
+                            Centinela[2][0] += 3;
+                            H1.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
+                        } else if (Rey_b()) {
+                            Centinela[2][0] += 4;
+                            H1.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
+                        } else if (Rey_n()) {
+                            Centinela[2][0] += 5;
+                            H1.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                        } else {
+                            Centinela[2][0] = 0;
+                            H1.setIcon(null);
                         }
                     } else if ((Caballo_b() && Centinela[2][0] == 2)) {
                         Centinela[2][0]++;
@@ -11396,18 +10913,16 @@ public class ChessOracle extends javax.swing.JFrame {
                 if (Caballo_n() && Centinela[2][0] == 3) {
                     Centinela[2][0]++;
                     H1.setIcon(new ImageIcon(this.getClass().getResource("CaballoNegro.svg.png")));
-                }else if(!Caballo_n() && Centinela[2][0] == 3 ){
-                    if(Rey_b()){
-                        Centinela[2][0]+=2;
+                } else if (!Caballo_n() && Centinela[2][0] == 3) {
+                    if (Rey_b()) {
+                        Centinela[2][0] += 2;
                         H1.setIcon(new ImageIcon(this.getClass().getResource("ReyBlanco.svg.png")));
-                    }else{
-                        if(Rey_n()){
-                            Centinela[2][0]+=3;
-                            H1.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
-                        }else{
-                            Centinela[2][0]=0;
-                            H1.setIcon(null);
-                        }
+                    } else if (Rey_n()) {
+                        Centinela[2][0] += 3;
+                        H1.setIcon(new ImageIcon(this.getClass().getResource("ReyNegro.svg.png")));
+                    } else {
+                        Centinela[2][0] = 0;
+                        H1.setIcon(null);
                     }
                 } else if (Rey_b() && Centinela[2][0] == 4) {
                     Centinela[2][0]++;
@@ -11456,7 +10971,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 Centinela[2][0] = 0;
                 H1.setIcon(null);
             }
-            tablero[7][7]= Centinela[2][0];
+            tablero[7][7] = Centinela[2][0];
             impr();
         }
     }//GEN-LAST:event_H1MouseClicked
@@ -11469,7 +10984,7 @@ public class ChessOracle extends javax.swing.JFrame {
                     tablero[i][j] = 0;
                 }
             }
-            
+
             A8.setIcon(null);
             A7.setIcon(null);
             A6.setIcon(null);
@@ -11536,6 +11051,36 @@ public class ChessOracle extends javax.swing.JFrame {
             H1.setIcon(null);
         }
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        int mover_pieza_b = 1;
+        int mover_pieza_n = 2;
+        int mover_pieza = 1;
+        int tablero_temp[][] = tablero;
+        nodo_arbol raiz = new nodo_arbol("raiz", null);
+        Arbol arbol = new Arbol(raiz);
+
+        while (true) {
+            if (mover_pieza == 1) {
+                if (mover_pieza_b == 1) {
+
+                } else if (mover_pieza_b == 3) {
+
+                } else if (mover_pieza_b == 5) {
+
+                }
+            } else if (mover_pieza == 2) {
+                if (mover_pieza_b == 2) {
+
+                } else if (mover_pieza_b == 4) {
+
+                } else if (mover_pieza_b == 6) {
+
+                }
+            }
+        }
+    }//GEN-LAST:event_jButton2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -11645,6 +11190,7 @@ public class ChessOracle extends javax.swing.JFrame {
     private javax.swing.JButton H7;
     private javax.swing.JButton H8;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -11775,4 +11321,44 @@ public class ChessOracle extends javax.swing.JFrame {
             return false;
         }
     }
+
+    /*public void MPeon(int x){
+        if (x == 1) {
+            for (int i = 0; i < tablero.length; i++) {
+                for (int j = 0; j < tablero.length; j++) {
+                    if (tablero[i][j] == 1) {
+                        if (i - 1 >= 0) {
+                            if (j - 1 >= 0) {
+                                if (tablero[i - 1][j - 1] == 4) {//comio caballo
+                                    tablero[i - 1][j - 1] = 1;
+                                    tablero[i][j] = 0;
+                                }else if (tablero[i - 1][j + 1] == 4) {
+                                    tablero[i - 1][j + 1] = 1;
+                                    tablero[i][j] = 0;
+                                }
+                            }else{
+                                tablero[i][j] = 0;
+                                tablero[i - 1][j] = 1;
+                            }
+                        }
+                    }
+                }
+            }
+        }else{
+            for (int i = 0; i < tablero.length; i++) {
+                for (int j = 0; j < tablero.length; j++) {
+                    if (tablero[i][j] == 2) {
+                        if (i + 1 <= 7) {
+                            tablero[i][j] = 0;
+                            tablero[i + 1][j] = 2; 
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    public void MCaballo(){
+        
+    }*/
 }
