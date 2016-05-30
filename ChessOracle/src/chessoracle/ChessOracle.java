@@ -11323,12 +11323,15 @@ public class ChessOracle extends javax.swing.JFrame {
         }
     }
 
-    public String[] MPeon(int x, int[][] tab_temp) {
+    public String[] MPeon(int turno, int[][] tab_temp) {
         String[] pos = new String[3];
+        String temp = "";
         Random rand = new Random();
         int cont = 0;
+        int pieza = 0;
         int Peones_en_campo_b = 0;
         int Peones_en_campo_n = 0;
+        int pos_arr = 0;
 
         for (int i = 0; i < tab_temp.length; i++) {
             for (int j = 0; j < tab_temp.length; j++) {
@@ -11345,79 +11348,131 @@ public class ChessOracle extends javax.swing.JFrame {
                 }
             }
         }
-        int pieza = rand.nextInt() * Peones_en_campo_b;
-        
-        if (x == 1) {
+        if (turno == 1) {
+            pieza = rand.nextInt() * Peones_en_campo_b;
+        } else {
+            pieza = rand.nextInt() * Peones_en_campo_n;
+        }
+
+        if (pieza == 0) {
+            pieza++;
+        }
+
+        if (turno == 1) {
             for (int i = 0; i < tab_temp.length; i++) {
                 for (int j = 0; j < tab_temp.length; j++) {
-                    if (tab_temp[i][j] == 1) {
-                        if (i - 1 >= 0) {
-                            if (j - 1 >= 0) {
-                                if (tab_temp[i - 1][j - 1] == 4) {//comio caballo
-                                    tab_temp[i - 1][j - 1] = 1;
-                                    tab_temp[i][j] = 0;
+                    if (tab_temp[i][j] == 1 && pieza == cont) {
+                        if ((i - 1 >= 0 && j - 1 >= 0) && (tab_temp[i - 1][j - 1] == 2 || tab_temp[i - 1][j - 1] == 4 || tab_temp[i - 1][j - 1] == 6)) {
+                            temp += Integer.toString(i);
+                            temp += Integer.toString(j);
+                            temp += Integer.toString(i - 1);
+                            temp += Integer.toString(j - 1);
 
-                                    pos[0] = Integer.toString(i);
-                                    pos[1] = Integer.toString(j);
-                                    pos[2] = Integer.toString(i - 1);
-                                    pos[3] = Integer.toString(j - 1);
+                            pos[pos_arr] = temp;
+                            temp = "";
+                            pos_arr++;
+                        } else {
+                            temp += Integer.toString(0);
 
-                                } else if (tab_temp[i - 1][j + 1] == 4) {
-                                    tab_temp[i - 1][j + 1] = 1;
-                                    tab_temp[i][j] = 0;
-
-                                    pos[0] = Integer.toString(i);
-                                    pos[1] = Integer.toString(j);
-                                    pos[2] = Integer.toString(i - 1);
-                                    pos[3] = Integer.toString(j + 1);
-                                }
-                            } else {
-                                tab_temp[i][j] = 0;
-                                tab_temp[i - 1][j] = 1;
-
-                                pos[0] = Integer.toString(i);
-                                pos[1] = Integer.toString(j);
-                                pos[2] = Integer.toString(i - 1);
-                                pos[3] = Integer.toString(j);
-                            }
+                            pos[pos_arr] = temp;
+                            temp = "";
+                            pos_arr++;
                         }
+
+                        if ((i - 1 >= 0) && (tab_temp[i - 1][j] == 0)) {
+                            temp += Integer.toString(i);
+                            temp += Integer.toString(j);
+                            temp += Integer.toString(i - 1);
+                            temp += Integer.toString(j);
+
+                            pos[pos_arr] = temp;
+                            temp = "";
+                            pos_arr++;
+                        } else {
+                            temp += Integer.toString(0);
+
+                            pos[pos_arr] = temp;
+                            temp = "";
+                            pos_arr++;
+                        }
+
+                        if ((i - 1 >= 0 && j + 1 <= 7) && (tab_temp[i - 1][j + 1] == 2 || tab_temp[i - 1][j + 1] == 4 || tab_temp[i - 1][j + 1] == 6)) {
+                            temp += Integer.toString(i);
+                            temp += Integer.toString(j);
+                            temp += Integer.toString(i - 1);
+                            temp += Integer.toString(j + 1);
+
+                            pos[pos_arr] = temp;
+                            temp = "";
+                            pos_arr++;
+                        } else {
+                            temp += Integer.toString(0);
+
+                            pos[pos_arr] = temp;
+                            temp = "";
+                            pos_arr++;
+                        }
+                    } else {
+                        cont++;
                     }
                 }
             }
-        } else if (x == 2) {
+        } else if (turno == 2) {
             for (int i = 0; i < tab_temp.length; i++) {
                 for (int j = 0; j < tab_temp.length; j++) {
-                    if (tab_temp[i][j] == 2) {
-                        if (i + 1 <= 7) {
-                            if (j + 1 <= 7) {
-                                if (tab_temp[i + 1][j + 1] == 4) {//comio caballo
-                                    tab_temp[i + 1][j + 1] = 2;
-                                    tab_temp[i][j] = 0;
+                    if (tab_temp[i][j] == 1 && pieza == cont) {
+                        if ((i + 1 <= 7 && j - 1 >= 0) && (tab_temp[i + 1][j - 1] == 1 || tab_temp[i + 1][j - 1] == 3 || tab_temp[i + 1][j - 1] == 5)) {
+                            temp += Integer.toString(i);
+                            temp += Integer.toString(j);
+                            temp += Integer.toString(i + 1);
+                            temp += Integer.toString(j - 1);
 
-                                    pos[0] = Integer.toString(i);
-                                    pos[1] = Integer.toString(j);
-                                    pos[2] = Integer.toString(i + 1);
-                                    pos[3] = Integer.toString(j + 1);
+                            pos[pos_arr] = temp;
+                            temp = "";
+                            pos_arr++;
+                        } else {
+                            temp += Integer.toString(0);
 
-                                } else if (tab_temp[i + 1][j - 1] == 4) {
-                                    tab_temp[i + 1][j - 1] = 2;
-                                    tab_temp[i][j] = 0;
-
-                                    pos[0] = Integer.toString(i);
-                                    pos[1] = Integer.toString(j);
-                                    pos[2] = Integer.toString(i + 1);
-                                    pos[3] = Integer.toString(j - 1);
-                                }
-                            } else {
-                                tab_temp[i][j] = 0;
-                                tab_temp[i + 1][j] = 1;
-
-                                pos[0] = Integer.toString(i);
-                                pos[1] = Integer.toString(j);
-                                pos[2] = Integer.toString(i + 1);
-                                pos[3] = Integer.toString(j);
-                            }
+                            pos[pos_arr] = temp;
+                            temp = "";
+                            pos_arr++;
                         }
+
+                        if ((i - 1 >= 0) && (tab_temp[i + 1][j] == 0)) {
+                            temp += Integer.toString(i);
+                            temp += Integer.toString(j);
+                            temp += Integer.toString(i + 1);
+                            temp += Integer.toString(j);
+
+                            pos[pos_arr] = temp;
+                            temp = "";
+                            pos_arr++;
+                        } else {
+                            temp += Integer.toString(0);
+
+                            pos[pos_arr] = temp;
+                            temp = "";
+                            pos_arr++;
+                        }
+
+                        if ((i + 1 <= 7 && j + 1 <= 7) && (tab_temp[i + 1][j + 1] == 1 || tab_temp[i + 1][j + 1] == 3 || tab_temp[i + 1][j + 1] == 5)) {
+                            temp += Integer.toString(i);
+                            temp += Integer.toString(j);
+                            temp += Integer.toString(i + 1);
+                            temp += Integer.toString(j + 1);
+
+                            pos[pos_arr] = temp;
+                            temp = "";
+                            pos_arr++;
+                        } else {
+                            temp += Integer.toString(0);
+
+                            pos[pos_arr] = temp;
+                            temp = "";
+                            pos_arr++;
+                        }
+                    } else {
+                        cont++;
                     }
                 }
             }
@@ -11425,23 +11480,626 @@ public class ChessOracle extends javax.swing.JFrame {
         return pos;
     }
 
-    public String[] MCaballo(int x, int[][] tab_temp) {
-        String[] pos = new String[3];
-        if (x == 1) {
+    public String[] MCaballo(int turno, int[][] tab_temp) {
+        String[] pos = new String[8];
+        String temp = "";
+        Random rand = new Random();
+        int cont = 0;
+        int pieza = 0;
+        int Caballos_en_campo_b = 0;
+        int Caballos_en_campo_n = 0;
+        int pos_arr = 0;
+
+        for (int i = 0; i < tab_temp.length; i++) {
+            for (int j = 0; j < tab_temp.length; j++) {
+                if (tab_temp[i][j] == 3) {
+                    Caballos_en_campo_b++;
+                }
+            }
+        }
+
+        for (int i = 0; i < tab_temp.length; i++) {
+            for (int j = 0; j < tab_temp.length; j++) {
+                if (tab_temp[i][j] == 4) {
+                    Caballos_en_campo_n++;
+                }
+            }
+        }
+        if (turno == 1) {
+            pieza = rand.nextInt() * Caballos_en_campo_b;
+        } else {
+            pieza = rand.nextInt() * Caballos_en_campo_n;
+        }
+
+        if (pieza == 0) {
+            pieza++;
+        }
+
+        if (turno == 1) {
             for (int i = 0; i < tab_temp.length; i++) {
                 for (int j = 0; j < tab_temp.length; j++) {
-                    if (tab_temp[i][j] == 3) {
+                    if (tab_temp[i][j] == 3 && pieza == cont) {
+                        if (i - 2 >= 0) {
+                            if ((j - 1 >= 0) && (tab_temp[i - 2][j - 1] == 2 || tab_temp[i - 2][j - 1] == 4 || tab_temp[i - 2][j - 1] == 6 || tab_temp[i - 2][j - 1] == 0)) {
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j);
+                                temp += Integer.toString(i - 2);
+                                temp += Integer.toString(j - 1);
 
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            } else {
+                                temp += Integer.toString(0);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            }
+
+                            if ((j + 1 <= 7) && (tab_temp[i - 2][j + 1] == 2 || tab_temp[i - 2][j + 1] == 4 || tab_temp[i - 2][j + 1] == 6 || tab_temp[i - 2][j + 1] == 0)) {
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j);
+                                temp += Integer.toString(i - 2);
+                                temp += Integer.toString(j + 1);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            } else {
+                                temp += Integer.toString(0);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            }
+                        } else if (i - 1 >= 0) {
+                            if ((j - 2 >= 0) && (tab_temp[i - 1][j - 2] == 2 || tab_temp[i - 1][j - 2] == 4 || tab_temp[i - 1][j - 2] == 6 || tab_temp[i - 1][j - 2] == 0)) {
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j);
+                                temp += Integer.toString(i - 1);
+                                temp += Integer.toString(j - 2);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            } else {
+                                temp += Integer.toString(0);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            }
+
+                            if ((j + 2 <= 7) && (tab_temp[i - 1][j + 2] == 2 || tab_temp[i - 1][j + 2] == 4 || tab_temp[i - 1][j + 2] == 6 || tab_temp[i - 1][j + 2] == 0)) {
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j);
+                                temp += Integer.toString(i - 1);
+                                temp += Integer.toString(j + 2);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            } else {
+                                temp += Integer.toString(0);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            }
+                        } else if (i + 1 <= 7) {
+                            if ((j - 2 >= 0) && (tab_temp[i + 1][j - 2] == 2 || tab_temp[i + 1][j - 2] == 4 || tab_temp[i + 1][j - 2] == 6 || tab_temp[i + 1][j - 2] == 0)) {
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j);
+                                temp += Integer.toString(i + 1);
+                                temp += Integer.toString(j - 2);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            } else {
+                                temp += Integer.toString(0);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            }
+
+                            if ((j + 2 <= 7) && (tab_temp[i + 1][j + 2] == 2 || tab_temp[i + 1][j + 2] == 4 || tab_temp[i + 1][j + 2] == 6 || tab_temp[i + 1][j + 2] == 0)) {
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j);
+                                temp += Integer.toString(i + 1);
+                                temp += Integer.toString(j + 2);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            } else {
+                                temp += Integer.toString(0);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            }
+                        } else if (i + 2 <= 7) {
+                            if ((j - 1 >= 0) && (tab_temp[i + 2][j - 1] == 2 || tab_temp[i + 2][j - 1] == 4 || tab_temp[i + 2][j - 1] == 6 || tab_temp[i + 2][j - 1] == 0)) {
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j);
+                                temp += Integer.toString(i + 2);
+                                temp += Integer.toString(j - 1);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            } else {
+                                temp += Integer.toString(0);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            }
+
+                            if ((j + 1 <= 7) && (tab_temp[i + 2][j + 1] == 2 || tab_temp[i + 2][j + 1] == 4 || tab_temp[i + 2][j + 1] == 6 || tab_temp[i + 2][j + 1] == 0)) {
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j);
+                                temp += Integer.toString(i + 2);
+                                temp += Integer.toString(j + 1);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            } else {
+                                temp += Integer.toString(0);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            }
+                        } else {
+                            temp += Integer.toString(0);
+
+                            pos[pos_arr] = temp;
+                            temp = "";
+                            pos_arr++;
+                        }
+                    } else {
+                        cont++;
+                    }
+                }
+            }
+        } else if (turno == 2) {
+            for (int i = 0; i < tab_temp.length; i++) {
+                for (int j = 0; j < tab_temp.length; j++) {
+                    if (tab_temp[i][j] == 4 && pieza == cont) {
+                        if (i - 2 >= 0) {
+                            if ((j - 1 >= 0) && (tab_temp[i - 2][j - 1] == 1 || tab_temp[i - 2][j - 1] == 3 || tab_temp[i - 2][j - 1] == 5 || tab_temp[i - 2][j - 1] == 0)) {
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j);
+                                temp += Integer.toString(i - 2);
+                                temp += Integer.toString(j - 1);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            } else {
+                                temp += Integer.toString(0);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            }
+
+                            if ((j + 1 <= 7) && (tab_temp[i - 2][j + 1] == 1 || tab_temp[i - 2][j + 1] == 3 || tab_temp[i - 2][j + 1] == 5 || tab_temp[i - 2][j + 1] == 0)) {
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j);
+                                temp += Integer.toString(i - 2);
+                                temp += Integer.toString(j + 1);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            } else {
+                                temp += Integer.toString(0);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            }
+                        } else if (i - 1 >= 0) {
+                            if ((j - 2 >= 0) && (tab_temp[i - 1][j - 2] == 1 || tab_temp[i - 1][j - 2] == 3 || tab_temp[i - 1][j - 2] == 5 || tab_temp[i - 1][j - 2] == 0)) {
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j);
+                                temp += Integer.toString(i - 1);
+                                temp += Integer.toString(j - 2);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            } else {
+                                temp += Integer.toString(0);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            }
+
+                            if ((j + 2 <= 7) && (tab_temp[i - 1][j + 2] == 1 || tab_temp[i - 1][j + 2] == 3 || tab_temp[i - 1][j + 2] == 5 || tab_temp[i - 1][j + 2] == 0)) {
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j);
+                                temp += Integer.toString(i - 1);
+                                temp += Integer.toString(j + 2);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            } else {
+                                temp += Integer.toString(0);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            }
+                        } else if (i + 1 <= 7) {
+                            if ((j - 2 >= 0) && (tab_temp[i + 1][j - 2] == 1 || tab_temp[i + 1][j - 2] == 3 || tab_temp[i + 1][j - 2] == 5 || tab_temp[i + 1][j - 2] == 0)) {
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j);
+                                temp += Integer.toString(i + 1);
+                                temp += Integer.toString(j - 2);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            } else {
+                                temp += Integer.toString(0);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            }
+
+                            if ((j + 2 <= 7) && (tab_temp[i + 1][j + 2] == 1 || tab_temp[i + 1][j + 2] == 3 || tab_temp[i + 1][j + 2] == 5 || tab_temp[i + 1][j + 2] == 0)) {
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j);
+                                temp += Integer.toString(i + 1);
+                                temp += Integer.toString(j + 2);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            } else {
+                                temp += Integer.toString(0);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            }
+                        } else if (i + 2 <= 7) {
+                            if ((j - 1 >= 0) && (tab_temp[i + 2][j - 1] == 1 || tab_temp[i + 2][j - 1] == 3 || tab_temp[i + 2][j - 1] == 5 || tab_temp[i + 2][j - 1] == 0)) {
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j);
+                                temp += Integer.toString(i + 2);
+                                temp += Integer.toString(j - 1);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            } else {
+                                temp += Integer.toString(0);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            }
+
+                            if ((j + 1 <= 7) && (tab_temp[i + 2][j + 1] == 1 || tab_temp[i + 2][j + 1] == 3 || tab_temp[i + 2][j + 1] == 5 || tab_temp[i + 2][j + 1] == 0)) {
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j);
+                                temp += Integer.toString(i + 2);
+                                temp += Integer.toString(j + 1);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            } else {
+                                temp += Integer.toString(0);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            }
+                        } else {
+                            temp += Integer.toString(0);
+
+                            pos[pos_arr] = temp;
+                            temp = "";
+                            pos_arr++;
+                        }
+                    } else {
+                        cont++;
                     }
                 }
             }
         }
-        
+
         return pos;
     }
 
-    public String[] MRey(int x, int[][] tab_temp) {
-        String[] pos = new String[3];
+    public String[] MRey(int turno, int[][] tab_temp) {
+        String[] pos = new String[8];
+        String temp = "";
+        Random rand = new Random();
+        int cont = 0;
+        int pieza = 0;
+        int Rey_en_campo_b = 0;
+        int Rey_en_campo_n = 0;
+        int pos_arr = 0;
+
+        for (int i = 0; i < tab_temp.length; i++) {
+            for (int j = 0; j < tab_temp.length; j++) {
+                if (tab_temp[i][j] == 3) {
+                    Rey_en_campo_b++;
+                }
+            }
+        }
+
+        for (int i = 0; i < tab_temp.length; i++) {
+            for (int j = 0; j < tab_temp.length; j++) {
+                if (tab_temp[i][j] == 4) {
+                    Rey_en_campo_n++;
+                }
+            }
+        }
+        if (turno == 1) {
+            pieza = rand.nextInt() * Rey_en_campo_b;
+        } else {
+            pieza = rand.nextInt() * Rey_en_campo_n;
+        }
+
+        if (pieza == 0) {
+            pieza++;
+        }
+
+        if (turno == 1) {
+            for (int i = 0; i < tab_temp.length; i++) {
+                for (int j = 0; j < tab_temp.length; j++) {
+                    if (tab_temp[i][j] == 5 && pieza == cont) {
+                        if ((i + 1 <= 7)) {
+                            if ((j - 1 >= 0) && (tab_temp[i + 1][j - 1] == 2 || tab_temp[i + 1][j - 1] == 4 || tab_temp[i + 1][j - 1] == 6 || tab_temp[i + 1][j - 1] == 0)) {
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j);
+                                temp += Integer.toString(i + 1);
+                                temp += Integer.toString(j + 1);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            } else if ((tab_temp[i + 1][j] == 2 || tab_temp[i + 1][j] == 4 || tab_temp[i + 1][j] == 6 || tab_temp[i + 1][j] == 0)) {
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j);
+                                temp += Integer.toString(i + 2);
+                                temp += Integer.toString(j);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            } else if ((j + 1 >= 0) && (tab_temp[i + 1][j + 1] == 2 || tab_temp[i + 1][j + 1] == 4 || tab_temp[i + 1][j + 1] == 6 || tab_temp[i + 1][j + 1] == 0)) {
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j);
+                                temp += Integer.toString(i + 2);
+                                temp += Integer.toString(j + 1);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            } else {
+                                temp += Integer.toString(0);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            }
+                        } else if (i - 1 >= 0) {
+                            if ((j + 1 >= 0) && (tab_temp[i - 1][j + 1] == 2 || tab_temp[i - 1][j + 1] == 4 || tab_temp[i - 1][j + 1] == 6 || tab_temp[i - 1][j + 1] == 0)) {
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j);
+                                temp += Integer.toString(i - 1);
+                                temp += Integer.toString(j + 1);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            } else if ((j - 1 >= 0) && (tab_temp[i - 1][j - 1] == 2 || tab_temp[i - 1][j - 1] == 4 || tab_temp[i - 1][j - 1] == 6 || tab_temp[i - 1][j - 1] == 0)) {
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j);
+                                temp += Integer.toString(i - 1);
+                                temp += Integer.toString(j - 1);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            } else if ((tab_temp[i - 1][j] == 2 || tab_temp[i - 1][j] == 4 || tab_temp[i - 1][j] == 6 || tab_temp[i - 1][j] == 0)) {
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j);
+                                temp += Integer.toString(i - 1);
+                                temp += Integer.toString(j);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            } else {
+                                temp += Integer.toString(0);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            }
+                        } else if (j - 1 >= 0) {
+                            if ((tab_temp[i][j - 1] == 2 || tab_temp[i][j - 1] == 4 || tab_temp[i][j - 1] == 6 || tab_temp[i][j - 1] == 0)) {
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j);
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j - 1);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            } else {
+                                temp += Integer.toString(0);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            }
+                        } else if (j + 1 <= 0) {
+                            if ((tab_temp[i][j + 1] == 2 || tab_temp[i][j + 1] == 4 || tab_temp[i][j + 1] == 6 || tab_temp[i][j + 1] == 0)) {
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j);
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j + 1);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            } else {
+                                temp += Integer.toString(0);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            }
+                        } else {
+                            temp += Integer.toString(0);
+
+                            pos[pos_arr] = temp;
+                            temp = "";
+                            pos_arr++;
+                        }
+                    } else {
+                        cont++;
+                    }
+                }
+            }
+        } else if (turno == 2) {
+            for (int i = 0; i < tab_temp.length; i++) {
+                for (int j = 0; j < tab_temp.length; j++) {
+                    if (tab_temp[i][j] == 6 && pieza == cont) {
+                        if ((i + 1 <= 7)) {
+                            if ((j - 1 >= 0) && (tab_temp[i + 1][j - 1] == 1 || tab_temp[i + 1][j - 1] == 3 || tab_temp[i + 1][j - 1] == 5 || tab_temp[i + 1][j - 1] == 0)) {
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j);
+                                temp += Integer.toString(i + 1);
+                                temp += Integer.toString(j + 1);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            } else if ((tab_temp[i + 1][j] == 1 || tab_temp[i + 1][j] == 3 || tab_temp[i + 1][j] == 5 || tab_temp[i + 1][j] == 0)) {
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j);
+                                temp += Integer.toString(i + 2);
+                                temp += Integer.toString(j);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            } else if ((j + 1 >= 0) && (tab_temp[i + 1][j + 1] == 1 || tab_temp[i + 1][j + 1] == 3 || tab_temp[i + 1][j + 1] == 5 || tab_temp[i + 1][j + 1] == 0)) {
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j);
+                                temp += Integer.toString(i + 2);
+                                temp += Integer.toString(j + 1);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            } else {
+                                temp += Integer.toString(0);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            }
+                        } else if (i - 1 >= 0) {
+                            if ((j + 1 >= 0) && (tab_temp[i - 1][j + 1] == 1 || tab_temp[i - 1][j + 1] == 3 || tab_temp[i - 1][j + 1] == 5 || tab_temp[i - 1][j + 1] == 0)) {
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j);
+                                temp += Integer.toString(i - 1);
+                                temp += Integer.toString(j + 1);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            } else if ((j - 1 >= 0) && (tab_temp[i - 1][j - 1] == 1 || tab_temp[i - 1][j - 1] == 3 || tab_temp[i - 1][j - 1] == 5 || tab_temp[i - 1][j - 1] == 0)) {
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j);
+                                temp += Integer.toString(i - 1);
+                                temp += Integer.toString(j - 1);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            } else if ((tab_temp[i - 1][j] == 1 || tab_temp[i - 1][j] == 3 || tab_temp[i - 1][j] == 5 || tab_temp[i - 1][j] == 0)) {
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j);
+                                temp += Integer.toString(i - 1);
+                                temp += Integer.toString(j);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            } else {
+                                temp += Integer.toString(0);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            }
+                        } else if (j - 1 >= 0) {
+                            if ((tab_temp[i][j - 1] == 1 || tab_temp[i][j - 1] == 3 || tab_temp[i][j - 1] == 5 || tab_temp[i][j - 1] == 0)) {
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j);
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j - 1);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            } else {
+                                temp += Integer.toString(0);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            }
+                        } else if (j + 1 <= 0) {
+                            if ((tab_temp[i][j + 1] == 1 || tab_temp[i][j + 1] == 3 || tab_temp[i][j + 1] == 5 || tab_temp[i][j + 1] == 0)) {
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j);
+                                temp += Integer.toString(i);
+                                temp += Integer.toString(j + 1);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            } else {
+                                temp += Integer.toString(0);
+
+                                pos[pos_arr] = temp;
+                                temp = "";
+                                pos_arr++;
+                            }
+                        } else {
+                            temp += Integer.toString(0);
+
+                            pos[pos_arr] = temp;
+                            temp = "";
+                            pos_arr++;
+                        }
+                    } else {
+                        cont++;
+                    }
+                }
+            }
+        }
 
         return pos;
     }
