@@ -5,7 +5,7 @@ package chessoracle;
 public class nodo_arbol {
     private Object value = null;
     private nodo_arbol padre = null;
-    private Lista hijos = new Lista();
+    Lista hijos = new Lista();
     
     public nodo_arbol() {
     }
