@@ -11322,7 +11322,7 @@ public class ChessOracle extends javax.swing.JFrame {
         }
     }
 
-    public void MPeon(int x, int[][] tab_temp) {
+    public String MPeon(int x, int[][] tab_temp) {
         String pos = "";
         if (x == 1) {
             for (int i = 0; i < tab_temp.length; i++) {
@@ -11333,20 +11333,29 @@ public class ChessOracle extends javax.swing.JFrame {
                                 if (tab_temp[i - 1][j - 1] == 4) {//comio caballo
                                     tab_temp[i - 1][j - 1] = 1;
                                     tab_temp[i][j] = 0;
-                                    
-                                    pos+= i;
-                                    pos+= j;
-                                    pos+= i-1;
-                                    pos+= j-1;
-                                    nodo_arbol nodo = new nodo_arbol(pos, null);
-                                    
+
+                                    pos += i;
+                                    pos += j;
+                                    pos += i - 1;
+                                    pos += j - 1;
+
                                 } else if (tab_temp[i - 1][j + 1] == 4) {
                                     tab_temp[i - 1][j + 1] = 1;
                                     tab_temp[i][j] = 0;
+
+                                    pos += i;
+                                    pos += j;
+                                    pos += i - 1;
+                                    pos += j + 1;
                                 }
                             } else {
                                 tab_temp[i][j] = 0;
                                 tab_temp[i - 1][j] = 1;
+
+                                pos += i;
+                                pos += j;
+                                pos += i - 1;
+                                pos += j;
                             }
                         }
                     }
@@ -11361,19 +11370,36 @@ public class ChessOracle extends javax.swing.JFrame {
                                 if (tab_temp[i + 1][j + 1] == 4) {//comio caballo
                                     tab_temp[i + 1][j + 1] = 2;
                                     tab_temp[i][j] = 0;
+
+                                    pos += i;
+                                    pos += j;
+                                    pos += i + 1;
+                                    pos += j + 1;
+
                                 } else if (tab_temp[i + 1][j - 1] == 4) {
                                     tab_temp[i + 1][j - 1] = 2;
                                     tab_temp[i][j] = 0;
+
+                                    pos += i;
+                                    pos += j;
+                                    pos += i + 1;
+                                    pos += j - 1;
                                 }
                             } else {
                                 tab_temp[i][j] = 0;
                                 tab_temp[i + 1][j] = 1;
+
+                                pos += i;
+                                pos += j;
+                                pos += i + 1;
+                                pos += j;
                             }
                         }
                     }
                 }
             }
         }
+        return pos;
     }
 
     public void MCaballo() {
