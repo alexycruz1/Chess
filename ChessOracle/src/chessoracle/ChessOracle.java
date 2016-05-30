@@ -1,5 +1,6 @@
 package chessoracle;
 
+import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
@@ -11320,8 +11321,30 @@ public class ChessOracle extends javax.swing.JFrame {
         }
     }
 
-    public String MPeon(int x, int[][] tab_temp) {
-        String pos = "";
+    public String[] MPeon(int x, int[][] tab_temp) {
+        String[] pos = new String[3];
+        Random rand = new Random();
+        int cont = 0;
+        int Peones_en_campo_b = 0;
+        int Peones_en_campo_n = 0;
+
+        for (int i = 0; i < tab_temp.length; i++) {
+            for (int j = 0; j < tab_temp.length; j++) {
+                if (tab_temp[i][j] == 1) {
+                    Peones_en_campo_b++;
+                }
+            }
+        }
+
+        for (int i = 0; i < tab_temp.length; i++) {
+            for (int j = 0; j < tab_temp.length; j++) {
+                if (tab_temp[i][j] == 2) {
+                    Peones_en_campo_n++;
+                }
+            }
+        }
+        int pieza = rand.nextInt() * Peones_en_campo_b;
+        
         if (x == 1) {
             for (int i = 0; i < tab_temp.length; i++) {
                 for (int j = 0; j < tab_temp.length; j++) {
@@ -11332,34 +11355,34 @@ public class ChessOracle extends javax.swing.JFrame {
                                     tab_temp[i - 1][j - 1] = 1;
                                     tab_temp[i][j] = 0;
 
-                                    pos += i;
-                                    pos += j;
-                                    pos += i - 1;
-                                    pos += j - 1;
+                                    pos[0] = Integer.toString(i);
+                                    pos[1] = Integer.toString(j);
+                                    pos[2] = Integer.toString(i - 1);
+                                    pos[3] = Integer.toString(j - 1);
 
                                 } else if (tab_temp[i - 1][j + 1] == 4) {
                                     tab_temp[i - 1][j + 1] = 1;
                                     tab_temp[i][j] = 0;
 
-                                    pos += i;
-                                    pos += j;
-                                    pos += i - 1;
-                                    pos += j + 1;
+                                    pos[0] = Integer.toString(i);
+                                    pos[1] = Integer.toString(j);
+                                    pos[2] = Integer.toString(i - 1);
+                                    pos[3] = Integer.toString(j + 1);
                                 }
                             } else {
                                 tab_temp[i][j] = 0;
                                 tab_temp[i - 1][j] = 1;
 
-                                pos += i;
-                                pos += j;
-                                pos += i - 1;
-                                pos += j;
+                                pos[0] = Integer.toString(i);
+                                pos[1] = Integer.toString(j);
+                                pos[2] = Integer.toString(i - 1);
+                                pos[3] = Integer.toString(j);
                             }
                         }
                     }
                 }
             }
-        } else {
+        } else if (x == 2) {
             for (int i = 0; i < tab_temp.length; i++) {
                 for (int j = 0; j < tab_temp.length; j++) {
                     if (tab_temp[i][j] == 2) {
@@ -11369,28 +11392,28 @@ public class ChessOracle extends javax.swing.JFrame {
                                     tab_temp[i + 1][j + 1] = 2;
                                     tab_temp[i][j] = 0;
 
-                                    pos += i;
-                                    pos += j;
-                                    pos += i + 1;
-                                    pos += j + 1;
+                                    pos[0] = Integer.toString(i);
+                                    pos[1] = Integer.toString(j);
+                                    pos[2] = Integer.toString(i + 1);
+                                    pos[3] = Integer.toString(j + 1);
 
                                 } else if (tab_temp[i + 1][j - 1] == 4) {
                                     tab_temp[i + 1][j - 1] = 2;
                                     tab_temp[i][j] = 0;
 
-                                    pos += i;
-                                    pos += j;
-                                    pos += i + 1;
-                                    pos += j - 1;
+                                    pos[0] = Integer.toString(i);
+                                    pos[1] = Integer.toString(j);
+                                    pos[2] = Integer.toString(i + 1);
+                                    pos[3] = Integer.toString(j - 1);
                                 }
                             } else {
                                 tab_temp[i][j] = 0;
                                 tab_temp[i + 1][j] = 1;
 
-                                pos += i;
-                                pos += j;
-                                pos += i + 1;
-                                pos += j;
+                                pos[0] = Integer.toString(i);
+                                pos[1] = Integer.toString(j);
+                                pos[2] = Integer.toString(i + 1);
+                                pos[3] = Integer.toString(j);
                             }
                         }
                     }
@@ -11400,7 +11423,24 @@ public class ChessOracle extends javax.swing.JFrame {
         return pos;
     }
 
-    public void MCaballo() {
+    public String[] MCaballo(int x, int[][] tab_temp) {
+        String[] pos = new String[3];
+        if (x == 1) {
+            for (int i = 0; i < tab_temp.length; i++) {
+                for (int j = 0; j < tab_temp.length; j++) {
+                    if (tab_temp[i][j] == 3) {
 
+                    }
+                }
+            }
+        }
+        
+        return pos;
+    }
+
+    public String[] MRey(int x, int[][] tab_temp) {
+        String[] pos = new String[3];
+
+        return pos;
     }
 }
