@@ -11054,34 +11054,113 @@ public class ChessOracle extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        // TODO add your handling code here:
-        int mover_pieza_b = 1;
-        int mover_pieza_n = 2;
-        int mover_pieza = 1;
-        int tablero_temp[][] = tablero;
 
-        while (true) {
-            if (mover_pieza == 1) {
-                if (mover_pieza_b == 1) {
-                    MPeon(mover_pieza_b, tablero_temp);
-                } else if (mover_pieza_b == 3) {
-
-                } else if (mover_pieza_b == 5) {
-
+    }//GEN-LAST:event_jButton2MouseClicked
+    public void agregar_nodos(nodo_arbol padre, int turno) {
+        for (int i = 0; i < padre.hijos.size(); i++) {
+            if (padre.profundidad() < 100 || verificar_c((int[][])padre.getValue())) {
+                if (turno % 2 == 0) {
+                    String[] peones = MPeon(turno, (int[][])padre.getValue());
+                    String[] caballos = MCaballo(turno,(int[][])padre.getValue());
+                    String[] rey = MRey(turno, (int[][])padre.getValue());
+                    
+                    for (int j = 0; j < 3; j++) {
+                        if(!peones[i].equals("0")){
+                            int[][] m_hija = (int[][])padre.getValue();
+                            m_hija[peones[i].charAt(0)][peones[i].charAt(1)]=0;
+                            m_hija[peones[i].charAt(2)][peones[i].charAt(3)]=1;
+                            nodo_arbol nodo_hijo = new nodo_arbol(m_hija,null);
+                            agregar_nodos(nodo_hijo,turno+1);
+                            padre.addSon(nodo_hijo);
+                        }
+                    }
+                    for (int j = 0; j < 8; j++) {
+                        if(!caballos[i].equals("0")){
+                            int[][] m_hija = (int[][])padre.getValue();
+                            m_hija[caballos[i].charAt(0)][caballos[i].charAt(1)]=0;
+                            m_hija[caballos[i].charAt(2)][caballos[i].charAt(3)]=1;
+                            nodo_arbol nodo_hijo = new nodo_arbol(m_hija,null);
+                            agregar_nodos(nodo_hijo,turno+1);
+                            padre.addSon(nodo_hijo);
+                        }
+                    }
+                    for (int j = 0; j < 8; j++) {
+                        if(!rey[i].equals("0")){
+                            int[][] m_hija = (int[][])padre.getValue();
+                            m_hija[rey[i].charAt(0)][rey[i].charAt(1)]=0;
+                            m_hija[rey[i].charAt(2)][rey[i].charAt(3)]=1;
+                            nodo_arbol nodo_hijo = new nodo_arbol(m_hija,null);
+                            agregar_nodos(nodo_hijo,turno+1);
+                            padre.addSon(nodo_hijo);
+                        }
+                    }
+                } else {
+                    String[] peones = MPeon(turno, (int[][])padre.getValue());
+                    String[] caballos = MCaballo(turno,(int[][])padre.getValue());
+                    String[] rey = MRey(turno, (int[][])padre.getValue());
+                    
+                    for (int j = 0; j < 3; j++) {
+                        if(!peones[i].equals("0")){
+                            int[][] m_hija = (int[][])padre.getValue();
+                            m_hija[peones[i].charAt(0)][peones[i].charAt(1)]=0;
+                            m_hija[peones[i].charAt(2)][peones[i].charAt(3)]=1;
+                            nodo_arbol nodo_hijo = new nodo_arbol(m_hija,null);
+                            agregar_nodos(nodo_hijo,turno-1);
+                            padre.addSon(nodo_hijo);
+                        }
+                    }
+                    for (int j = 0; j < 8; j++) {
+                        if(!caballos[i].equals("0")){
+                            int[][] m_hija = (int[][])padre.getValue();
+                            m_hija[caballos[i].charAt(0)][caballos[i].charAt(1)]=0;
+                            m_hija[caballos[i].charAt(2)][caballos[i].charAt(3)]=1;
+                            nodo_arbol nodo_hijo = new nodo_arbol(m_hija,null);
+                            agregar_nodos(nodo_hijo,turno-1);
+                            padre.addSon(nodo_hijo);
+                        }
+                    }
+                    for (int j = 0; j < 8; j++) {
+                        if(!rey[i].equals("0")){
+                            int[][] m_hija = (int[][])padre.getValue();
+                            m_hija[rey[i].charAt(0)][rey[i].charAt(1)]=0;
+                            m_hija[rey[i].charAt(2)][rey[i].charAt(3)]=1;
+                            nodo_arbol nodo_hijo = new nodo_arbol(m_hija,null);
+                            agregar_nodos(nodo_hijo,turno-1);
+                            padre.addSon(nodo_hijo);
+                        }
+                    }
                 }
-            } else if (mover_pieza == 2) {
-                if (mover_pieza_b == 2) {
+            }else{
+                hojas.push_back((int[][])padre.getValue());
+            }
+        }
+    }
 
-                } else if (mover_pieza_b == 4) {
-
-                } else if (mover_pieza_b == 6) {
-
+    public boolean verificar_c(int[][] matriz) {
+        boolean temp = false;
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (matriz[i][j] == 3) {
+                    temp = true;
                 }
             }
         }
-    }//GEN-LAST:event_jButton2MouseClicked
+        return temp;
+    }
 
-    
+    public boolean verificar_p(int[][] matriz) {
+        for (int i = 0; i < 8; i++) {
+            if (matriz[7][i] == 1) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean verificar_r() {
+        return false;
+    }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -11207,9 +11286,9 @@ public class ChessOracle extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     int pieza_actual = 0;
     int tablero[][] = {{0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}};
-    nodo_arbol raiz = new nodo_arbol("raiz", null);
+    nodo_arbol raiz = new nodo_arbol(tablero, null);
     Arbol arbol = new Arbol(raiz);
-
+    Lista hojas = new Lista();
     public void impr() {
         for (int i = 0; i < tablero.length; i++) {
             for (int j = 0; j < tablero.length; j++) {
@@ -11344,7 +11423,7 @@ public class ChessOracle extends javax.swing.JFrame {
             }
         }
         int pieza = rand.nextInt() * Peones_en_campo_b;
-        
+
         if (x == 1) {
             for (int i = 0; i < tab_temp.length; i++) {
                 for (int j = 0; j < tab_temp.length; j++) {
@@ -11434,7 +11513,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 }
             }
         }
-        
+
         return pos;
     }
 
