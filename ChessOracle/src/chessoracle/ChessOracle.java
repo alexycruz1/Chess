@@ -11077,7 +11077,7 @@ public class ChessOracle extends javax.swing.JFrame {
     }
 
     public boolean verificar_r(int[][] matriz) {
-
+        
         return false;
     }
 
