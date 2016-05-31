@@ -11066,7 +11066,7 @@ public class ChessOracle extends javax.swing.JFrame {
 
     public boolean verificar_p(int[][] matriz) {
         for (int i = 0; i < 8; i++) {
-            if (matriz[7][i] == 1) {
+            if (matriz[7][i] == 7) {
                 return true;
             }
         }
@@ -11074,7 +11074,37 @@ public class ChessOracle extends javax.swing.JFrame {
     }
 
     public boolean verificar_r(int[][] matriz) {
-
+        int[][] matriz_temp = new int[8][8];
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz.length; j++) {
+                matriz_temp[i][j] = matriz[i][j];
+            }
+        }
+        
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz.length; j++) {
+                if (matriz_temp[i][j] == 6) {
+                    if (i + 1 <= 7) {//primer movimiento
+                        if (j + 1 <= 7) {//primer submovimiento
+                            matriz_temp[i + 1][j + 1] = 6;
+                            matriz_temp[i][j] = 0;
+                            
+                            if (matriz_temp[i + 3][j + 2] == 3 || matriz_temp[i][j] == 3 || matriz_temp[i][j] == 3 || matriz_temp[i][j] == 3 || matriz_temp[i][j] == 3 || matriz_temp[i][j] == 3 || matriz_temp[i][j] == 3 || matriz_temp[i][j] == 3 || matriz_temp[i][j] == 3 || matriz_temp[i][j] == 3) {
+                                
+                            }
+                        }
+                    }
+                    
+                    if (rootPaneCheckingEnabled) {//segundo movimiento
+                        
+                    }
+                    
+                    if (rootPaneCheckingEnabled) {//tercer submovimiento
+                        
+                    }
+                }
+            }
+        }
         return false;
     }
 
