@@ -11468,6 +11468,9 @@ public class ChessOracle extends javax.swing.JFrame {
 
     public String[] MPeon(int turno, int[][] tab_temp) {
         String[] pos = new String[3];
+        for (int i = 0; i < pos.length; i++) {
+            pos[i] = Integer.toString(0);
+        }
         String temp = "";
         Random rand = new Random();
         int cont = 0;
@@ -11619,7 +11622,7 @@ public class ChessOracle extends javax.swing.JFrame {
                     }
                 }
             }
-        }else{
+        } else {
             for (int i = 0; i < pos.length; i++) {
                 pos[i] = Integer.toString(0);
             }
@@ -11629,6 +11632,9 @@ public class ChessOracle extends javax.swing.JFrame {
 
     public String[] MCaballo(int turno, int[][] tab_temp) {
         String[] pos = new String[8];
+        for (int i = 0; i < pos.length; i++) {
+            pos[i] = Integer.toString(0);
+        }
         String temp = "";
         int cont = 0;
         int pieza = 0;
@@ -12013,7 +12019,7 @@ public class ChessOracle extends javax.swing.JFrame {
                     }
                 }
             }
-        }else{
+        } else {
             for (int i = 0; i < pos.length; i++) {
                 pos[i] = Integer.toString(0);
             }
@@ -12024,6 +12030,9 @@ public class ChessOracle extends javax.swing.JFrame {
 
     public String[] MRey(int turno, int[][] tab_temp) {
         String[] pos = new String[8];
+        for (int i = 0; i < pos.length; i++) {
+            pos[i] = Integer.toString(0);
+        }
         String temp = "";
         Random rand = new Random();
         int cont = 0;
@@ -12409,7 +12418,7 @@ public class ChessOracle extends javax.swing.JFrame {
                     }
                 }
             }
-        }else{
+        } else {
             for (int i = 0; i < pos.length; i++) {
                 pos[i] = Integer.toString(0);
             }
