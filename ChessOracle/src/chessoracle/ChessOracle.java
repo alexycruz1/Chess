@@ -11055,235 +11055,203 @@ public class ChessOracle extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        nodo_arbol r = new nodo_arbol(tablero, null);
+        arbol = new Arbol(r);
+        hojas = new Lista();
+        agregar_nodos(arbol.getRoot(), 1, 1);
+        if (hojas.size() > 0) {
 
-        agregar_nodos(arbol.getRoot(), 1);
-        agregar_nodos(arbol.getRoot().getLefterSon(),2);
-        System.out.println("Adios");
-        nodo_arbol respuesta = ((nodo_arbol) hojas.at(0)).getParent().getLefterSon();
-        for (int i = 1; i < hojas.size(); i++) {
-            if (verificar_c((int[][]) hojas.at(i))) {
-                if (((nodo_arbol) hojas.at(i)).profundidad() < respuesta.profundidad()) {
-                    respuesta = (nodo_arbol) hojas.at(i);
+            nodo_arbol respuesta = ((nodo_arbol) hojas.at(0));
+            for (int i = 1; i < hojas.size(); i++) {
+                if (!verificar_c((int[][]) ((nodo_arbol) hojas.at(i)).getValue())) {
+                    if (((nodo_arbol) hojas.at(i)).profundidad() < respuesta.profundidad()) {
+                        respuesta = (nodo_arbol) hojas.at(i);
+                    }
                 }
             }
-        }
-
-        JOptionPane.showMessageDialog(this, respuesta);
-        
-    }//GEN-LAST:event_jButton2MouseClicked
-    public void agregar_nodos(nodo_arbol padre, int turno) {
-        if (padre.getParent() == null) {
-            String[] peones = MPeon(turno, (int[][]) padre.getValue());
-            String[] caballos = MCaballo(turno, (int[][]) padre.getValue());
-            String[] rey = MRey(turno, (int[][]) padre.getValue());
+            System.out.println(respuesta.profundidad());
+            int[][] matriz = (int[][])respuesta.getValue();
+            for (int i = 0; i < 8; i++) {
+                for (int j = 0; j < 8; j++) {
+                    System.out.print(matriz[i][j]);
+                }
+                System.out.println();
+            }
             
-            for (int j = 0; j < 3; j++) {
-                if (!peones[j].equals("0")) {
-                    int[][] m_hija = new int[8][8];
-                    for (int i = 0; i < 8; i++) {
-                        for (int k = 0; k < 8; k++) {
-                            m_hija[i][k] = 0;
-                        }
-                    }
-                    for (int i = 0; i < 8; i++) {
-                        for (int k = 0; k < 8; k++) {
-                            m_hija[i][k] = ((int[][]) padre.getValue())[i][k];
-                        }
-                    }
-                    m_hija[peones[j].charAt(0) - 48][peones[j].charAt(1) - 48] = 0;
-                    m_hija[peones[j].charAt(2) - 48][peones[j].charAt(3) - 48] = 1;
-                    nodo_arbol nodo_hijo = new nodo_arbol(m_hija, null);
-                    padre.addSon(nodo_hijo);
-                }
-            }
-            for (int j = 0; j < 8; j++) {
-                if (!caballos[j].equals("0")) {
-                    int[][] m_hija = new int[8][8];
-                    for (int i = 0; i < 8; i++) {
-                        for (int k = 0; k < 8; k++) {
-                            m_hija[i][k] = 0;
-                        }
-                    }
-                    for (int i = 0; i < 8; i++) {
-                        for (int k = 0; k < 8; k++) {
-                            m_hija[i][k] = ((int[][]) padre.getValue())[i][k];
-                        }
-                    }
-                    m_hija[caballos[j].charAt(0) - 48][caballos[j].charAt(1) - 48] = 0;
-                    m_hija[caballos[j].charAt(2) - 48][caballos[j].charAt(3) - 48] = 3;
-                    nodo_arbol nodo_hijo = new nodo_arbol(m_hija, null);
-                    agregar_nodos(nodo_hijo, turno + 1);
-                    padre.addSon(nodo_hijo);
-                }
-            }
-            for (int j = 0; j < 8; j++) {
-                if (!rey[j].equals("0")) {
-                    int[][] m_hija = new int[8][8];
-                    for (int i = 0; i < 8; i++) {
-                        for (int k = 0; k < 8; k++) {
-                            m_hija[i][k] = 0;
-                        }
-                    }
-                    for (int i = 0; i < 8; i++) {
-                        for (int k = 0; k < 8; k++) {
-                            m_hija[i][k] = ((int[][]) padre.getValue())[i][k];
-                        }
-                    }
-                    m_hija[rey[j].charAt(0) - 48][rey[j].charAt(1) - 48] = 0;
-                    m_hija[rey[j].charAt(2) - 48][rey[j].charAt(3) - 48] = 5;
-                    nodo_arbol nodo_hijo = new nodo_arbol(m_hija, null);
-                    agregar_nodos(nodo_hijo, turno+1);
-                    padre.addSon(nodo_hijo);
-                }
-            }
-
+            
         } else {
-            for (int i = 0; i < padre.hijos.size(); i++) {
-                System.out.println("hola");
-                System.out.println(padre.profundidad());
-                if (padre.profundidad() < 100 || verificar_c((int[][]) padre.getValue())) {
-                    if (turno % 2 == 0) {
-                        String[] peones = MPeon(turno, (int[][]) padre.getValue());
-                        String[] caballos = MCaballo(turno, (int[][]) padre.getValue());
-                        String[] rey = MRey(turno, (int[][]) padre.getValue());
+            JOptionPane.showMessageDialog(this, "La solucion es muy larga");
+        }
+    }//GEN-LAST:event_jButton2MouseClicked
+    public void agregar_nodos(nodo_arbol padre, int turno, int contador) {
+        System.out.println("hola");
+        System.out.println(padre.profundidad());
+        System.out.println(contador);
+        if (contador < 5 && verificar_c((int[][]) padre.getValue())) {
+            if (turno == 1) {
+                String[] peones = MPeon(turno, (int[][]) padre.getValue());
+                String[] caballos = MCaballo(turno, (int[][]) padre.getValue());
+                String[] rey = MRey(turno, (int[][]) padre.getValue());
 
-                        for (int j = 0; j < 3; j++) {
-                            if (!peones[i].equals("0")) {
-                                int[][] m_hija = new int[8][8];
-                                for (int m = 0;  m< 8; i++) {
-                                    for (int k = 0; k < 8; k++) {
-                                        m_hija[m][k] = 0;
-                                    }
-                                }
-                                for (int m = 0; m < 8; i++) {
-                                    for (int k = 0; k < 8; k++) {
-                                        m_hija[m][k] = ((int[][]) padre.getValue())[m][k];
-                                    }
-                                }
-                                m_hija[peones[i].charAt(0) - 48][peones[i].charAt(1) - 48] = 0;
-                                m_hija[peones[i].charAt(2) - 48][peones[i].charAt(3) - 48] = 1;
-                                nodo_arbol nodo_hijo = new nodo_arbol(m_hija, null);
-                                agregar_nodos(nodo_hijo, turno + 1);
-                                padre.addSon(nodo_hijo);
+                for (int j = 0; j < 3; j++) {
+                    if (!peones[j].equals("0")) {
+                        int[][] m_hija = new int[8][8];
+                        for (int m = 0; m < 8; m++) {
+                            for (int k = 0; k < 8; k++) {
+                                m_hija[m][k] = 0;
                             }
                         }
-                        for (int j = 0; j < 8; j++) {
-                            if (!caballos[i].equals("0")) {
-                                int[][] m_hija = new int[8][8];
-                                for (int m = 0;  m< 8; i++) {
-                                    for (int k = 0; k < 8; k++) {
-                                        m_hija[m][k] = 0;
-                                    }
-                                }
-                                for (int m = 0; m < 8; i++) {
-                                    for (int k = 0; k < 8; k++) {
-                                        m_hija[m][k] = ((int[][]) padre.getValue())[m][k];
-                                    }
-                                }
-                                m_hija[caballos[i].charAt(0) - 48][caballos[i].charAt(1) - 48] = 0;
-                                m_hija[caballos[i].charAt(2) - 48][caballos[i].charAt(3) - 48] = 3;
-                                nodo_arbol nodo_hijo = new nodo_arbol(m_hija, null);
-                                agregar_nodos(nodo_hijo, turno + 1);
-                                padre.addSon(nodo_hijo);
+                        for (int m = 0; m < 8; m++) {
+                            for (int k = 0; k < 8; k++) {
+                                int[][] temp = (int[][]) padre.getValue();
+                                m_hija[m][k] = temp[m][k];
                             }
                         }
-                        for (int j = 0; j < 8; j++) {
-                            if (!rey[i].equals("0")) {
-                                int[][] m_hija = new int[8][8];
-                                for (int m = 0;  m< 8; i++) {
-                                    for (int k = 0; k < 8; k++) {
-                                        m_hija[m][k] = 0;
-                                    }
-                                }
-                                for (int m = 0; m < 8; i++) {
-                                    for (int k = 0; k < 8; k++) {
-                                        m_hija[m][k] = ((int[][]) padre.getValue())[m][k];
-                                    }
-                                }
-                                m_hija[rey[i].charAt(0) - 48][rey[i].charAt(1) - 48] = 0;
-                                m_hija[rey[i].charAt(2) - 48][rey[i].charAt(3) - 48] = 5;
-                                nodo_arbol nodo_hijo = new nodo_arbol(m_hija, null);
-                                agregar_nodos(nodo_hijo, turno + 1);
-                                padre.addSon(nodo_hijo);
-                            }
-                        }
-                    } else {
-                        String[] peones = MPeon(turno, (int[][]) padre.getValue());
-                        String[] caballos = MCaballo(turno, (int[][]) padre.getValue());
-                        String[] rey = MRey(turno, (int[][]) padre.getValue());
+                        m_hija[peones[j].charAt(0) - 48][peones[j].charAt(1) - 48] = 0;
+                        m_hija[peones[j].charAt(2) - 48][peones[j].charAt(3) - 48] = 1;
+                        nodo_arbol nodo_hijo = new nodo_arbol(m_hija, null);
+                        //agregar_nodos(nodo_hijo, turno + 1);
+                        padre.addSon(nodo_hijo);
+                    }
+                }
 
-                        for (int j = 0; j < 3; j++) {
-                            if (!peones[i].equals("0")) {
-                                int[][] m_hija = new int[8][8];
-                                for (int m = 0;  m< 8; i++) {
-                                    for (int k = 0; k < 8; k++) {
-                                        m_hija[m][k] = 0;
-                                    }
-                                }
-                                for (int m = 0; m < 8; i++) {
-                                    for (int k = 0; k < 8; k++) {
-                                        m_hija[m][k] = ((int[][]) padre.getValue())[m][k];
-                                    }
-                                }
-                                m_hija[peones[i].charAt(0) - 48][peones[i].charAt(1) - 48] = 0;
-                                m_hija[peones[i].charAt(2) - 48][peones[i].charAt(3) - 48] = 2;
-                                nodo_arbol nodo_hijo = new nodo_arbol(m_hija, null);
-                                agregar_nodos(nodo_hijo, turno - 1);
-                                padre.addSon(nodo_hijo);
+                for (int j = 0; j < 8; j++) {
+                    if (!caballos[j].equals("0")) {
+                        int[][] m_hija = new int[8][8];
+                        for (int m = 0; m < 8; m++) {
+                            for (int k = 0; k < 8; k++) {
+                                m_hija[m][k] = 0;
                             }
                         }
-                        for (int j = 0; j < 8; j++) {
-                            if (!caballos[i].equals("0")) {
-                                int[][] m_hija = new int[8][8];
-                                for (int m = 0;  m< 8; i++) {
-                                    for (int k = 0; k < 8; k++) {
-                                        m_hija[m][k] = 0;
-                                    }
-                                }
-                                for (int m = 0; m < 8; i++) {
-                                    for (int k = 0; k < 8; k++) {
-                                        m_hija[m][k] = ((int[][]) padre.getValue())[m][k];
-                                    }
-                                }
-                                m_hija[caballos[i].charAt(0) - 48][caballos[i].charAt(1) - 48] = 0;
-                                m_hija[caballos[i].charAt(2) - 48][caballos[i].charAt(3) - 48] = 4;
-                                nodo_arbol nodo_hijo = new nodo_arbol(m_hija, null);
-                                agregar_nodos(nodo_hijo, turno - 1);
-                                padre.addSon(nodo_hijo);
+                        for (int m = 0; m < 8; m++) {
+                            for (int k = 0; k < 8; k++) {
+                                int[][] temp = (int[][]) padre.getValue();
+                                m_hija[m][k] = temp[m][k];
                             }
                         }
-                        for (int j = 0; j < 8; j++) {
-                            if (!rey[i].equals("0")) {
-                                int[][] m_hija = new int[8][8];
-                                for (int m = 0;  m< 8; i++) {
-                                    for (int k = 0; k < 8; k++) {
-                                        m_hija[m][k] = 0;
-                                    }
-                                }
-                                for (int m = 0; m < 8; i++) {
-                                    for (int k = 0; k < 8; k++) {
-                                        m_hija[m][k] = ((int[][]) padre.getValue())[m][k];
-                                    }
-                                }
-                                m_hija[rey[i].charAt(0) - 48][rey[i].charAt(1) - 48] = 0;
-                                m_hija[rey[i].charAt(2) - 48][rey[i].charAt(3) - 48] = 6;
-                                nodo_arbol nodo_hijo = new nodo_arbol(m_hija, null);
-                                agregar_nodos(nodo_hijo, turno - 1);
-                                padre.addSon(nodo_hijo);
+                        m_hija[caballos[j].charAt(0) - 48][caballos[j].charAt(1) - 48] = 0;
+                        m_hija[caballos[j].charAt(2) - 48][caballos[j].charAt(3) - 48] = 3;
+                        nodo_arbol nodo_hijo = new nodo_arbol(m_hija, null);
+                        //agregar_nodos(nodo_hijo, turno + 1);
+                        padre.addSon(nodo_hijo);
+                    }
+                }
+
+                for (int j = 0; j < 8; j++) {
+                    if (!rey[j].equals("0")) {
+                        int[][] m_hija = new int[8][8];
+                        for (int m = 0; m < 8; m++) {
+                            for (int k = 0; k < 8; k++) {
+                                m_hija[m][k] = 0;
                             }
+                        }
+                        for (int m = 0; m < 8; m++) {
+                            for (int k = 0; k < 8; k++) {
+                                int[][] temp = (int[][]) padre.getValue();
+                                m_hija[m][k] = temp[m][k];
+                            }
+                        }
+                        m_hija[rey[j].charAt(0) - 48][rey[j].charAt(1) - 48] = 0;
+                        m_hija[rey[j].charAt(2) - 48][rey[j].charAt(3) - 48] = 5;
+                        nodo_arbol nodo_hijo = new nodo_arbol(m_hija, null);
+                        //agregar_nodos(nodo_hijo, turno + 1);
+                        padre.addSon(nodo_hijo);
+                    }
+                }
+
+                for (int i = 0; i < padre.hijos.size(); i++) {
+                    agregar_nodos(((nodo_arbol) padre.hijos.at(i)), 2, contador + 1);
+                }
+
+            } else {
+                if (turno == 2) {
+                    String[] peones = MPeon(turno, (int[][]) padre.getValue());
+                    String[] caballos = MCaballo(turno, (int[][]) padre.getValue());
+                    String[] rey = MRey(turno, (int[][]) padre.getValue());
+
+                    for (int j = 0; j < 3; j++) {
+                        if (!peones[j].equals("0")) {
+                            int[][] m_hija = new int[8][8];
+                            for (int m = 0; m < 8; m++) {
+                                for (int k = 0; k < 8; k++) {
+                                    m_hija[m][k] = 0;
+                                }
+                            }
+                            for (int m = 0; m < 8; m++) {
+                                for (int k = 0; k < 8; k++) {
+                                    int[][] temp = (int[][]) padre.getValue();
+                                    m_hija[m][k] = temp[m][k];
+                                }
+                            }
+                            m_hija[peones[j].charAt(0) - 48][peones[j].charAt(1) - 48] = 0;
+                            m_hija[peones[j].charAt(2) - 48][peones[j].charAt(3) - 48] = 2;
+                            nodo_arbol nodo_hijo = new nodo_arbol(m_hija, null);
+                            //agregar_nodos(nodo_hijo, turno - 1);
+                            padre.addSon(nodo_hijo);
                         }
                     }
-                } else {
-                    hojas.push_back((int[][]) padre.getValue());
+                    for (int j = 0; j < 8; j++) {
+                        if (!caballos[j].equals("0")) {
+                            int[][] m_hija = new int[8][8];
+                            for (int m = 0; m < 8; m++) {
+                                for (int k = 0; k < 8; k++) {
+                                    m_hija[m][k] = 0;
+                                }
+                            }
+                            for (int m = 0; m < 8; m++) {
+                                for (int k = 0; k < 8; k++) {
+                                    int[][] temp = (int[][]) padre.getValue();
+                                    m_hija[m][k] = temp[m][k];
+                                }
+                            }
+                            m_hija[caballos[j].charAt(0) - 48][caballos[j].charAt(1) - 48] = 0;
+                            m_hija[caballos[j].charAt(2) - 48][caballos[j].charAt(3) - 48] = 4;
+                            nodo_arbol nodo_hijo = new nodo_arbol(m_hija, null);
+                            //agregar_nodos(nodo_hijo, turno - 1);
+                            padre.addSon(nodo_hijo);
+                        }
+                    }
+                    for (int j = 0; j < 8; j++) {
+                        if (!rey[j].equals("0")) {
+                            int[][] m_hija = new int[8][8];
+                            for (int m = 0; m < 8; j++) {
+                                for (int k = 0; k < 8; k++) {
+                                    m_hija[m][k] = 0;
+                                }
+                            }
+                            for (int m = 0; m < 8; j++) {
+                                for (int k = 0; k < 8; k++) {
+                                    int[][] temp = (int[][]) padre.getValue();
+                                    m_hija[m][k] = temp[m][k];
+                                }
+                            }
+                            m_hija[rey[j].charAt(0) - 48][rey[j].charAt(1) - 48] = 0;
+                            m_hija[rey[j].charAt(2) - 48][rey[j].charAt(3) - 48] = 6;
+                            nodo_arbol nodo_hijo = new nodo_arbol(m_hija, null);
+                            //agregar_nodos(nodo_hijo, turno - 1);
+                            padre.addSon(nodo_hijo);
+                        }
+                    }
+
+                    for (int i = 0; i < padre.hijos.size(); i++) {
+                        agregar_nodos(((nodo_arbol) padre.hijos.at(i)), 1, contador + 1);
+                    }
+
                 }
             }
+        } else {
+            hojas.push_back((nodo_arbol) padre);
+
         }
+            //fin de la magia
+
+        //}
     }
 
     public boolean verificar_c(int[][] matriz) {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                if (matriz[i][j] == 3) {
+                if (matriz[i][j] == 4) {
                     return true;
                 }
             }
