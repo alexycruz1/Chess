@@ -10884,12 +10884,9 @@ public class ChessOracle extends javax.swing.JFrame {
                     }
                 }
             }
-            System.out.println(respuesta.profundidad());
-            int[][] matriz = (int[][]) respuesta.getValue();
-            for (int i = 0; i < 8; i++) {
-                for (int j = 0; j < 8; j++) {
-                    System.out.print(matriz[i][j]);
-                }
+            Lista imprimir = respuesta.path();
+            for (int i = imprimir.size()-1; i >= 0; i--) {
+                mapeo((int[][])imprimir.at(i));
                 System.out.println();
             }
 
@@ -10913,12 +10910,9 @@ public class ChessOracle extends javax.swing.JFrame {
                     }
                 }
             }
-            System.out.println(respuesta.profundidad());
-            int[][] matriz = (int[][])respuesta.getValue();
-            for (int i = 0; i < 8; i++) {
-                for (int j = 0; j < 8; j++) {
-                    System.out.print(matriz[i][j]);
-                }
+            Lista imprimir = respuesta.path();
+            for (int i = imprimir.size()-1; i >= 0; i--) {
+                mapeo((int[][])imprimir.at(i));
                 System.out.println();
             }
             
@@ -10943,12 +10937,9 @@ public class ChessOracle extends javax.swing.JFrame {
                     }
                 }
             }
-            System.out.println(respuesta.profundidad());
-            int[][] matriz = (int[][])respuesta.getValue();
-            for (int i = 0; i < 8; i++) {
-                for (int j = 0; j < 8; j++) {
-                    System.out.print(matriz[i][j]);
-                }
+            Lista imprimir = respuesta.path();
+            for (int i = imprimir.size()-1; i >= 0; i--) {
+                mapeo((int[][])imprimir.at(i));
                 System.out.println();
             }
             
@@ -11653,7 +11644,15 @@ public class ChessOracle extends javax.swing.JFrame {
             return false;
         }
     }
-
+    public void  mapeo(int[][] m){
+            for (int i = 0; i < 8; i++) {
+                for (int j = 0; j < 8; j++) {
+                    System.out.print(m[i][j]);
+                }
+                System.out.println();
+            }
+    
+    } 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
