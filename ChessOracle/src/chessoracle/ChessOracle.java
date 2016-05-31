@@ -11625,7 +11625,6 @@ public class ChessOracle extends javax.swing.JFrame {
     public String[] MCaballo(int turno, int[][] tab_temp) {
         String[] pos = new String[8];
         String temp = "";
-        Random rand = new Random();
         int cont = 0;
         int pieza = 0;
         int Caballos_en_campo_b = 0;
@@ -11648,9 +11647,9 @@ public class ChessOracle extends javax.swing.JFrame {
             }
         }
         if (turno == 1) {
-            pieza = rand.nextInt() * Caballos_en_campo_b;
+            pieza = (int) Math.floor(Math.random() * (0 - Caballos_en_campo_b) + Caballos_en_campo_b);
         } else {
-            pieza = rand.nextInt() * Caballos_en_campo_n;
+            pieza = (int) Math.floor(Math.random() * (0 - Caballos_en_campo_n) + Caballos_en_campo_n);
         }
 
         if (pieza == 0) {
@@ -11660,7 +11659,7 @@ public class ChessOracle extends javax.swing.JFrame {
         if (turno == 1) {
             for (int i = 0; i < tab_temp.length; i++) {
                 for (int j = 0; j < tab_temp.length; j++) {
-                    if (tab_temp[i][j] == 3 && pieza == cont) {
+                    if (tab_temp[i][j] == 3 && (pieza == cont || Caballos_en_campo_b == 1)) {
                         if (i - 2 >= 0) {
                             if ((j - 1 >= 0) && (tab_temp[i - 2][j - 1] == 2 || tab_temp[i - 2][j - 1] == 4 || tab_temp[i - 2][j - 1] == 6 || tab_temp[i - 2][j - 1] == 0)) {
                                 temp += Integer.toString(i);
@@ -11695,7 +11694,15 @@ public class ChessOracle extends javax.swing.JFrame {
                                 temp = "";
                                 pos_arr++;
                             }
-                        } else if (i - 1 >= 0) {
+                        } else {
+                            temp += Integer.toString(0);
+
+                            pos[pos_arr] = temp;
+                            temp = "";
+                            pos_arr++;
+                        }
+
+                        if (i - 1 >= 0) {
                             if ((j - 2 >= 0) && (tab_temp[i - 1][j - 2] == 2 || tab_temp[i - 1][j - 2] == 4 || tab_temp[i - 1][j - 2] == 6 || tab_temp[i - 1][j - 2] == 0)) {
                                 temp += Integer.toString(i);
                                 temp += Integer.toString(j);
@@ -11729,7 +11736,15 @@ public class ChessOracle extends javax.swing.JFrame {
                                 temp = "";
                                 pos_arr++;
                             }
-                        } else if (i + 1 <= 7) {
+                        } else {
+                            temp += Integer.toString(0);
+
+                            pos[pos_arr] = temp;
+                            temp = "";
+                            pos_arr++;
+                        }
+
+                        if (i + 1 <= 7) {
                             if ((j - 2 >= 0) && (tab_temp[i + 1][j - 2] == 2 || tab_temp[i + 1][j - 2] == 4 || tab_temp[i + 1][j - 2] == 6 || tab_temp[i + 1][j - 2] == 0)) {
                                 temp += Integer.toString(i);
                                 temp += Integer.toString(j);
@@ -11763,7 +11778,15 @@ public class ChessOracle extends javax.swing.JFrame {
                                 temp = "";
                                 pos_arr++;
                             }
-                        } else if (i + 2 <= 7) {
+                        } else {
+                            temp += Integer.toString(0);
+
+                            pos[pos_arr] = temp;
+                            temp = "";
+                            pos_arr++;
+                        }
+
+                        if (i + 2 <= 7) {
                             if ((j - 1 >= 0) && (tab_temp[i + 2][j - 1] == 2 || tab_temp[i + 2][j - 1] == 4 || tab_temp[i + 2][j - 1] == 6 || tab_temp[i + 2][j - 1] == 0)) {
                                 temp += Integer.toString(i);
                                 temp += Integer.toString(j);
@@ -11804,7 +11827,7 @@ public class ChessOracle extends javax.swing.JFrame {
                             temp = "";
                             pos_arr++;
                         }
-                    } else {
+                    } else if (tab_temp[i][j] == 3) {
                         cont++;
                     }
                 }
@@ -11812,7 +11835,7 @@ public class ChessOracle extends javax.swing.JFrame {
         } else if (turno == 2) {
             for (int i = 0; i < tab_temp.length; i++) {
                 for (int j = 0; j < tab_temp.length; j++) {
-                    if (tab_temp[i][j] == 4 && pieza == cont) {
+                    if (tab_temp[i][j] == 4 && (pieza == cont || Caballos_en_campo_n == 1)) {
                         if (i - 2 >= 0) {
                             if ((j - 1 >= 0) && (tab_temp[i - 2][j - 1] == 1 || tab_temp[i - 2][j - 1] == 3 || tab_temp[i - 2][j - 1] == 5 || tab_temp[i - 2][j - 1] == 0)) {
                                 temp += Integer.toString(i);
@@ -11847,7 +11870,15 @@ public class ChessOracle extends javax.swing.JFrame {
                                 temp = "";
                                 pos_arr++;
                             }
-                        } else if (i - 1 >= 0) {
+                        } else {
+                            temp += Integer.toString(0);
+
+                            pos[pos_arr] = temp;
+                            temp = "";
+                            pos_arr++;
+                        }
+
+                        if (i - 1 >= 0) {
                             if ((j - 2 >= 0) && (tab_temp[i - 1][j - 2] == 1 || tab_temp[i - 1][j - 2] == 3 || tab_temp[i - 1][j - 2] == 5 || tab_temp[i - 1][j - 2] == 0)) {
                                 temp += Integer.toString(i);
                                 temp += Integer.toString(j);
@@ -11881,7 +11912,15 @@ public class ChessOracle extends javax.swing.JFrame {
                                 temp = "";
                                 pos_arr++;
                             }
-                        } else if (i + 1 <= 7) {
+                        } else {
+                            temp += Integer.toString(0);
+
+                            pos[pos_arr] = temp;
+                            temp = "";
+                            pos_arr++;
+                        }
+
+                        if (i + 1 <= 7) {
                             if ((j - 2 >= 0) && (tab_temp[i + 1][j - 2] == 1 || tab_temp[i + 1][j - 2] == 3 || tab_temp[i + 1][j - 2] == 5 || tab_temp[i + 1][j - 2] == 0)) {
                                 temp += Integer.toString(i);
                                 temp += Integer.toString(j);
@@ -11915,7 +11954,15 @@ public class ChessOracle extends javax.swing.JFrame {
                                 temp = "";
                                 pos_arr++;
                             }
-                        } else if (i + 2 <= 7) {
+                        } else {
+                            temp += Integer.toString(0);
+
+                            pos[pos_arr] = temp;
+                            temp = "";
+                            pos_arr++;
+                        }
+
+                        if (i + 2 <= 7) {
                             if ((j - 1 >= 0) && (tab_temp[i + 2][j - 1] == 1 || tab_temp[i + 2][j - 1] == 3 || tab_temp[i + 2][j - 1] == 5 || tab_temp[i + 2][j - 1] == 0)) {
                                 temp += Integer.toString(i);
                                 temp += Integer.toString(j);
