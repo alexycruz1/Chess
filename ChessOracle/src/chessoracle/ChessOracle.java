@@ -110,10 +110,14 @@ public class ChessOracle extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CHESS ORACLE ©");
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         A8.setBackground(new java.awt.Color(121, 60, 26));
         A8.setToolTipText("");
@@ -123,6 +127,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 A8MouseClicked(evt);
             }
         });
+        getContentPane().add(A8, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 12, 81, 75));
 
         B8.setBackground(new java.awt.Color(187, 142, 69));
         B8.setName("B8"); // NOI18N
@@ -131,6 +136,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 B8MouseClicked(evt);
             }
         });
+        getContentPane().add(B8, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 12, 81, 75));
 
         C8.setBackground(new java.awt.Color(121, 60, 26));
         C8.setName("C8"); // NOI18N
@@ -139,6 +145,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 C8MouseClicked(evt);
             }
         });
+        getContentPane().add(C8, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 12, 81, 75));
 
         D8.setBackground(new java.awt.Color(187, 142, 69));
         D8.setName("D8"); // NOI18N
@@ -147,6 +154,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 D8MouseClicked(evt);
             }
         });
+        getContentPane().add(D8, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 12, 81, 75));
 
         E8.setBackground(new java.awt.Color(121, 60, 26));
         E8.setName("E8"); // NOI18N
@@ -155,6 +163,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 E8MouseClicked(evt);
             }
         });
+        getContentPane().add(E8, new org.netbeans.lib.awtextra.AbsoluteConstraints(402, 12, 81, 75));
 
         F8.setBackground(new java.awt.Color(187, 142, 69));
         F8.setName("F8"); // NOI18N
@@ -163,6 +172,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 F8MouseClicked(evt);
             }
         });
+        getContentPane().add(F8, new org.netbeans.lib.awtextra.AbsoluteConstraints(489, 12, 81, 75));
 
         G8.setBackground(new java.awt.Color(121, 60, 26));
         G8.setName("G8"); // NOI18N
@@ -171,6 +181,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 G8MouseClicked(evt);
             }
         });
+        getContentPane().add(G8, new org.netbeans.lib.awtextra.AbsoluteConstraints(576, 12, 81, 75));
 
         H8.setBackground(new java.awt.Color(187, 142, 69));
         H8.setName("H8"); // NOI18N
@@ -179,6 +190,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 H8MouseClicked(evt);
             }
         });
+        getContentPane().add(H8, new org.netbeans.lib.awtextra.AbsoluteConstraints(663, 12, 81, 75));
 
         B7.setBackground(new java.awt.Color(121, 60, 26));
         B7.setName("B7"); // NOI18N
@@ -187,6 +199,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 B7MouseClicked(evt);
             }
         });
+        getContentPane().add(B7, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 93, 81, 75));
 
         C7.setBackground(new java.awt.Color(187, 142, 69));
         C7.setName("C7"); // NOI18N
@@ -195,6 +208,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 C7MouseClicked(evt);
             }
         });
+        getContentPane().add(C7, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 93, 81, 75));
 
         D7.setBackground(new java.awt.Color(121, 60, 26));
         D7.setName("D7"); // NOI18N
@@ -203,6 +217,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 D7MouseClicked(evt);
             }
         });
+        getContentPane().add(D7, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 93, 81, 75));
 
         E7.setBackground(new java.awt.Color(187, 142, 69));
         E7.setName("E7"); // NOI18N
@@ -211,6 +226,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 E7MouseClicked(evt);
             }
         });
+        getContentPane().add(E7, new org.netbeans.lib.awtextra.AbsoluteConstraints(402, 93, 81, 75));
 
         F7.setBackground(new java.awt.Color(121, 60, 26));
         F7.setName("F7"); // NOI18N
@@ -219,6 +235,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 F7MouseClicked(evt);
             }
         });
+        getContentPane().add(F7, new org.netbeans.lib.awtextra.AbsoluteConstraints(489, 93, 81, 75));
 
         A7.setBackground(new java.awt.Color(187, 142, 69));
         A7.setName("A7"); // NOI18N
@@ -227,6 +244,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 A7MouseClicked(evt);
             }
         });
+        getContentPane().add(A7, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 93, 81, 75));
 
         G7.setBackground(new java.awt.Color(187, 142, 69));
         G7.setName("G7"); // NOI18N
@@ -235,6 +253,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 G7MouseClicked(evt);
             }
         });
+        getContentPane().add(G7, new org.netbeans.lib.awtextra.AbsoluteConstraints(576, 93, 81, 75));
 
         H7.setBackground(new java.awt.Color(121, 60, 26));
         H7.setName("H7"); // NOI18N
@@ -243,6 +262,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 H7MouseClicked(evt);
             }
         });
+        getContentPane().add(H7, new org.netbeans.lib.awtextra.AbsoluteConstraints(663, 93, 81, 75));
 
         B6.setBackground(new java.awt.Color(187, 142, 69));
         B6.setName("B6"); // NOI18N
@@ -251,6 +271,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 B6MouseClicked(evt);
             }
         });
+        getContentPane().add(B6, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 174, 81, 75));
 
         C6.setBackground(new java.awt.Color(121, 60, 26));
         C6.setName("C6"); // NOI18N
@@ -259,6 +280,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 C6MouseClicked(evt);
             }
         });
+        getContentPane().add(C6, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 174, 81, 75));
 
         D6.setBackground(new java.awt.Color(187, 142, 69));
         D6.setName("D6"); // NOI18N
@@ -267,6 +289,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 D6MouseClicked(evt);
             }
         });
+        getContentPane().add(D6, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 174, 81, 75));
 
         E6.setBackground(new java.awt.Color(121, 60, 26));
         E6.setName("E6"); // NOI18N
@@ -275,6 +298,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 E6MouseClicked(evt);
             }
         });
+        getContentPane().add(E6, new org.netbeans.lib.awtextra.AbsoluteConstraints(402, 174, 81, 75));
 
         F6.setBackground(new java.awt.Color(187, 142, 69));
         F6.setName("F6"); // NOI18N
@@ -283,6 +307,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 F6MouseClicked(evt);
             }
         });
+        getContentPane().add(F6, new org.netbeans.lib.awtextra.AbsoluteConstraints(489, 174, 81, 75));
 
         A6.setBackground(new java.awt.Color(121, 60, 26));
         A6.setName("A6"); // NOI18N
@@ -291,6 +316,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 A6MouseClicked(evt);
             }
         });
+        getContentPane().add(A6, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 174, 81, 75));
 
         G6.setBackground(new java.awt.Color(121, 60, 26));
         G6.setName("G6"); // NOI18N
@@ -299,6 +325,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 G6MouseClicked(evt);
             }
         });
+        getContentPane().add(G6, new org.netbeans.lib.awtextra.AbsoluteConstraints(576, 174, 81, 75));
 
         H6.setBackground(new java.awt.Color(187, 142, 69));
         H6.setName("H6"); // NOI18N
@@ -307,6 +334,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 H6MouseClicked(evt);
             }
         });
+        getContentPane().add(H6, new org.netbeans.lib.awtextra.AbsoluteConstraints(663, 174, 81, 75));
 
         B5.setBackground(new java.awt.Color(121, 60, 26));
         B5.setName("B5"); // NOI18N
@@ -315,6 +343,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 B5MouseClicked(evt);
             }
         });
+        getContentPane().add(B5, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 255, 81, 75));
 
         C5.setBackground(new java.awt.Color(187, 142, 69));
         C5.setName("C5"); // NOI18N
@@ -323,6 +352,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 C5MouseClicked(evt);
             }
         });
+        getContentPane().add(C5, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 255, 81, 75));
 
         D5.setBackground(new java.awt.Color(121, 60, 26));
         D5.setName("D5"); // NOI18N
@@ -331,6 +361,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 D5MouseClicked(evt);
             }
         });
+        getContentPane().add(D5, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 255, 81, 75));
 
         E5.setBackground(new java.awt.Color(187, 142, 69));
         E5.setName("E5"); // NOI18N
@@ -339,6 +370,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 E5MouseClicked(evt);
             }
         });
+        getContentPane().add(E5, new org.netbeans.lib.awtextra.AbsoluteConstraints(402, 255, 81, 75));
 
         F5.setBackground(new java.awt.Color(121, 60, 26));
         F5.setName("F5"); // NOI18N
@@ -347,6 +379,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 F5MouseClicked(evt);
             }
         });
+        getContentPane().add(F5, new org.netbeans.lib.awtextra.AbsoluteConstraints(489, 255, 81, 75));
 
         A5.setBackground(new java.awt.Color(187, 142, 69));
         A5.setName("A5"); // NOI18N
@@ -355,6 +388,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 A5MouseClicked(evt);
             }
         });
+        getContentPane().add(A5, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 255, 81, 75));
 
         G5.setBackground(new java.awt.Color(187, 142, 69));
         G5.setName("G5"); // NOI18N
@@ -363,6 +397,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 G5MouseClicked(evt);
             }
         });
+        getContentPane().add(G5, new org.netbeans.lib.awtextra.AbsoluteConstraints(576, 255, 81, 75));
 
         H5.setBackground(new java.awt.Color(121, 60, 26));
         H5.setName("H5"); // NOI18N
@@ -371,6 +406,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 H5MouseClicked(evt);
             }
         });
+        getContentPane().add(H5, new org.netbeans.lib.awtextra.AbsoluteConstraints(663, 255, 81, 75));
 
         D4.setBackground(new java.awt.Color(187, 142, 69));
         D4.setName("D4"); // NOI18N
@@ -379,6 +415,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 D4MouseClicked(evt);
             }
         });
+        getContentPane().add(D4, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 336, 81, 75));
 
         G4.setBackground(new java.awt.Color(121, 60, 26));
         G4.setName("G4"); // NOI18N
@@ -387,6 +424,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 G4MouseClicked(evt);
             }
         });
+        getContentPane().add(G4, new org.netbeans.lib.awtextra.AbsoluteConstraints(576, 336, 81, 75));
 
         E4.setBackground(new java.awt.Color(121, 60, 26));
         E4.setName("E4"); // NOI18N
@@ -395,6 +433,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 E4MouseClicked(evt);
             }
         });
+        getContentPane().add(E4, new org.netbeans.lib.awtextra.AbsoluteConstraints(402, 336, 81, 75));
 
         H4.setBackground(new java.awt.Color(187, 142, 69));
         H4.setName("H4"); // NOI18N
@@ -403,6 +442,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 H4MouseClicked(evt);
             }
         });
+        getContentPane().add(H4, new org.netbeans.lib.awtextra.AbsoluteConstraints(663, 336, 81, 75));
 
         B4.setBackground(new java.awt.Color(187, 142, 69));
         B4.setName("B4"); // NOI18N
@@ -411,6 +451,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 B4MouseClicked(evt);
             }
         });
+        getContentPane().add(B4, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 336, 81, 75));
 
         A4.setBackground(new java.awt.Color(121, 60, 26));
         A4.setName("A4"); // NOI18N
@@ -419,6 +460,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 A4MouseClicked(evt);
             }
         });
+        getContentPane().add(A4, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 336, 81, 75));
 
         F4.setBackground(new java.awt.Color(187, 142, 69));
         F4.setName("F4"); // NOI18N
@@ -427,6 +469,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 F4MouseClicked(evt);
             }
         });
+        getContentPane().add(F4, new org.netbeans.lib.awtextra.AbsoluteConstraints(489, 336, 81, 75));
 
         C4.setBackground(new java.awt.Color(121, 60, 26));
         C4.setName("C4"); // NOI18N
@@ -435,6 +478,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 C4MouseClicked(evt);
             }
         });
+        getContentPane().add(C4, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 336, 81, 75));
 
         D3.setBackground(new java.awt.Color(121, 60, 26));
         D3.setName("D3"); // NOI18N
@@ -443,6 +487,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 D3MouseClicked(evt);
             }
         });
+        getContentPane().add(D3, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 417, 81, 75));
 
         G3.setBackground(new java.awt.Color(187, 142, 69));
         G3.setName("G3"); // NOI18N
@@ -451,6 +496,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 G3MouseClicked(evt);
             }
         });
+        getContentPane().add(G3, new org.netbeans.lib.awtextra.AbsoluteConstraints(576, 417, 81, 75));
 
         E3.setBackground(new java.awt.Color(187, 142, 69));
         E3.setName("E3"); // NOI18N
@@ -459,6 +505,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 E3MouseClicked(evt);
             }
         });
+        getContentPane().add(E3, new org.netbeans.lib.awtextra.AbsoluteConstraints(402, 417, 81, 75));
 
         H3.setBackground(new java.awt.Color(121, 60, 26));
         H3.setName("H3"); // NOI18N
@@ -467,6 +514,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 H3MouseClicked(evt);
             }
         });
+        getContentPane().add(H3, new org.netbeans.lib.awtextra.AbsoluteConstraints(663, 417, 81, 75));
 
         B3.setBackground(new java.awt.Color(121, 60, 26));
         B3.setName("B3"); // NOI18N
@@ -475,6 +523,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 B3MouseClicked(evt);
             }
         });
+        getContentPane().add(B3, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 417, 81, 75));
 
         A3.setBackground(new java.awt.Color(187, 142, 69));
         A3.setName("A3"); // NOI18N
@@ -483,6 +532,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 A3MouseClicked(evt);
             }
         });
+        getContentPane().add(A3, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 417, 81, 75));
 
         F3.setBackground(new java.awt.Color(121, 60, 26));
         F3.setName("F3"); // NOI18N
@@ -491,6 +541,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 F3MouseClicked(evt);
             }
         });
+        getContentPane().add(F3, new org.netbeans.lib.awtextra.AbsoluteConstraints(489, 417, 81, 75));
 
         C3.setBackground(new java.awt.Color(187, 142, 69));
         C3.setName("C3"); // NOI18N
@@ -499,6 +550,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 C3MouseClicked(evt);
             }
         });
+        getContentPane().add(C3, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 417, 81, 75));
 
         D2.setBackground(new java.awt.Color(187, 142, 69));
         D2.setName("D2"); // NOI18N
@@ -507,6 +559,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 D2MouseClicked(evt);
             }
         });
+        getContentPane().add(D2, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 498, 81, 75));
 
         G2.setBackground(new java.awt.Color(121, 60, 26));
         G2.setName("G2"); // NOI18N
@@ -515,6 +568,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 G2MouseClicked(evt);
             }
         });
+        getContentPane().add(G2, new org.netbeans.lib.awtextra.AbsoluteConstraints(576, 498, 81, 75));
 
         E2.setBackground(new java.awt.Color(121, 60, 26));
         E2.setName("E2"); // NOI18N
@@ -523,6 +577,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 E2MouseClicked(evt);
             }
         });
+        getContentPane().add(E2, new org.netbeans.lib.awtextra.AbsoluteConstraints(402, 498, 81, 75));
 
         H2.setBackground(new java.awt.Color(187, 142, 69));
         H2.setName("H2"); // NOI18N
@@ -531,6 +586,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 H2MouseClicked(evt);
             }
         });
+        getContentPane().add(H2, new org.netbeans.lib.awtextra.AbsoluteConstraints(663, 498, 81, 75));
 
         B2.setBackground(new java.awt.Color(187, 142, 69));
         B2.setName("B2"); // NOI18N
@@ -539,6 +595,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 B2MouseClicked(evt);
             }
         });
+        getContentPane().add(B2, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 498, 81, 75));
 
         A2.setBackground(new java.awt.Color(121, 60, 26));
         A2.setName("A2"); // NOI18N
@@ -547,6 +604,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 A2MouseClicked(evt);
             }
         });
+        getContentPane().add(A2, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 498, 81, 75));
 
         F2.setBackground(new java.awt.Color(187, 142, 69));
         F2.setName("F2"); // NOI18N
@@ -555,6 +613,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 F2MouseClicked(evt);
             }
         });
+        getContentPane().add(F2, new org.netbeans.lib.awtextra.AbsoluteConstraints(489, 498, 81, 75));
 
         C2.setBackground(new java.awt.Color(121, 60, 26));
         C2.setName("C2"); // NOI18N
@@ -563,6 +622,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 C2MouseClicked(evt);
             }
         });
+        getContentPane().add(C2, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 498, 81, 75));
 
         D1.setBackground(new java.awt.Color(121, 60, 26));
         D1.setName("D1"); // NOI18N
@@ -571,6 +631,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 D1MouseClicked(evt);
             }
         });
+        getContentPane().add(D1, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 579, 81, 75));
 
         G1.setBackground(new java.awt.Color(187, 142, 69));
         G1.setName("G1"); // NOI18N
@@ -579,6 +640,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 G1MouseClicked(evt);
             }
         });
+        getContentPane().add(G1, new org.netbeans.lib.awtextra.AbsoluteConstraints(576, 579, 81, 75));
 
         E1.setBackground(new java.awt.Color(187, 142, 69));
         E1.setName("E1"); // NOI18N
@@ -587,6 +649,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 E1MouseClicked(evt);
             }
         });
+        getContentPane().add(E1, new org.netbeans.lib.awtextra.AbsoluteConstraints(402, 579, 81, 75));
 
         H1.setBackground(new java.awt.Color(121, 60, 26));
         H1.setName("H1"); // NOI18N
@@ -595,6 +658,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 H1MouseClicked(evt);
             }
         });
+        getContentPane().add(H1, new org.netbeans.lib.awtextra.AbsoluteConstraints(663, 579, 81, 75));
 
         B1.setBackground(new java.awt.Color(121, 60, 26));
         B1.setName("B1"); // NOI18N
@@ -603,6 +667,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 B1MouseClicked(evt);
             }
         });
+        getContentPane().add(B1, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 579, 81, 75));
 
         A1.setBackground(new java.awt.Color(187, 142, 69));
         A1.setName("A1"); // NOI18N
@@ -611,6 +676,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 A1MouseClicked(evt);
             }
         });
+        getContentPane().add(A1, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 579, 81, 75));
 
         F1.setBackground(new java.awt.Color(121, 60, 26));
         F1.setName("F1"); // NOI18N
@@ -619,6 +685,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 F1MouseClicked(evt);
             }
         });
+        getContentPane().add(F1, new org.netbeans.lib.awtextra.AbsoluteConstraints(489, 579, 81, 75));
 
         C1.setBackground(new java.awt.Color(187, 142, 69));
         C1.setName("C1"); // NOI18N
@@ -627,378 +694,116 @@ public class ChessOracle extends javax.swing.JFrame {
                 C1MouseClicked(evt);
             }
         });
+        getContentPane().add(C1, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 579, 81, 75));
 
         jLabel1.setFont(new java.awt.Font("Ubuntu", 3, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(128, 76, 19));
         jLabel1.setText("8");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 29, 30, -1));
 
         jLabel2.setFont(new java.awt.Font("Ubuntu", 3, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(128, 76, 19));
         jLabel2.setText("7");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 110, 30, -1));
 
         jLabel3.setFont(new java.awt.Font("Ubuntu", 3, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(128, 76, 19));
         jLabel3.setText("6");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 190, 30, -1));
 
         jLabel4.setFont(new java.awt.Font("Ubuntu", 3, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(128, 76, 19));
         jLabel4.setText("5");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 273, 30, -1));
 
         jLabel5.setFont(new java.awt.Font("Ubuntu", 3, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(128, 76, 19));
         jLabel5.setText("4");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 355, 30, -1));
 
         jLabel6.setFont(new java.awt.Font("Ubuntu", 3, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(128, 76, 19));
         jLabel6.setText("3");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 434, 30, -1));
 
         jLabel7.setFont(new java.awt.Font("Ubuntu", 3, 36)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(128, 76, 19));
         jLabel7.setText("1");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 596, 30, -1));
 
         jLabel8.setFont(new java.awt.Font("Ubuntu", 3, 36)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(128, 76, 19));
         jLabel8.setText("2");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 518, 30, -1));
 
         jLabel9.setFont(new java.awt.Font("Ubuntu", 3, 36)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(128, 76, 19));
         jLabel9.setText("A");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 660, 30, -1));
 
         jLabel10.setFont(new java.awt.Font("Ubuntu", 3, 36)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(128, 76, 19));
         jLabel10.setText("C");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 660, 30, -1));
 
         jLabel11.setFont(new java.awt.Font("Ubuntu", 3, 36)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(128, 76, 19));
         jLabel11.setText("B");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 660, 30, -1));
 
         jLabel12.setFont(new java.awt.Font("Ubuntu", 3, 36)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(128, 76, 19));
         jLabel12.setText("D");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(338, 660, 30, -1));
 
         jLabel13.setFont(new java.awt.Font("Ubuntu", 3, 36)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(128, 76, 19));
         jLabel13.setText("F");
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(513, 660, 30, -1));
 
         jLabel14.setFont(new java.awt.Font("Ubuntu", 3, 36)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(128, 76, 19));
         jLabel14.setText("E");
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(425, 660, 30, -1));
 
         jLabel15.setFont(new java.awt.Font("Ubuntu", 3, 36)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(128, 76, 19));
         jLabel15.setText("H");
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(687, 660, 30, -1));
 
         jLabel16.setFont(new java.awt.Font("Ubuntu", 3, 36)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(128, 76, 19));
         jLabel16.setText("G");
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(601, 660, 30, -1));
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/chessoracle/850418_thm.jpg"))); // NOI18N
         jButton1.setText("Limpiar Tablero");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 40, 180, -1));
 
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/chessoracle/icon-lupa.png"))); // NOI18N
         jButton2.setText("Analisis Caballo");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton2MouseClicked(evt);
             }
         });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 110, 180, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(A6, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(B6, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(C6, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(D6, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(E6, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(F6, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(G6, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(H6, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(A5, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(B5, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(C5, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(D5, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(E5, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(F5, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(G5, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(H5, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(A4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(B4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(C4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(D4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(E4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(F4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(G4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(H4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(A3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(B3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(C3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(D3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(E3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(F3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(G3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(H3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(A2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(B2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(C2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(D2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(E2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(F2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(G2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(H2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(A1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(B1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(C1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(D1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(E1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(F1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(G1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(H1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(A8, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(B8, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(C8, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(D8, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(E8, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(F8, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(G8, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(H8, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(A7, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(B7, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(C7, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(D7, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(E7, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(F7, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(G7, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(H7, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(54, 54, 54)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(57, 57, 57)
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(58, 58, 58)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(57, 57, 57)
-                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(57, 57, 57)
-                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(58, 58, 58)
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(58, 58, 58)
-                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(56, 56, 56)
-                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(53, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel1)
-                        .addGap(38, 38, 38)
-                        .addComponent(jLabel2)
-                        .addGap(37, 37, 37)
-                        .addComponent(jLabel3)
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel4)
-                        .addGap(39, 39, 39)
-                        .addComponent(jLabel5)
-                        .addGap(36, 36, 36)
-                        .addComponent(jLabel6)
-                        .addGap(41, 41, 41)
-                        .addComponent(jLabel8)
-                        .addGap(35, 35, 35)
-                        .addComponent(jLabel7))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(H8, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(G8, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(F8, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(E8, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(D8, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(C8, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(B8, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(A8, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(H7, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(G7, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(F7, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(E7, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(D7, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(C7, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(B7, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(A7, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(68, 68, 68)
-                                .addComponent(jButton1)
-                                .addGap(26, 26, 26)
-                                .addComponent(jButton2)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(H6, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(G6, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(F6, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(E6, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(D6, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(C6, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(B6, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(A6, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(H5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(G5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(F5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(E5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(D5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(C5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(B5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(A5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(H4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(G4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(F4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(E4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(D4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(C4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(B4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(A4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(H3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(G3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(F3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(E3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(D3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(C3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(B3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(A3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(H2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(G2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(F2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(E2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(D2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(C2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(B2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(A2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(H1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(G1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(F1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(E1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(D1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(C1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(B1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(A1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel16))
-                .addContainerGap(17, Short.MAX_VALUE))
-        );
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/chessoracle/icon-lupa.png"))); // NOI18N
+        jButton3.setText("Analisis Peon");
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 180, 180, -1));
+
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/chessoracle/icon-lupa.png"))); // NOI18N
+        jButton4.setText("Analisis Rey");
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 250, 180, -1));
+
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/chessoracle/Abstract-Wood-Wallpaper-Dark-Image-Computer-Picture.png"))); // NOI18N
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -11382,6 +11187,8 @@ public class ChessOracle extends javax.swing.JFrame {
     private javax.swing.JButton H8;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -11390,6 +11197,7 @@ public class ChessOracle extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -11545,19 +11353,20 @@ public class ChessOracle extends javax.swing.JFrame {
             }
         }
         if (turno == 1) {
-            pieza = rand.nextInt() * Peones_en_campo_b;
+            pieza = (int) Math.floor(Math.random() * (0 - Peones_en_campo_b) + Peones_en_campo_b);
         } else {
-            pieza = rand.nextInt() * Peones_en_campo_n;
+           pieza = (int) Math.floor(Math.random() * (0 - Peones_en_campo_n) + Peones_en_campo_n);
         }
 
         if (pieza == 0) {
             pieza++;
         }
+        
 
         if (turno == 1 && Peones_en_campo_b > 0) {
             for (int i = 0; i < tab_temp.length; i++) {
                 for (int j = 0; j < tab_temp.length; j++) {
-                    if (tab_temp[i][j] == 1 && pieza == cont) {
+                    if (tab_temp[i][j] == 1 && (pieza == cont || Peones_en_campo_b == 1)) {
                         if ((i - 1 >= 0 && j - 1 >= 0) && (tab_temp[i - 1][j - 1] == 2 || tab_temp[i - 1][j - 1] == 4 || tab_temp[i - 1][j - 1] == 6)) {
                             temp += Integer.toString(i);
                             temp += Integer.toString(j);
@@ -11616,7 +11425,7 @@ public class ChessOracle extends javax.swing.JFrame {
         } else if (turno == 2 && Peones_en_campo_n > 0) {
             for (int i = 0; i < tab_temp.length; i++) {
                 for (int j = 0; j < tab_temp.length; j++) {
-                    if (tab_temp[i][j] == 1 && pieza == cont) {
+                    if (tab_temp[i][j] == 1 && (pieza == cont || Peones_en_campo_n == 1)) {
                         if ((i + 1 <= 7 && j - 1 >= 0) && (tab_temp[i + 1][j - 1] == 1 || tab_temp[i + 1][j - 1] == 3 || tab_temp[i + 1][j - 1] == 5)) {
                             temp += Integer.toString(i);
                             temp += Integer.toString(j);
@@ -12093,7 +11902,7 @@ public class ChessOracle extends javax.swing.JFrame {
 
         for (int i = 0; i < tab_temp.length; i++) {
             for (int j = 0; j < tab_temp.length; j++) {
-                if (tab_temp[i][j] == 3) {
+                if (tab_temp[i][j] == 5) {
                     Rey_en_campo_b++;
                 }
             }
@@ -12101,7 +11910,7 @@ public class ChessOracle extends javax.swing.JFrame {
 
         for (int i = 0; i < tab_temp.length; i++) {
             for (int j = 0; j < tab_temp.length; j++) {
-                if (tab_temp[i][j] == 4) {
+                if (tab_temp[i][j] == 6) {
                     Rey_en_campo_n++;
                 }
             }
