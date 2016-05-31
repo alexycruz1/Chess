@@ -10880,15 +10880,14 @@ public class ChessOracle extends javax.swing.JFrame {
                 }
             }
             System.out.println(respuesta.profundidad());
-            int[][] matriz = (int[][])respuesta.getValue();
+            int[][] matriz = (int[][]) respuesta.getValue();
             for (int i = 0; i < 8; i++) {
                 for (int j = 0; j < 8; j++) {
                     System.out.print(matriz[i][j]);
                 }
                 System.out.println();
             }
-            
-            
+
         } else {
             JOptionPane.showMessageDialog(this, "La solucion es muy larga");
         }
@@ -11170,88 +11169,86 @@ public class ChessOracle extends javax.swing.JFrame {
                     agregar_nodos(((nodo_arbol) padre.hijos.at(i)), 2, contador + 1);
                 }
 
-            } else {
-                if (turno == 2) {
-                    String[] peones = MPeon(turno, (int[][]) padre.getValue());
-                    String[] caballos = MCaballo(turno, (int[][]) padre.getValue());
-                    String[] rey = MRey(turno, (int[][]) padre.getValue());
+            } else if (turno == 2) {
+                String[] peones = MPeon(turno, (int[][]) padre.getValue());
+                String[] caballos = MCaballo(turno, (int[][]) padre.getValue());
+                String[] rey = MRey(turno, (int[][]) padre.getValue());
 
-                    for (int j = 0; j < 3; j++) {
-                        if (!peones[j].equals("0")) {
-                            int[][] m_hija = new int[8][8];
-                            for (int m = 0; m < 8; m++) {
-                                for (int k = 0; k < 8; k++) {
-                                    m_hija[m][k] = 0;
-                                }
+                for (int j = 0; j < 3; j++) {
+                    if (!peones[j].equals("0")) {
+                        int[][] m_hija = new int[8][8];
+                        for (int m = 0; m < 8; m++) {
+                            for (int k = 0; k < 8; k++) {
+                                m_hija[m][k] = 0;
                             }
-                            for (int m = 0; m < 8; m++) {
-                                for (int k = 0; k < 8; k++) {
-                                    int[][] temp = (int[][]) padre.getValue();
-                                    m_hija[m][k] = temp[m][k];
-                                }
-                            }
-                            m_hija[peones[j].charAt(0) - 48][peones[j].charAt(1) - 48] = 0;
-                            m_hija[peones[j].charAt(2) - 48][peones[j].charAt(3) - 48] = 2;
-                            nodo_arbol nodo_hijo = new nodo_arbol(m_hija, null);
-                            //agregar_nodos(nodo_hijo, turno - 1);
-                            padre.addSon(nodo_hijo);
                         }
-                    }
-                    for (int j = 0; j < 8; j++) {
-                        if (!caballos[j].equals("0")) {
-                            int[][] m_hija = new int[8][8];
-                            for (int m = 0; m < 8; m++) {
-                                for (int k = 0; k < 8; k++) {
-                                    m_hija[m][k] = 0;
-                                }
+                        for (int m = 0; m < 8; m++) {
+                            for (int k = 0; k < 8; k++) {
+                                int[][] temp = (int[][]) padre.getValue();
+                                m_hija[m][k] = temp[m][k];
                             }
-                            for (int m = 0; m < 8; m++) {
-                                for (int k = 0; k < 8; k++) {
-                                    int[][] temp = (int[][]) padre.getValue();
-                                    m_hija[m][k] = temp[m][k];
-                                }
-                            }
-                            m_hija[caballos[j].charAt(0) - 48][caballos[j].charAt(1) - 48] = 0;
-                            m_hija[caballos[j].charAt(2) - 48][caballos[j].charAt(3) - 48] = 4;
-                            nodo_arbol nodo_hijo = new nodo_arbol(m_hija, null);
-                            //agregar_nodos(nodo_hijo, turno - 1);
-                            padre.addSon(nodo_hijo);
                         }
+                        m_hija[peones[j].charAt(0) - 48][peones[j].charAt(1) - 48] = 0;
+                        m_hija[peones[j].charAt(2) - 48][peones[j].charAt(3) - 48] = 2;
+                        nodo_arbol nodo_hijo = new nodo_arbol(m_hija, null);
+                        //agregar_nodos(nodo_hijo, turno - 1);
+                        padre.addSon(nodo_hijo);
                     }
-                    for (int j = 0; j < 8; j++) {
-                        if (!rey[j].equals("0")) {
-                            int[][] m_hija = new int[8][8];
-                            for (int m = 0; m < 8; j++) {
-                                for (int k = 0; k < 8; k++) {
-                                    m_hija[m][k] = 0;
-                                }
-                            }
-                            for (int m = 0; m < 8; j++) {
-                                for (int k = 0; k < 8; k++) {
-                                    int[][] temp = (int[][]) padre.getValue();
-                                    m_hija[m][k] = temp[m][k];
-                                }
-                            }
-                            m_hija[rey[j].charAt(0) - 48][rey[j].charAt(1) - 48] = 0;
-                            m_hija[rey[j].charAt(2) - 48][rey[j].charAt(3) - 48] = 6;
-                            nodo_arbol nodo_hijo = new nodo_arbol(m_hija, null);
-                            //agregar_nodos(nodo_hijo, turno - 1);
-                            padre.addSon(nodo_hijo);
-                        }
-                    }
-
-                    for (int i = 0; i < padre.hijos.size(); i++) {
-                        agregar_nodos(((nodo_arbol) padre.hijos.at(i)), 1, contador + 1);
-                    }
-
                 }
+                for (int j = 0; j < 8; j++) {
+                    if (!caballos[j].equals("0")) {
+                        int[][] m_hija = new int[8][8];
+                        for (int m = 0; m < 8; m++) {
+                            for (int k = 0; k < 8; k++) {
+                                m_hija[m][k] = 0;
+                            }
+                        }
+                        for (int m = 0; m < 8; m++) {
+                            for (int k = 0; k < 8; k++) {
+                                int[][] temp = (int[][]) padre.getValue();
+                                m_hija[m][k] = temp[m][k];
+                            }
+                        }
+                        m_hija[caballos[j].charAt(0) - 48][caballos[j].charAt(1) - 48] = 0;
+                        m_hija[caballos[j].charAt(2) - 48][caballos[j].charAt(3) - 48] = 4;
+                        nodo_arbol nodo_hijo = new nodo_arbol(m_hija, null);
+                        //agregar_nodos(nodo_hijo, turno - 1);
+                        padre.addSon(nodo_hijo);
+                    }
+                }
+                for (int j = 0; j < 8; j++) {
+                    if (!rey[j].equals("0")) {
+                        int[][] m_hija = new int[8][8];
+                        for (int m = 0; m < 8; j++) {
+                            for (int k = 0; k < 8; k++) {
+                                m_hija[m][k] = 0;
+                            }
+                        }
+                        for (int m = 0; m < 8; j++) {
+                            for (int k = 0; k < 8; k++) {
+                                int[][] temp = (int[][]) padre.getValue();
+                                m_hija[m][k] = temp[m][k];
+                            }
+                        }
+                        m_hija[rey[j].charAt(0) - 48][rey[j].charAt(1) - 48] = 0;
+                        m_hija[rey[j].charAt(2) - 48][rey[j].charAt(3) - 48] = 6;
+                        nodo_arbol nodo_hijo = new nodo_arbol(m_hija, null);
+                        //agregar_nodos(nodo_hijo, turno - 1);
+                        padre.addSon(nodo_hijo);
+                    }
+                }
+
+                for (int i = 0; i < padre.hijos.size(); i++) {
+                    agregar_nodos(((nodo_arbol) padre.hijos.at(i)), 1, contador + 1);
+                }
+
             }
         } else {
             System.out.println("aqui");
             hojas.push_back((nodo_arbol) padre);
 
         }
-            //fin de la magia
+        //fin de la magia
 
         //}
     }
@@ -11443,13 +11440,14 @@ public class ChessOracle extends javax.swing.JFrame {
     }
 
     public boolean verificar_r(int[][] matriz) {
+        int cont = 0;
         int[][] matriz_temp = new int[8][8];
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz.length; j++) {
                 matriz_temp[i][j] = matriz[i][j];
             }
         }
-        
+
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz.length; j++) {
                 if (matriz_temp[i][j] == 6) {
@@ -11457,24 +11455,175 @@ public class ChessOracle extends javax.swing.JFrame {
                         if (j + 1 <= 7) {//primer submovimiento
                             matriz_temp[i + 1][j + 1] = 6;
                             matriz_temp[i][j] = 0;
-                            
-                            if (matriz_temp[i + 3][j + 2] == 3 || matriz_temp[i][j] == 3 || matriz_temp[i][j] == 3 || matriz_temp[i][j] == 3 || matriz_temp[i][j] == 3 || matriz_temp[i][j] == 3 || matriz_temp[i][j] == 3 || matriz_temp[i][j] == 3 || matriz_temp[i][j] == 3 || matriz_temp[i][j] == 3) {
-                                
+
+                            //aqui
+                            for (int k = 0; k < matriz_temp.length; k++) {
+                                for (int l = 0; l < matriz_temp.length; l++) {
+                                    if (matriz_temp[k][l] == 6) {
+                                        if (matriz_temp[k - 2][l - 1] == 3 || matriz_temp[k - 1][l - 2] == 3 || matriz_temp[k + 1][l - 2] == 3 || matriz_temp[k + 2][l - 1] == 3 || matriz_temp[k + 2][l + 1] == 3 || matriz_temp[k + 1][l + 1] == 3 || matriz_temp[k - 1][l + 2] == 3 || matriz_temp[k - 2][l + 1] == 3 || matriz_temp[k + 1][l - 1] == 1 || matriz_temp[k + 1][l + 1] == 1) {
+                                            cont++;
+                                        }
+                                    }
+                                }
+                            }
+                            for (int k = 0; k < matriz.length; k++) {
+                                for (int l = 0; l < matriz.length; l++) {
+                                    matriz_temp[k][l] = matriz[k][l];
+                                }
+                            }
+                        }
+
+                        if (j <= 7 || j >= 0) {//primer submovimiento
+                            matriz_temp[i + 1][j] = 6;
+                            matriz_temp[i][j] = 0;
+
+                            for (int k = 0; k < matriz_temp.length; k++) {
+                                for (int l = 0; l < matriz_temp.length; l++) {
+                                    if (matriz_temp[k][l] == 6) {
+                                        if (matriz_temp[k - 2][l - 1] == 3 || matriz_temp[k - 1][l - 2] == 3 || matriz_temp[k + 1][l - 2] == 3 || matriz_temp[k + 2][l - 1] == 3 || matriz_temp[k + 2][l + 1] == 3 || matriz_temp[k + 1][l + 1] == 3 || matriz_temp[k - 1][l + 2] == 3 || matriz_temp[k - 2][l + 1] == 3 || matriz_temp[k + 1][l - 1] == 1 || matriz_temp[k + 1][l + 1] == 1) {
+                                            cont++;
+                                        }
+                                    }
+                                }
+                            }
+                            for (int k = 0; k < matriz.length; k++) {
+                                for (int l = 0; l < matriz.length; l++) {
+                                    matriz_temp[k][l] = matriz[k][l];
+                                }
+                            }
+                        }
+
+                        if (j - 1 >= 0) {//primer submovimiento
+                            matriz_temp[i + 1][j - 1] = 6;
+                            matriz_temp[i][j] = 0;
+
+                            for (int k = 0; k < matriz_temp.length; k++) {
+                                for (int l = 0; l < matriz_temp.length; l++) {
+                                    if (matriz_temp[k][l] == 6) {
+                                        if (matriz_temp[k - 2][l - 1] == 3 || matriz_temp[k - 1][l - 2] == 3 || matriz_temp[k + 1][l - 2] == 3 || matriz_temp[k + 2][l - 1] == 3 || matriz_temp[k + 2][l + 1] == 3 || matriz_temp[k + 1][l + 1] == 3 || matriz_temp[k - 1][l + 2] == 3 || matriz_temp[k - 2][l + 1] == 3 || matriz_temp[k + 1][l - 1] == 1 || matriz_temp[k + 1][l + 1] == 1) {
+                                            cont++;
+                                        }
+                                    }
+                                }
+                            }
+                            for (int k = 0; k < matriz.length; k++) {
+                                for (int l = 0; l < matriz.length; l++) {
+                                    matriz_temp[k][l] = matriz[k][l];
+                                }
                             }
                         }
                     }
-                    
-                    if (rootPaneCheckingEnabled) {//segundo movimiento
-                        
+
+                    if (j + 1 <= 7) {//segundo movimiento
+                        matriz_temp[i][j + 1] = 6;
+                        matriz_temp[i][j] = 0;
+
+                        for (int k = 0; k < matriz_temp.length; k++) {
+                            for (int l = 0; l < matriz_temp.length; l++) {
+                                if (matriz_temp[k][l] == 6) {
+                                    if (matriz_temp[k - 2][l - 1] == 3 || matriz_temp[k - 1][l - 2] == 3 || matriz_temp[k + 1][l - 2] == 3 || matriz_temp[k + 2][l - 1] == 3 || matriz_temp[k + 2][l + 1] == 3 || matriz_temp[k + 1][l + 1] == 3 || matriz_temp[k - 1][l + 2] == 3 || matriz_temp[k - 2][l + 1] == 3 || matriz_temp[k + 1][l - 1] == 1 || matriz_temp[k + 1][l + 1] == 1) {
+                                        cont++;
+                                    }
+                                }
+                            }
+                        }
+                        for (int k = 0; k < matriz.length; k++) {
+                            for (int l = 0; l < matriz.length; l++) {
+                                matriz_temp[k][l] = matriz[k][l];
+                            }
+                        }
                     }
-                    
-                    if (rootPaneCheckingEnabled) {//tercer submovimiento
-                        
+
+                    if (j - 1 >= 0) {//segundo movimiento
+                        matriz_temp[i][j - 1] = 6;
+                        matriz_temp[i][j] = 0;
+
+                        for (int k = 0; k < matriz_temp.length; k++) {
+                            for (int l = 0; l < matriz_temp.length; l++) {
+                                if (matriz_temp[k][l] == 6) {
+                                    if (matriz_temp[k - 2][l - 1] == 3 || matriz_temp[k - 1][l - 2] == 3 || matriz_temp[k + 1][l - 2] == 3 || matriz_temp[k + 2][l - 1] == 3 || matriz_temp[k + 2][l + 1] == 3 || matriz_temp[k + 1][l + 1] == 3 || matriz_temp[k - 1][l + 2] == 3 || matriz_temp[k - 2][l + 1] == 3 || matriz_temp[k + 1][l - 1] == 1 || matriz_temp[k + 1][l + 1] == 1) {
+                                        cont++;
+                                    }
+                                }
+                            }
+                        }
+                        for (int k = 0; k < matriz.length; k++) {
+                            for (int l = 0; l < matriz.length; l++) {
+                                matriz_temp[k][l] = matriz[k][l];
+                            }
+                        }
+                    }
+
+                    if (i - 1 <= 7) {//tercer submovimiento
+                        if (j + 1 <= 7) {//primer submovimiento
+                            matriz_temp[i - 1][j + 1] = 6;
+                            matriz_temp[i][j] = 0;
+
+                            for (int k = 0; k < matriz_temp.length; k++) {
+                                for (int l = 0; l < matriz_temp.length; l++) {
+                                    if (matriz_temp[k][l] == 6) {
+                                        if (matriz_temp[k - 2][l - 1] == 3 || matriz_temp[k - 1][l - 2] == 3 || matriz_temp[k + 1][l - 2] == 3 || matriz_temp[k + 2][l - 1] == 3 || matriz_temp[k + 2][l + 1] == 3 || matriz_temp[k + 1][l + 1] == 3 || matriz_temp[k - 1][l + 2] == 3 || matriz_temp[k - 2][l + 1] == 3 || matriz_temp[k + 1][l - 1] == 1 || matriz_temp[k + 1][l + 1] == 1) {
+                                            cont++;
+                                        }
+                                    }
+                                }
+                            }
+                            for (int k = 0; k < matriz.length; k++) {
+                                for (int l = 0; l < matriz.length; l++) {
+                                    matriz_temp[k][l] = matriz[k][l];
+                                }
+                            }
+                        }
+
+                        if (j - 1 <= 7) {//primer submovimiento
+                            matriz_temp[i - 1][j - 1] = 6;
+                            matriz_temp[i][j] = 0;
+
+                            for (int k = 0; k < matriz_temp.length; k++) {
+                                for (int l = 0; l < matriz_temp.length; l++) {
+                                    if (matriz_temp[k][l] == 6) {
+                                        if (matriz_temp[k - 2][l - 1] == 3 || matriz_temp[k - 1][l - 2] == 3 || matriz_temp[k + 1][l - 2] == 3 || matriz_temp[k + 2][l - 1] == 3 || matriz_temp[k + 2][l + 1] == 3 || matriz_temp[k + 1][l + 1] == 3 || matriz_temp[k - 1][l + 2] == 3 || matriz_temp[k - 2][l + 1] == 3 || matriz_temp[k + 1][l - 1] == 1 || matriz_temp[k + 1][l + 1] == 1) {
+                                            cont++;
+                                        }
+                                    }
+                                }
+                            }
+                            for (int k = 0; k < matriz.length; k++) {
+                                for (int l = 0; l < matriz.length; l++) {
+                                    matriz_temp[k][l] = matriz[k][l];
+                                }
+                            }
+                        }
+
+                        if (j <= 7 || j >= 0) {//primer submovimiento
+                            matriz_temp[i - 1][j] = 6;
+                            matriz_temp[i][j] = 0;
+
+                            for (int k = 0; k < matriz_temp.length; k++) {
+                                for (int l = 0; l < matriz_temp.length; l++) {
+                                    if (matriz_temp[k][l] == 6) {
+                                        if (matriz_temp[k - 2][l - 1] == 3 || matriz_temp[k - 1][l - 2] == 3 || matriz_temp[k + 1][l - 2] == 3 || matriz_temp[k + 2][l - 1] == 3 || matriz_temp[k + 2][l + 1] == 3 || matriz_temp[k + 1][l + 1] == 3 || matriz_temp[k - 1][l + 2] == 3 || matriz_temp[k - 2][l + 1] == 3 || matriz_temp[k + 1][l - 1] == 1 || matriz_temp[k + 1][l + 1] == 1) {
+                                            cont++;
+                                        }
+                                    }
+                                }
+                            }
+                            for (int k = 0; k < matriz.length; k++) {
+                                for (int l = 0; l < matriz.length; l++) {
+                                    matriz_temp[k][l] = matriz[k][l];
+                                }
+                            }
+                        }
                     }
                 }
             }
         }
-        return false;
+
+        if (cont >= 7) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public static void main(String args[]) {
@@ -11751,13 +11900,12 @@ public class ChessOracle extends javax.swing.JFrame {
         if (turno == 1) {
             pieza = (int) Math.floor(Math.random() * (0 - Peones_en_campo_b) + Peones_en_campo_b);
         } else {
-           pieza = (int) Math.floor(Math.random() * (0 - Peones_en_campo_n) + Peones_en_campo_n);
+            pieza = (int) Math.floor(Math.random() * (0 - Peones_en_campo_n) + Peones_en_campo_n);
         }
 
         if (pieza == 0) {
             pieza++;
         }
-        
 
         if (turno == 1 && Peones_en_campo_b > 0) {
             for (int i = 0; i < tab_temp.length; i++) {
