@@ -805,6 +805,11 @@ public class ChessOracle extends javax.swing.JFrame {
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/chessoracle/icon-lupa.png"))); // NOI18N
         jButton4.setText("Analisis Rey");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 250, 180, -1));
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/chessoracle/Abstract-Wood-Wallpaper-Dark-Image-Computer-Picture.png"))); // NOI18N
@@ -10922,10 +10927,38 @@ public class ChessOracle extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "La solucion es muy larga");
         }
     }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        nodo_arbol r = new nodo_arbol(tablero, null);
+        arbol = new Arbol(r);
+        hojas = new Lista();
+        agregar_nodos2(arbol.getRoot(), 1, 1);
+        if (hojas.size() > 0) {
+
+            nodo_arbol respuesta = ((nodo_arbol) hojas.at(0));
+            for (int i = 1; i < hojas.size(); i++) {
+                if (verificar_r((int[][]) ((nodo_arbol) hojas.at(i)).getValue())) {
+                    if (((nodo_arbol) hojas.at(i)).profundidad() < respuesta.profundidad()) {
+                        respuesta = (nodo_arbol) hojas.at(i);
+                    }
+                }
+            }
+            System.out.println(respuesta.profundidad());
+            int[][] matriz = (int[][])respuesta.getValue();
+            for (int i = 0; i < 8; i++) {
+                for (int j = 0; j < 8; j++) {
+                    System.out.print(matriz[i][j]);
+                }
+                System.out.println();
+            }
+            
+            
+        } else {
+            JOptionPane.showMessageDialog(this, "La solucion es muy larga");
+        }
+    }//GEN-LAST:event_jButton4MouseClicked
     public void agregar_nodos(nodo_arbol padre, int turno, int contador) {
-        System.out.println("hola");
-        System.out.println(padre.profundidad());
-        System.out.println(contador);
+        
         if (contador < 5 && verificar_c((int[][]) padre.getValue())) {
             if (turno == 1) {
                 String[] peones = MPeon(turno, (int[][]) padre.getValue());
@@ -11080,7 +11113,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 }
             }
         } else {
-            System.out.println("aqui");
+            
             hojas.push_back((nodo_arbol) padre);
 
         }
@@ -11089,9 +11122,6 @@ public class ChessOracle extends javax.swing.JFrame {
         //}
     }
     public void agregar_nodos2(nodo_arbol padre, int turno, int contador) {
-        System.out.println("hola");
-        System.out.println(padre.profundidad());
-        System.out.println(contador);
         if (padre.profundidad() < 20 && !verificar_p((int[][]) padre.getValue())) {
             if (turno == 1) {
                 String[] peones = MPeon(turno, (int[][]) padre.getValue());
@@ -11244,7 +11274,7 @@ public class ChessOracle extends javax.swing.JFrame {
 
             }
         } else {
-            System.out.println("aqui");
+            
             hojas.push_back((nodo_arbol) padre);
 
         }
@@ -11253,10 +11283,8 @@ public class ChessOracle extends javax.swing.JFrame {
         //}
     }
     public void agregar_nodos3(nodo_arbol padre, int turno, int contador) {
-        System.out.println("hola");
-        System.out.println(padre.profundidad());
-        System.out.println(contador);
-        if (contador < 5 && verificar_r((int[][]) padre.getValue())) {
+        
+        if (padre.profundidad() < 5 && !verificar_r((int[][]) padre.getValue())) {
             if (turno == 1) {
                 String[] peones = MPeon(turno, (int[][]) padre.getValue());
                 String[] caballos = MCaballo(turno, (int[][]) padre.getValue());
@@ -11410,7 +11438,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 }
             }
         } else {
-            System.out.println("aqui");
+            
             hojas.push_back((nodo_arbol) padre);
 
         }
@@ -11759,13 +11787,7 @@ public class ChessOracle extends javax.swing.JFrame {
     Lista hojas = new Lista();
 
     public void impr() {
-        for (int i = 0; i < tablero.length; i++) {
-            for (int j = 0; j < tablero.length; j++) {
-                System.out.print(tablero[i][j]);
-            }
-            System.out.println();
-        }
-        System.out.println();
+        
     }
 
     public boolean Caballo_b() {
