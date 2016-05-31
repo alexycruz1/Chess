@@ -35,16 +35,16 @@ public class nodo_arbol {
         this.padre = nodo;
     }
     
-    public Object getRightBrother() {
+    public nodo_arbol getRightBrother() {
         nodo_arbol papa = this.getParent();
         Lista temp = papa.hijos;
-        Object temp2 = null;
+        nodo_arbol temp2 = null;
         for (int i = 0; i < temp.size(); i++) {
             if (temp.at(i).equals(this)) {
                 if (i + 1 == temp.size()) {
-                    temp2 = temp.at(i);
+                    temp2 = (nodo_arbol)temp.at(i);
                 }else{
-                    temp2 = temp.at(i + 1);
+                    temp2 = (nodo_arbol)temp.at(i + 1);
                 }
             }
         }
