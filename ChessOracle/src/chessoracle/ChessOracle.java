@@ -11094,6 +11094,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 String[] rey = MRey(turno, (int[][]) padre.getValue());
 
                 for (int j = 0; j < 3; j++) {
+                    
                     if (!peones[j].equals("0")) {
                         int[][] m_hija = new int[8][8];
                         for (int m = 0; m < 8; m++) {
@@ -11240,6 +11241,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 }
             }
         } else {
+            System.out.println("aqui");
             hojas.push_back((nodo_arbol) padre);
 
         }
@@ -11256,6 +11258,7 @@ public class ChessOracle extends javax.swing.JFrame {
                 }
             }
         }
+        
         return false;
     }
 
