@@ -11085,12 +11085,14 @@ public class ChessOracle extends javax.swing.JFrame {
             String[] peones = MPeon(turno, (int[][]) padre.getValue());
             String[] caballos = MCaballo(turno, (int[][]) padre.getValue());
             String[] rey = MRey(turno, (int[][]) padre.getValue());
-
+            System.out.println();
             for (int j = 0; j < 3; j++) {
+                System.out.println(j);
+                System.out.println(peones[0]);
                 if (!peones[j].equals("0") ) {
                     int[][] m_hija = (int[][]) padre.getValue();
-                    m_hija[peones[j].charAt(0)][peones[j].charAt(1)] = 0;
-                    m_hija[peones[j].charAt(2)][peones[j].charAt(3)] = 1;
+                    m_hija[peones[j].charAt(0)-48][peones[j].charAt(1)-48] = 0;
+                    m_hija[peones[j].charAt(2)-48][peones[j].charAt(3)-48] = 1;
                     nodo_arbol nodo_hijo = new nodo_arbol(m_hija, null);
                     agregar_nodos(nodo_hijo, turno);
                     padre.addSon(nodo_hijo);
@@ -11099,8 +11101,8 @@ public class ChessOracle extends javax.swing.JFrame {
             for (int j = 0; j < 8; j++) {
                 if (!caballos[j].equals("0")) {
                     int[][] m_hija = (int[][]) padre.getValue();
-                    m_hija[caballos[j].charAt(0)][caballos[j].charAt(1)] = 0;
-                    m_hija[caballos[j].charAt(2)][caballos[j].charAt(3)] = 1;
+                    m_hija[caballos[j].charAt(0)-48][caballos[j].charAt(1)-48] = 0;
+                    m_hija[caballos[j].charAt(2)-48][caballos[j].charAt(3)-48] = 1;
                     nodo_arbol nodo_hijo = new nodo_arbol(m_hija, null);
                     agregar_nodos(nodo_hijo, turno);
                     padre.addSon(nodo_hijo);
@@ -11109,8 +11111,8 @@ public class ChessOracle extends javax.swing.JFrame {
             for (int j = 0; j < 8; j++) {
                 if (!rey[j].equals("0")) {
                     int[][] m_hija = (int[][]) padre.getValue();
-                    m_hija[rey[j].charAt(0)][rey[j].charAt(1)] = 0;
-                    m_hija[rey[j].charAt(2)][rey[j].charAt(3)] = 1;
+                    m_hija[rey[j].charAt(0)-48][rey[j].charAt(1)-48] = 0;
+                    m_hija[rey[j].charAt(2)-48][rey[j].charAt(3)-48] = 1;
                     nodo_arbol nodo_hijo = new nodo_arbol(m_hija, null);
                     agregar_nodos(nodo_hijo, turno);
                     padre.addSon(nodo_hijo);
@@ -11129,8 +11131,8 @@ public class ChessOracle extends javax.swing.JFrame {
                         for (int j = 0; j < 3; j++) {
                             if (!peones[i].equals("0")) {
                                 int[][] m_hija = (int[][]) padre.getValue();
-                                m_hija[peones[i].charAt(0)][peones[i].charAt(1)] = 0;
-                                m_hija[peones[i].charAt(2)][peones[i].charAt(3)] = 1;
+                                m_hija[peones[i].charAt(0)-48][peones[i].charAt(1)-48] = 0;
+                                m_hija[peones[i].charAt(2)-48][peones[i].charAt(3)-48] = 1;
                                 nodo_arbol nodo_hijo = new nodo_arbol(m_hija, null);
                                 agregar_nodos(nodo_hijo, turno + 1);
                                 padre.addSon(nodo_hijo);
@@ -11139,8 +11141,8 @@ public class ChessOracle extends javax.swing.JFrame {
                         for (int j = 0; j < 8; j++) {
                             if (!caballos[i].equals("0")) {
                                 int[][] m_hija = (int[][]) padre.getValue();
-                                m_hija[caballos[i].charAt(0)][caballos[i].charAt(1)] = 0;
-                                m_hija[caballos[i].charAt(2)][caballos[i].charAt(3)] = 1;
+                                m_hija[caballos[i].charAt(0)-48][caballos[i].charAt(1)-48] = 0;
+                                m_hija[caballos[i].charAt(2)-48][caballos[i].charAt(3)-48] = 1;
                                 nodo_arbol nodo_hijo = new nodo_arbol(m_hija, null);
                                 agregar_nodos(nodo_hijo, turno + 1);
                                 padre.addSon(nodo_hijo);
@@ -11149,8 +11151,8 @@ public class ChessOracle extends javax.swing.JFrame {
                         for (int j = 0; j < 8; j++) {
                             if (!rey[i].equals("0")) {
                                 int[][] m_hija = (int[][]) padre.getValue();
-                                m_hija[rey[i].charAt(0)][rey[i].charAt(1)] = 0;
-                                m_hija[rey[i].charAt(2)][rey[i].charAt(3)] = 1;
+                                m_hija[rey[i].charAt(0)-48][rey[i].charAt(1)-48] = 0;
+                                m_hija[rey[i].charAt(2)-48][rey[i].charAt(3)-48] = 1;
                                 nodo_arbol nodo_hijo = new nodo_arbol(m_hija, null);
                                 agregar_nodos(nodo_hijo, turno + 1);
                                 padre.addSon(nodo_hijo);
@@ -11164,8 +11166,8 @@ public class ChessOracle extends javax.swing.JFrame {
                         for (int j = 0; j < 3; j++) {
                             if (!peones[i].equals("0")) {
                                 int[][] m_hija = (int[][]) padre.getValue();
-                                m_hija[peones[i].charAt(0)][peones[i].charAt(1)] = 0;
-                                m_hija[peones[i].charAt(2)][peones[i].charAt(3)] = 1;
+                                m_hija[peones[i].charAt(0)-48][peones[i].charAt(1)-48] = 0;
+                                m_hija[peones[i].charAt(2)-48][peones[i].charAt(3)-48] = 1;
                                 nodo_arbol nodo_hijo = new nodo_arbol(m_hija, null);
                                 agregar_nodos(nodo_hijo, turno - 1);
                                 padre.addSon(nodo_hijo);
@@ -11174,8 +11176,8 @@ public class ChessOracle extends javax.swing.JFrame {
                         for (int j = 0; j < 8; j++) {
                             if (!caballos[i].equals("0")) {
                                 int[][] m_hija = (int[][]) padre.getValue();
-                                m_hija[caballos[i].charAt(0)][caballos[i].charAt(1)] = 0;
-                                m_hija[caballos[i].charAt(2)][caballos[i].charAt(3)] = 1;
+                                m_hija[caballos[i].charAt(0)-48][caballos[i].charAt(1)-48] = 0;
+                                m_hija[caballos[i].charAt(2)-48][caballos[i].charAt(3)-48] = 1;
                                 nodo_arbol nodo_hijo = new nodo_arbol(m_hija, null);
                                 agregar_nodos(nodo_hijo, turno - 1);
                                 padre.addSon(nodo_hijo);
@@ -11184,8 +11186,8 @@ public class ChessOracle extends javax.swing.JFrame {
                         for (int j = 0; j < 8; j++) {
                             if (!rey[i].equals("0")) {
                                 int[][] m_hija = (int[][]) padre.getValue();
-                                m_hija[rey[i].charAt(0)][rey[i].charAt(1)] = 0;
-                                m_hija[rey[i].charAt(2)][rey[i].charAt(3)] = 1;
+                                m_hija[rey[i].charAt(0)-48][rey[i].charAt(1)-48] = 0;
+                                m_hija[rey[i].charAt(2)-48][rey[i].charAt(3)-48] = 1;
                                 nodo_arbol nodo_hijo = new nodo_arbol(m_hija, null);
                                 agregar_nodos(nodo_hijo, turno - 1);
                                 padre.addSon(nodo_hijo);
