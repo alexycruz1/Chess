@@ -11542,19 +11542,20 @@ public class ChessOracle extends javax.swing.JFrame {
             }
         }
         if (turno == 1) {
-            pieza = rand.nextInt() * Peones_en_campo_b;
+            pieza = (int) Math.floor(Math.random() * (0 - Peones_en_campo_b) + Peones_en_campo_b);
         } else {
-            pieza = rand.nextInt() * Peones_en_campo_n;
+           pieza = (int) Math.floor(Math.random() * (0 - Peones_en_campo_n) + Peones_en_campo_n);
         }
 
         if (pieza == 0) {
             pieza++;
         }
+        
 
         if (turno == 1 && Peones_en_campo_b > 0) {
             for (int i = 0; i < tab_temp.length; i++) {
                 for (int j = 0; j < tab_temp.length; j++) {
-                    if (tab_temp[i][j] == 1 && pieza == cont) {
+                    if (tab_temp[i][j] == 1 && (pieza == cont || Peones_en_campo_b == 1)) {
                         if ((i - 1 >= 0 && j - 1 >= 0) && (tab_temp[i - 1][j - 1] == 2 || tab_temp[i - 1][j - 1] == 4 || tab_temp[i - 1][j - 1] == 6)) {
                             temp += Integer.toString(i);
                             temp += Integer.toString(j);
@@ -11613,7 +11614,7 @@ public class ChessOracle extends javax.swing.JFrame {
         } else if (turno == 2 && Peones_en_campo_n > 0) {
             for (int i = 0; i < tab_temp.length; i++) {
                 for (int j = 0; j < tab_temp.length; j++) {
-                    if (tab_temp[i][j] == 1 && pieza == cont) {
+                    if (tab_temp[i][j] == 1 && (pieza == cont || Peones_en_campo_n == 1)) {
                         if ((i + 1 <= 7 && j - 1 >= 0) && (tab_temp[i + 1][j - 1] == 1 || tab_temp[i + 1][j - 1] == 3 || tab_temp[i + 1][j - 1] == 5)) {
                             temp += Integer.toString(i);
                             temp += Integer.toString(j);
@@ -12090,7 +12091,7 @@ public class ChessOracle extends javax.swing.JFrame {
 
         for (int i = 0; i < tab_temp.length; i++) {
             for (int j = 0; j < tab_temp.length; j++) {
-                if (tab_temp[i][j] == 3) {
+                if (tab_temp[i][j] == 5) {
                     Rey_en_campo_b++;
                 }
             }
@@ -12098,7 +12099,7 @@ public class ChessOracle extends javax.swing.JFrame {
 
         for (int i = 0; i < tab_temp.length; i++) {
             for (int j = 0; j < tab_temp.length; j++) {
-                if (tab_temp[i][j] == 4) {
+                if (tab_temp[i][j] == 6) {
                     Rey_en_campo_n++;
                 }
             }
